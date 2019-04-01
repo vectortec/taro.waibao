@@ -26,6 +26,7 @@ class Index extends Component {
   componentDidMount() {
     let timer = setTimeout(_ => {
       this.setState({loading: false})
+      clearTimeout(timer)
     }, 1000)
   }
 
@@ -36,11 +37,11 @@ class Index extends Component {
 
 
     return (
-      <View className='index'>
+      <View className={styles.demo}>
         <Button className='add_btn' onClick={this.props.add}>+</Button>
         <Button className='dec_btn' onClick={this.props.dec}>-</Button>
         <Button className='dec_btn' onClick={this.props.asyncAdd}>async</Button>
-        <View><Text>{this.props.counter.num}</Text></View>
+        <View><Text>{this.props.num}</Text></View>
         <View><Text>Hello, World</Text></View>
       </View>
     )

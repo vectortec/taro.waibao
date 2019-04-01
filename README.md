@@ -30,5 +30,4 @@ import xxx from './xxx.png'
 <Image src={require('./xxx.png')} />
 ```
 
-项目中，以文件名为模块，该模块全部文件（index.scss）， js（index.js），资源（图片）等都在该模块内，以相对路径引用，对模块外的资源 以绝对路径引用
 
