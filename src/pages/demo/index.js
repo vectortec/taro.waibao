@@ -1,7 +1,8 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Button, Text } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
-import { add, minus, asyncAdd } from '../../actions/counter'
+import { add, minus, asyncAdd } from '@/actions/counter'
+import {getDemoList} from 'api/demo'
 import Loading from '@/components/loading'
 
 import styles from './index.module.scss'
@@ -28,6 +29,15 @@ class Index extends Component {
       this.setState({loading: false})
       clearTimeout(timer)
     }, 1000)
+  }
+
+  // 获取list
+  async getList () {
+    const res = await getDemoList({})
+    // or
+    getDemoList.then(res => {
+      let (code, data) = res 
+    })
   }
 
   render () {
