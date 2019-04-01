@@ -25,6 +25,8 @@ class Index extends Component {
   }
 
   componentDidMount() {
+    console.log(Taro.getEnv())
+    console.log(Taro.ENV_TYPE)
     let timer = setTimeout(_ => {
       this.setState({loading: false})
       clearTimeout(timer)
@@ -36,7 +38,7 @@ class Index extends Component {
     const res = await getDemoList({})
     // or
     getDemoList.then(res => {
-      let (code, data) = res 
+      let {code, data} = res 
     })
   }
 

@@ -21,7 +21,9 @@
 # 资源文件引入路径问题
 总结过一篇vue中的资源文件引入路径[由'~'路径问题对webpack项目资源文件处理的探究 #8](https://github.com/alowkeyguy/zgtBlog/issues/8)
 
-scss中url等的引入，与上文总结的一致，react中图片的引入方式
+在taro中scss中资源的引入方式，没具体研究，但是将'~@'指向了src目录，还有相对路径的引入方式永远ok的
+
+react的资源引入方式
 ```javascript
 import xxx from './xxx.png'
 ...
@@ -30,6 +32,7 @@ import xxx from './xxx.png'
 <Image src={require('./xxx.png')} />
 ```
 # 模块结构
+只有这个模块需要的资源，全部放在该目录下
 ```
 ── loading
    ├── index.js
@@ -38,5 +41,19 @@ import xxx from './xxx.png'
 ```
 # 环境判断
 [taro环境判断](https://nervjs.github.io/taro/docs/env.html)
+
+根据不同环境引入不同组件
+```javascript
+import WeComponent from './we-component'
+import WebComponent from './web-component'
+
+render() {
+  return (
+    Taro.getEnv() === Taro.ENV_TYPE.WEAPP ? <WeComponent /> : <WebComponent />
+  )
+}
+// 不要这样
+Taro.getEnv() === "WEAPP"
+```
 
 
