@@ -1,4 +1,4 @@
-const isH5 = process.env.CLIENT_ENV === 'h5'
+// const isH5 = process.env.CLIENT_ENV === 'h5'
 const HOST = '"http://xxx"'
 module.exports = {
   env: {

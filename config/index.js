@@ -15,7 +15,7 @@ const sassImporter = function(url) {
 }
 
 const config = {
-  projectName: 'hj_mobile',
+  projectName: 'hangjia_mobile',
   date: '2019-3-29',
   designWidth: 750,
   deviceRatio: {
