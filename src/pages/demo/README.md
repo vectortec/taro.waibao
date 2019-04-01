@@ -3,20 +3,20 @@
   * 使用
   ```javascript
   import Taro, { Component } from '@tarojs/taro'
-    import { View, Text } from '@tarojs/components'
+  import { View, Text } from '@tarojs/components'
 
-    import styles from './index.module.scss'
+  import styles from './index.module.scss'
 
-    export default class Test extends Component {
-      static options = {
-        addGlobalClass: true
-      }
-      render () {
-        return (
-          <View className={styles.test}>
-            <Text className={`${styles.txt} ${styles.class1} global-class`}>Hello world!</Text>
-          </View>
-        )
-      }
+  export default class Test extends Component {
+    static options = {
+      addGlobalClass: true
     }
+    render () {
+      return (
+        <View className={styles.test}>
+          <Text className={`${styles.txt} ${styles.class1} global-class`}>Hello world!</Text>
+        </View>
+      )
+    }
+  }
   ```

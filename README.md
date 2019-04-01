@@ -29,6 +29,13 @@ import xxx from './xxx.png'
 // 或者
 <Image src={require('./xxx.png')} />
 ```
+# 模块结构
+```
+── loading
+   ├── index.js
+   ├── index.module.scss
+   └── loading.gif
+```
 # 环境判断
 [taro环境判断](https://nervjs.github.io/taro/docs/env.html)
 
