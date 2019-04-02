@@ -1,8 +1,9 @@
 # 行家移动端项目
 小程序&h5一套代码
 
-项目框架：[Tarojs](https://nervjs.github.io/taro/docs/README.html)
-预编译语言：[scss](https://www.sass.hk/guide/)
+* 项目框架：[Tarojs](https://nervjs.github.io/taro/docs/README.html)
+* 预编译语言：[scss](https://www.sass.hk/guide/)
+* 项目结构：[tree](./tree.md)
 
 # alias-别名
 配置了如下几个别名：
@@ -55,5 +56,13 @@ render() {
 // 不要这样
 Taro.getEnv() === "WEAPP"
 ```
-
-
+# css modules
+[写法及注意点](./src/pages/demo/README.md)
+# js书写规范
+请务必看完：[JavaScript 书写规范](https://nervjs.github.io/taro/docs/spec-for-taro.html#javascript-%E4%B9%A6%E5%86%99%E8%A7%84%E8%8C%83)
+# 开发过程中可能会遇到的问题
+* [组件的外部样式和全局样式](https://nervjs.github.io/taro/docs/component-style.html)
+* [最佳实践](https://nervjs.github.io/taro/docs/best-practice.html)
+* run dev报错
+  1.  taro不是命令的问题，全局安装taro。`$ npm install -g @tarojs/cli`
+  2.  `npm i`后，提示缺少包。cd .rn_temp，提示缺什么，在里面装什么
