@@ -66,3 +66,5 @@ Taro.getEnv() === "WEAPP"
 * run dev报错
   1.  taro不是命令的问题，全局安装taro。`$ npm install -g @tarojs/cli`
   2.  `npm i`后，提示缺少包。cd .rn_temp，提示缺什么，在里面装什么
+# issues
+开发过程中出现问题，在左边`问题`栏提出，我们共同讨论给出解决方案
