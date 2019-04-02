@@ -5,7 +5,8 @@ import { Provider } from '@tarojs/redux'
 import Index from './pages/demo/index'
 
 import configStore from './store'
-
+// styles
+import './styles/index.scss'
 import './app.scss'
 
 // 如果需要在 h5 环境中开启 React Devtools
