@@ -30,8 +30,12 @@
 │   │   └── index.js
 │   ├── store
 │   │   └── index.js
-│   ├── utils                         工具库
-│   └── styles                        全局样式
+│   ├── styles                        全局样式
+│   │   ├── variable.scss             scss变量（见ui图后会将定义基本变量，fontsize、color等）
+│   │   ├── mixins.scss               混合
+│   │   ├── reset.scss                样式重置（注意看一下重置的内容）
+│   │   └── index.scss                
+│   └── utils                         工具库
 ├── tree.md
 └── yarn.lock
 ```
