@@ -22,7 +22,24 @@ class App extends Component {
   config = {
     pages: [
       'pages/menu/index',
-      'pages/demo/index'
+      'pages/demo/index',
+      'pages/aboutUs/index',
+      'pages/car/index',
+      'pages/confirmOrder/index',
+      'pages/courseDetail/index',
+      'pages/courseList/index',
+      'pages/forgetPassword/index',
+      'pages/home/index',
+      'pages/learingCenter/index',
+      'pages/learingCenterDetail/index',
+      'pages/loginPage/index',
+      'pages/messageCenter/index',
+      'pages/myOrder/index',
+      'pages/newsDetail/index',
+      'pages/newsList/index',
+      'pages/personalCenter/index',
+      'pages/register/index',
+      'pages/submitOrder/index',
     ],
     window: {
       backgroundTextStyle: 'light',
