@@ -21,6 +21,7 @@ class App extends Component {
 
   config = {
     pages: [
+      'pages/menu/index',
       'pages/demo/index'
     ],
     window: {
