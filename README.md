@@ -66,6 +66,10 @@ Taro.getEnv() === "WEAPP"
 * run dev报错
   1.  taro不是命令的问题，全局安装taro。`$ npm install -g @tarojs/cli`
   2.  `npm i`后，提示缺少包。cd .rn_temp，提示缺什么，在里面装什么
-  
+
+# 开发
+建议：开发页面过程中，用`npm run dev:h5`调试，一个模块ok后，再`npm run dev:weapp`看小程序有没有问题，没问题再提交。
+
+原因：taro实现了一套和微信小程序一致的components，我们每个标签（这块内容需要同时再h5和小程序中显示的话）都要使用taro实现的组件，如果我们忘记引入，就会默认时用的小程序的组件，我们的h5就没法生成了
 # issues
 开发过程中出现问题，在左边`问题`栏提出，我们共同讨论给出解决方案
