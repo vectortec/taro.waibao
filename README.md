@@ -22,7 +22,7 @@
 # 资源文件引入路径问题
 总结过一篇vue中的资源文件引入路径[由'~'路径问题对webpack项目资源文件处理的探究 #8](https://github.com/alowkeyguy/zgtBlog/issues/8)
 
-在taro中scss中资源的引入方式，没具体研究，但是将'~@'指向了src目录，还有相对路径的引入方式永远ok的
+在taro中style里面资源的引入方式，没具体研究，但是将'~@'指向了src目录，还有相对路径的引入方式永远ok的
 
 react的资源引入方式
 ```javascript
