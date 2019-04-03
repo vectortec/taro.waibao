@@ -9,7 +9,7 @@ import styles from './index.module.scss'
 
 
 @connect(state => state.counter, {add, minus, asyncAdd})
-class Index extends Component {
+class Demo extends Component {
 
   config = {
     navigationBarTitleText: '首页'
@@ -60,4 +60,4 @@ class Index extends Component {
   }
 }
 
-export default Index
+export default Demo
