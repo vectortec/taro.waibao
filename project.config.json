@@ -2,7 +2,7 @@
 	"miniprogramRoot": "dist/",
 	"projectname": "hangjia_mobile",
 	"description": "mobile project",
-	"appid": "touristappid",
+	"appid": "wx7dc6e6f5e318010f",
 	"setting": {
 		"urlCheck": true,
 		"es6": false,
