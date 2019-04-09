@@ -49,8 +49,7 @@ class Home extends Component {
         <Text className="iconfont iconceshi"></Text>
         <AtSteps
           items={items}
-          current={this.state.current}
-          onChange={this.onChange.bind(this)}
+          current={0}
         />
       </View>
     )
