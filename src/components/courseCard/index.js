@@ -1,12 +1,12 @@
 /*
  * @Author: 蔡江旭
- * @Description: 
+ * @Description: 课程卡片组件
  * @props {Array} course 课程卡片的数据
  * 
  * @props {function} onClick (course) 点击触发的事件
  * @LastEditors: 蔡江旭
  * @Date: 2019-04-08 10:02:25
- * @LastEditTime: 2019-04-09 14:36:59
+ * @LastEditTime: 2019-04-09 15:05:06
  */
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'

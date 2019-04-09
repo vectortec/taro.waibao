@@ -1,6 +1,6 @@
 /*
  * @Author: 蔡江旭
- * @Description: 
+ * @Description: 排序筛选组件
  * @props {Array} sortOptions 排序tag
  * @props {Array} filterOptions 过滤的tag
  * @props {Object} sortInfo  {} 默认排序的key和方式
@@ -9,7 +9,7 @@
  * @props {function} onChange (sortInfo, filterInfo)点击触发的事件
  * @LastEditors: 蔡江旭
  * @Date: 2019-04-08 10:02:25
- * @LastEditTime: 2019-04-09 14:31:32
+ * @LastEditTime: 2019-04-09 15:05:22
  */
 import Taro, { PureComponent } from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
