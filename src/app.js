@@ -5,7 +5,7 @@ import { Provider } from '@tarojs/redux'
 import Index from './pages/demo/index'
 
 import configStore from './store'
-// styles
+
 import './styles/index.scss'
 import './app.scss'
 

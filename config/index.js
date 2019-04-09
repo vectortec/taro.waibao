@@ -100,6 +100,7 @@ const config = {
       filename: 'js/[name].[hash].js',
       chunkFilename: 'js/[name].[chunkhash].js'
     },
+    esnextModules: ['taro-ui'],
     imageUrlLoaderOption: {
       limit: 5000,
       name: 'static/images/[name].[hash].[ext]'
