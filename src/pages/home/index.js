@@ -3,7 +3,7 @@ import { View, Text } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
 import { add, minus, asyncAdd } from '@/actions/counter'
 import Loading from '@/components/loading'
-import { AtSteps } from 'taro-ui'
+import { AtSteps,AtButton } from 'taro-ui'
 
 import styles from './index.module.scss'
 

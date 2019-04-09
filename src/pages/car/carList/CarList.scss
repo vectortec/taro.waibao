@@ -1,0 +1,60 @@
+.CarList{
+    width:100%;
+    .header{
+        height:88px;
+        display:flex;
+        align-items:center;
+        border-bottom:1px solid #EDEDED;
+        .require{
+            font-size:26px;
+            font-weight:400;
+        }
+        .tag{
+            margin:0 18px;
+            // width:96px;
+            // height:30px;
+            padding:5px 15px; 
+            font-size:18px;
+            text-align:center;
+            background:rgba(255,231,221,1);
+            border:1px solid rgba(235,97,0,1);
+            border-radius:4px;
+            color:rgba(255,90,31,1);
+            span{
+                display:flex;
+                align-items:center;
+                justify-content:center;
+            }
+        }
+       
+    }
+    .list{
+        width:100%;
+        display:flex;
+        padding:24px 18px;
+        font-size:26px;
+        .selectBtn{
+           display:flex;
+           align-items: center;
+           text-align: center;
+        }
+        .img{ 
+            padding:0 18px;
+            & .taro-img{
+                width:300px;
+                height:168px;
+            }
+        }
+        .date,.price_score{
+            font-size:22px;
+            font-weight:400;
+            color:rgba(102,102,102,1);
+        }
+        & .price_score{
+            .need_score{
+                padding-left:13px;
+                color:rgba(153,153,153,1);
+            }
+        }
+    }
+}
