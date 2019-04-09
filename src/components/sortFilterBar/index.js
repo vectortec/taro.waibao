@@ -9,7 +9,7 @@
  * @props {function} onChange (sortInfo, filterInfo)点击触发的事件
  * @LastEditors: 蔡江旭
  * @Date: 2019-04-08 10:02:25
- * @LastEditTime: 2019-04-09 15:05:22
+ * @LastEditTime: 2019-04-09 18:17:45
  */
 import Taro, { PureComponent } from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
@@ -106,7 +106,8 @@ export default class SortFilterBar extends PureComponent {
     }
 
     render () {
-        const { className, style, isShowFilter, sortInfo, filterInfo } = this.state;
+        const { className, style } = this.props;
+        const { isShowFilter, sortInfo, filterInfo } = this.state;
         const newClassName = classNames(styles.sortFilterBar, className);
         const { sortOptions = [], filterOptions = [] } = this.props;
 
