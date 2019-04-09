@@ -9,7 +9,7 @@
  * @props {function} onChange (sortInfo, filterInfo)点击触发的事件
  * @LastEditors: 蔡江旭
  * @Date: 2019-04-08 10:02:25
- * @LastEditTime: 2019-04-09 18:17:45
+ * @LastEditTime: 2019-04-09 18:25:56
  */
 import Taro, { PureComponent } from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
@@ -154,6 +154,7 @@ export default class SortFilterBar extends PureComponent {
                             )
                             )}
                         </View>
+                        <View className={styles.bgCover}></View>
                     </View>
                 }
             </View>
