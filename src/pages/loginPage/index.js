@@ -1,6 +1,5 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
-import { getSessionKey } from 'api/login'
 import styles from './index.module.scss'
 import {setTitle} from 'utils/mixins-script'
 
@@ -14,15 +13,6 @@ class LoginPage extends Component {
   // }
 
   componentDidMount() {
-    wx.login({
-      success(res){
-        console.log('success',res)
-        getSessionKey(res.code)
-      },
-      fail(err){
-        console.log('err',err)
-      }
-    })
   }
   render () {
 

@@ -33,9 +33,6 @@ class Home extends Component {
     if (this.state.loading) {
       return <Loading />
     }
-    Taro.navigateTo({
-      url: '/pages/loginPage/index'
-    })
     return (
       <View className={styles.demo}>
         <Text>Home page</Text>
