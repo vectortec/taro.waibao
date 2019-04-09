@@ -1,4 +1,5 @@
 dist/
+note/
 .temp/
 .rn_temp/
 node_modules/
