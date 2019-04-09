@@ -6,8 +6,6 @@ import Index from './pages/demo/index'
 
 import configStore from './store'
 // styles
-// import 'taro-ui/dist/style/index.scss' // 引入组件样式 - 方式一
-import './styles/index.scss'
 import './app.scss'
 
 // 如果需要在 h5 环境中开启 React Devtools
