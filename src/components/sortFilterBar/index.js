@@ -9,10 +9,11 @@
  * @props {function} onChange (sortInfo, filterInfo)点击触发的事件
  * @LastEditors: 蔡江旭
  * @Date: 2019-04-08 10:02:25
- * @LastEditTime: 2019-04-09 10:37:01
+ * @LastEditTime: 2019-04-09 14:31:32
  */
 import Taro, { PureComponent } from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
+import classNames from 'classnames'
 import styles from './index.module.scss'
 
 export default class SortFilterBar extends PureComponent {
@@ -24,6 +25,15 @@ export default class SortFilterBar extends PureComponent {
 
     componentWillReceiveProps(nextProps) {
         console.log('nextProps: ', nextProps);
+        const newState = {};
+        for (const key in this.state) {
+            if (this.state.hasOwnProperty(key) && nextProps[key]) {
+                const ele = nextProps[key];
+                newState[key] = ele;
+            }
+        }
+
+        this.setState(...newState);
     }
     /**
      * @Description: 排序条件触发
@@ -96,11 +106,12 @@ export default class SortFilterBar extends PureComponent {
     }
 
     render () {
-        const { isShowFilter, sortInfo, filterInfo } = this.state;
+        const { className, style, isShowFilter, sortInfo, filterInfo } = this.state;
+        const newClassName = classNames(styles.sortFilterBar, className);
         const { sortOptions = [], filterOptions = [] } = this.props;
 
         return (
-            <View className={styles.sortFilterBar}>
+            <View className={newClassName} style={style}>
                 {/* 排序tag */}
                 <View className={styles.sortList}>
                     {sortOptions.map((ele, index) => {
