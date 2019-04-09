@@ -1,2 +1,9 @@
-// @import url('https://at.alicdn.com/t/font_1106710_0ng0ui4qppc.css')
-@import './reset.scss'
+// iconfont
+// @import url('https://at.alicdn.com/t/font_1131464_tr8eilzc8dj.css');
+@import 'icon-font/iconfont.scss';
+@import './reset.scss';
+@import './public.scss';
+// taro-ui
+@import './taro-ui/custom-theme.scss';
+@import './taro-ui/taro-ui.scss';
+// @import "~taro-ui/dist/style/index.scss"; // 引入组件样式 - 方式二

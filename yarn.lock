@@ -252,6 +252,13 @@
     "@types/prop-types" "*"
     csstype "^2.2.0"
 
+"@types/react@^16.7.3":
+  version "16.8.13"
+  resolved "http://registry.npm.taobao.org/@types/react/download/@types/react-16.8.13.tgz#a82b15aad9ab91c40edca0d6889b7745ae24f053"
+  dependencies:
+    "@types/prop-types" "*"
+    csstype "^2.2.0"
+
 "@types/webpack-env@^1.13.6":
   version "1.13.9"
   resolved "http://registry.npm.taobao.org/@types/webpack-env/download/@types/webpack-env-1.13.9.tgz#a67287861c928ebf4159a908d1fb1a2a34d4097a"
@@ -1279,6 +1286,10 @@ binary-extensions@^1.0.0:
   version "1.13.1"
   resolved "http://registry.npm.taobao.org/binary-extensions/download/binary-extensions-1.13.1.tgz#598afe54755b2868a5330d2aff9d4ebb53209b65"
 
+bind-decorator@^1.0.11:
+  version "1.0.11"
+  resolved "http://registry.npm.taobao.org/bind-decorator/download/bind-decorator-1.0.11.tgz#e41bc06a1f65dd9cec476c91c5daf3978488252f"
+
 block-stream@*:
   version "0.0.9"
   resolved "http://registry.npm.taobao.org/block-stream/download/block-stream-0.0.9.tgz#13ebfe778a03205cfe03751481ebb4b3300c126a"
@@ -1587,7 +1598,7 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
-classnames@^2.2.5:
+classnames@^2.2.5, classnames@^2.2.6:
   version "2.2.6"
   resolved "http://registry.npm.taobao.org/classnames/download/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
 
@@ -1981,6 +1992,10 @@ dashdash@^1.12.0:
 date-now@^0.1.4:
   version "0.1.4"
   resolved "http://registry.npm.taobao.org/date-now/download/date-now-0.1.4.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
+
+dayjs@^1.7.7:
+  version "1.8.12"
+  resolved "http://registry.npm.taobao.org/dayjs/download/dayjs-1.8.12.tgz#f9610fb9b115aa2fe2a07e742c130df418cee76a"
 
 debug@*, debug@^4.1.0:
   version "4.1.1"
@@ -5885,6 +5900,17 @@ tar@^4:
     mkdirp "^0.5.0"
     safe-buffer "^5.1.2"
     yallist "^3.0.2"
+
+taro-ui@^2.0.2:
+  version "2.0.2"
+  resolved "http://registry.npm.taobao.org/taro-ui/download/taro-ui-2.0.2.tgz#178112e81066a77135d7b0da6d68137cff5ddb5c"
+  dependencies:
+    "@types/react" "^16.7.3"
+    bind-decorator "^1.0.11"
+    classnames "^2.2.6"
+    dayjs "^1.7.7"
+    lodash "^4.17.10"
+    prop-types "^15.6.2"
 
 text-table@^0.2.0, text-table@~0.2.0:
   version "0.2.0"
