@@ -40,6 +40,7 @@ class App extends Component {
       'pages/personalCenter/index',
       'pages/register/index',
       'pages/submitOrder/index',
+      'pages/payment/index',
     ],
     window: {
       backgroundTextStyle: 'light',
