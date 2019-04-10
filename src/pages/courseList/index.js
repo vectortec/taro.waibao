@@ -131,33 +131,92 @@ class CourseList extends Component {
     console.log(Taro.ENV_TYPE)
   }
 
+  /**
+   * @Description: 搜索框获得焦点
+   * @params: 
+   * @return: 
+   * @LastEditors: 蔡江旭
+   * @LastEditTime: Do not edit
+   * @Date: 2019-04-10 18:21:26
+   */
   searchInputFocus = () => {
     this.setState({
       searchInputFocus: true,
     })
   }
 
+  /**
+   * @Description: 搜索框失去焦点
+   * @params: 
+   * @return: 
+   * @LastEditors: 蔡江旭
+   * @LastEditTime: Do not edit
+   * @Date: 2019-04-10 18:26:46
+   */
   searchInputBlur = () => {
     this.setState({
       searchInputFocus: false,
     })
   }
 
+  /**
+   * @Description: 搜索框值改变时
+   * @params {String} searchInputValue 输入值
+   * @return: 
+   * @LastEditors: 蔡江旭
+   * @LastEditTime: Do not edit
+   * @Date: 2019-04-10 18:27:07
+   */
   searchInputChange = (searchInputValue) => {
     console.log('change', searchInputValue);
     this.setState({
       searchInputValue,
+      searchTipsVisible: true,
     })
   }
 
+  /**
+   * @Description: 清除所有最近搜索
+   * @params: 
+   * @return: 
+   * @LastEditors: 蔡江旭
+   * @LastEditTime: Do not edit
+   * @Date: 2019-04-10 18:28:00
+   */
   clearRecentSearch = () => {
     this.setState({
       searchRecentWord: [],
     })
   }
 
+  /**
+   * @Description: 搜索框回车事件触发
+   * @params: 
+   * @return: 
+   * @LastEditors: 蔡江旭
+   * @LastEditTime: Do not edit
+   * @Date: 2019-04-10 18:28:21
+   */
   searchInputSubmit = () => {
     this.searchInputBlur();
+    this.setState({
+      searchTipsVisible: false,
+    })
+  }
+
+  /**
+   * @Description: 点击搜索提示
+   * @params {String} searchInputValue
+   * @return: 
+   * @LastEditors: 蔡江旭
+   * @LastEditTime: Do not edit
+   * @Date: 2019-04-10 18:28:42
+   */
+  clickSearchTip = (searchInputValue) => {
+    this.setState({
+      searchInputValue,
+      searchTipsVisible: false,
+    })
   }
 
   render () {
@@ -179,6 +238,7 @@ class CourseList extends Component {
       <View className={styles.courseList}>
         {/* 搜索框 */}
         <SearchBar
+          value={searchInputValue}
           onFocus={this.searchInputFocus}
           onBlur={this.searchInputBlur}
           onChange={this.searchInputChange}
@@ -199,12 +259,16 @@ class CourseList extends Component {
           </View>
         </View>
         {/* 搜索提示 */}
-        <View className={styles.searchTipsBox} style={{ display: searchTipsWord.length && searchInputValue.length ? 'block' : 'none' }}>
+        <View
+          className={styles.searchTipsBox}
+          style={{ display: searchTipsVisible && searchInputValue.length && searchTipsWord.length ? 'block' : 'none' }}
+        >
           <View className={styles.tipsList}>
             {searchTipsWord.map((ele, index) => (
               <View
                 className={styles.tips}
                 key={index}
+                onClick={() => this.clickSearchTip(ele)}
               >
                 {ele}
               </View>
@@ -218,6 +282,7 @@ class CourseList extends Component {
           filterOptions={filterOptions}
           onChange={console.log}
         />
+        {/* 课程列表 */}
         <View className={styles.courseList}>
           <CourseCard course={course} />
         </View>
