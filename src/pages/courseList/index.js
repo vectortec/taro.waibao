@@ -1,5 +1,6 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
+import classNames from 'classnames'
 // import { connect } from '@tarojs/redux'
 // import { add, minus, asyncAdd } from '@/actions/counter'
 import Loading from '@/components/loading'
@@ -19,6 +20,8 @@ class CourseList extends Component {
 
   state = {
     loading: false,
+    searchInputFocus: false,
+    searchTipsVisible: false,
     sortOptions: [{
       name: '综合',
       value: 1,
@@ -104,8 +107,18 @@ class CourseList extends Component {
       "validityDate": -1,
       "videoUrl": "",
       "weightValue": 0
-    }
-
+    },
+    searchRecentWord: [
+      '商业手工帐',
+      '商业电脑账',
+      '商业电脑账',
+      '商业电脑账',
+    ],
+    searchTipsWord: [
+      '产品经理成长之路',
+      '《产品经理深入浅出》系列课程',
+    ],
+    searchInputValue: '',
   }
 
   // 慎用
@@ -117,15 +130,88 @@ class CourseList extends Component {
     console.log(Taro.getEnv())
     console.log(Taro.ENV_TYPE)
   }
+
+  searchInputFocus = () => {
+    this.setState({
+      searchInputFocus: true,
+    })
+  }
+
+  searchInputBlur = () => {
+    this.setState({
+      searchInputFocus: false,
+    })
+  }
+
+  searchInputChange = (searchInputValue) => {
+    console.log('change', searchInputValue);
+    this.setState({
+      searchInputValue,
+    })
+  }
+
+  clearRecentSearch = () => {
+    this.setState({
+      searchRecentWord: [],
+    })
+  }
+
+  searchInputSubmit = () => {
+    this.searchInputBlur();
+  }
+
   render () {
-    const { sortOptions, filterOptions, course } = this.state;
+    const {
+      sortOptions,
+      filterOptions,
+      course,
+      searchRecentWord,
+      searchInputFocus,
+      searchTipsWord = [],
+      searchTipsVisible,
+      searchInputValue = '',
+    } = this.state;
     if (this.state.loading) {
       return <Loading />
     }
 
     return (
       <View className={styles.courseList}>
-        <SearchBar />
+        {/* 搜索框 */}
+        <SearchBar
+          onFocus={this.searchInputFocus}
+          onBlur={this.searchInputBlur}
+          onChange={this.searchInputChange}
+          onSubmit={this.searchInputSubmit}
+        />
+        {/* 最近搜索 */}
+        <View className={styles.recentSearch} style={{ display: searchInputFocus ? 'block' : 'none' }}>
+          <View className={styles.titleBox}>
+            <Text className={styles.title}>最近搜索</Text>
+            <Text className={styles.clearAll} onClick={this.clearRecentSearch}></Text>
+          </View>
+          <View className={styles.recentWordList}>
+            {searchRecentWord.map((ele, index) => (
+              <View className={styles.wordTag} key={index}>
+                {ele}
+              </View>
+            ))}
+          </View>
+        </View>
+        {/* 搜索提示 */}
+        <View className={styles.searchTipsBox} style={{ display: searchTipsWord.length && searchInputValue.length ? 'block' : 'none' }}>
+          <View className={styles.tipsList}>
+            {searchTipsWord.map((ele, index) => (
+              <View
+                className={styles.tips}
+                key={index}
+              >
+                {ele}
+              </View>
+            ))}
+          </View>
+        </View>
+        {/* 排序筛选 */}
         <SortFilterBar
           className={styles.sortFilterBox}
           sortOptions={sortOptions}
@@ -133,9 +219,8 @@ class CourseList extends Component {
           onChange={console.log}
         />
         <View className={styles.courseList}>
-
+          <CourseCard course={course} />
         </View>
-        <CourseCard course={course} />
       </View>
     )
   }

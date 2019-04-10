@@ -97,11 +97,11 @@ $filter-tag-bg: #F8E8E2;
             width: unset;
             padding: 0 23px;
             font-size: 32px;
-            font-family: "iconfont" !important;
-            font-style: normal;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
             .filter-icon {
+                font-family: "iconfont" !important;
+                font-style: normal;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
                 &::before {
                     content: '\e62a';
                 }

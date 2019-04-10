@@ -1,6 +1,76 @@
+$title-color: #333333;
+$desc-color: #666666;
+$border-line-color: #EDEDED;
 .courseList {
+    @import url(//at.alicdn.com/t/font_1059909_yonuo36mqbm.css);
+    position: relative;
     margin: 24px 36px 0;
     .sortFilterBox {
         margin: 30px 0 36px;
+    }
+
+    // 最近搜索
+    .recentSearch {
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        font-size: 26px;
+        color: $desc-color;
+        background: #ffffff;
+        z-index: 10;
+        .titleBox {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 25px 0;
+            border-bottom: 1px solid $border-line-color;
+            .title {
+                font-size: 28px;
+                color: $title-color;
+            }
+            .clearAll {
+                font-family: "iconfont" !important;
+                font-size: 32px;
+                font-style: normal;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                &::before {
+                    content: '\e64a';
+                }
+            }
+        }
+
+        .recentWordList {
+            .wordTag {
+                display: inline-block;
+                margin-top: 30px;
+                margin-right: 26px;
+                line-height: 1;
+                padding: 20px 24px;
+                border:1px solid $border-line-color;
+                border-radius:6px;
+            }
+        }
+    }
+
+    // 搜索提示
+    .searchTipsBox {
+        display: none;
+        position: absolute;
+        width: 100%;
+        margin-top: 30px;
+        background: #ffffff;
+        z-index: 20;
+        .tipsList {
+            .tips {
+                padding: 35px 0;
+                font-size: 28px;
+                font-weight: 400;
+                &:active {
+                    background: #F2F2F2;
+                }
+            }
+        }
+
     }
 }
