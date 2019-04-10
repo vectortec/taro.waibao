@@ -8,7 +8,7 @@ const sassImporter = function(url) {
     }
   }
 
-  const reg = /^~@\/(.*)/
+  const reg = /^@\/(.*)/
   return {
     file: reg.test(url) ? path.resolve(__dirname, '..', 'src', url.match(reg)[1]) : url
   }
