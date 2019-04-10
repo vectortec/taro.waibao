@@ -35,7 +35,7 @@ class Home extends Component {
     }
     return (
       <View className={styles.demo}>
-        <Text>Home page</Text>
+        <Text>Home page1</Text>
       </View>
     )
   }
