@@ -1,8 +1,9 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
+import { View } from '@tarojs/components'
 import Loading from '@/components/loading'
 import styles from './index.module.scss'
 import CarList from './carList/CarList'
+import CarFooter from './carFooter/carFooter'
 import { AtNavBar } from 'taro-ui'
 
 
@@ -34,16 +35,24 @@ class Car extends Component {
     return (
       <View className={styles.car}>
          {/* -------------------头部 ---------------*/}
-          <AtNavBar
-            onClickLeftIcon={this.handleClick}
-            color='#000'
-            title='购物车'
-            leftIconType='chevron-left'
-          />
-          {/*--------------- 积分抵扣--------------------- */}
-          <CarList 
-            scoreList={this.state.scoreList}
-          />
+          <View className={styles.header}>
+            <AtNavBar
+              onClickLeftIcon={this.handleClick}
+              color='#000'
+              title='购物车'
+              leftIconType='chevron-left'
+            />
+          </View>         
+          {/*--------------- 购物车内容--------------------- */}
+          <View className={styles.body}>
+            <CarList 
+              scoreList={this.state.scoreList}
+            />
+          </View>
+           {/*--------------- 购物车底部--------------------- */}
+           <View className={styles.foot}> 
+              <CarFooter />
+           </View>
       </View>
     )
   }
