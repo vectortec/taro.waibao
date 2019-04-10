@@ -19,7 +19,7 @@ export default class CheckBox extends Component {
       let iconStyle = {
         color: item.color || '#FF7847'
       }
-      return <View onClick={checkClick.bind(this, item)} className={styles.wrap}>
+      return <View Key={item.id} onClick={checkClick.bind(this, item)} className={styles.wrap}>
         {
           item.icon
           ?
@@ -31,8 +31,7 @@ export default class CheckBox extends Component {
           null
         }
         <Text className={styles.text}>{item.text}</Text>
-        <Text className={`${item[key] === defaultValue ? 'iconxuanzhong' : 'iconweixuanzhong'}
-          ${item[key] === defaultValue ? styles.checked : styles.check} iconfont`}></Text>
+        <Text className={`${item.id === defaultValue ? 'iconxuanzhong' : 'iconweixuanzhong'} ${item.id === defaultValue ? styles.checked : styles.check} iconfont`}></Text>
       </View>
     })
 
