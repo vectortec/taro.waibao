@@ -3,12 +3,15 @@ import { View,Checkbox,Label,Text} from '@tarojs/components'
 import { AtButton } from 'taro-ui'
 import './carFooter.scss'
 export default class carFooter extends Component {
+  constructor(props){
+    super(props)
+  }
   render() {
     return (
       <View className='footer'>
         <View className='left'>
             <Label className='checkbox-list__label'>
-                <Checkbox className='checkbox'>全选</Checkbox>          
+                <Checkbox className='checkbox' checked={this.props.allChecked} onChange={this.props.change}>全选</Checkbox>          
             </Label>
         </View>
        <View className='right'>

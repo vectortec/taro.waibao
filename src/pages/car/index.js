@@ -11,12 +11,9 @@ class Car extends Component {
   constructor(props){
     super(props);
       this.state={
-      scoreList:[
-          {id:1,title:"我是标题1"},
-          {id:2,title:"我是标题2"},
-          {id:3,title:"我是标题3"}
-      ],
-      loading: true
+        loading: true,
+        allChecked:false,//底部全选,
+        DataLength:10
     }
   }
   config = {
@@ -27,6 +24,14 @@ class Car extends Component {
       this.setState({loading: false})
       clearTimeout(timer)
     }, 1000)
+    //这里获取数据
+  }
+  selectAll(){
+    let {allChecked}=this.state
+    this.setState({allChecked:!allChecked})
+  }
+  onChangeState = (stateName) => {
+    this.setState({allChecked:stateName.length===this.state.DataLength})
   }
   render () {
     if (this.state.loading) {
@@ -46,12 +51,13 @@ class Car extends Component {
           {/*--------------- 购物车内容--------------------- */}
           <View className={styles.body}>
             <CarList 
-              scoreList={this.state.scoreList}
+              DataLength={this.state.DataLength}
+              onClicked={this.onChangeState}             
             />
           </View>
            {/*--------------- 购物车底部--------------------- */}
            <View className={styles.foot}> 
-              <CarFooter />
+              <CarFooter allChecked={this.state.allChecked} change={()=>{this.selectAll()}} />
            </View>
       </View>
     )
