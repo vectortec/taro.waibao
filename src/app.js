@@ -6,7 +6,7 @@ import Index from './pages/demo/index'
 import 'taro-ui/dist/style/index.scss'
 
 import configStore from './store'
-// styles
+
 import './styles/index.scss'
 import './app.scss'
 
@@ -41,6 +41,7 @@ class App extends Component {
       'pages/personalCenter/index',
       'pages/register/index',
       'pages/submitOrder/index',
+      'pages/payment/index',
     ],
     window: {
       backgroundTextStyle: 'light',

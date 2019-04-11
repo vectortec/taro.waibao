@@ -8,7 +8,7 @@ const sassImporter = function(url) {
     }
   }
 
-  const reg = /^~@\/(.*)/
+  const reg = /^@\/(.*)/
   return {
     file: reg.test(url) ? path.resolve(__dirname, '..', 'src', url.match(reg)[1]) : url
   }
@@ -101,6 +101,7 @@ const config = {
       filename: 'js/[name].[hash].js',
       chunkFilename: 'js/[name].[chunkhash].js'
     },
+    esnextModules: ['taro-ui'],
     imageUrlLoaderOption: {
       limit: 5000,
       name: 'static/images/[name].[hash].[ext]'

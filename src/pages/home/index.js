@@ -3,6 +3,7 @@ import { View, Text } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
 import { add, minus, asyncAdd } from '@/actions/counter'
 import Loading from '@/components/loading'
+import { AtSteps,AtButton } from 'taro-ui'
 
 import styles from './index.module.scss'
 
@@ -33,9 +34,21 @@ class Home extends Component {
     if (this.state.loading) {
       return <Loading />
     }
+
+    const items = [
+      { 'title': '步骤一', 'desc': '这里是额外的信息，最多两行' },
+      { 'title': '步骤二', 'desc': '这里是额外的信息，最多两行' },
+      { 'title': '步骤三', 'desc': '这里是额外的信息，最多两行' }
+    ]
+
     return (
       <View className={styles.demo}>
-        <Text>Home page1</Text>
+        <Text>Home page</Text>
+        <Text className="iconfont iconceshi"></Text>
+        <AtSteps
+          items={items}
+          current={0}
+        />
       </View>
     )
   }

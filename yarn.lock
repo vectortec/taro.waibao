@@ -254,7 +254,7 @@
 
 "@types/react@^16.7.3":
   version "16.8.13"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.8.13.tgz#a82b15aad9ab91c40edca0d6889b7745ae24f053"
+  resolved "http://registry.npm.taobao.org/@types/react/download/@types/react-16.8.13.tgz#a82b15aad9ab91c40edca0d6889b7745ae24f053"
   dependencies:
     "@types/prop-types" "*"
     csstype "^2.2.0"
@@ -1288,7 +1288,7 @@ binary-extensions@^1.0.0:
 
 bind-decorator@^1.0.11:
   version "1.0.11"
-  resolved "https://registry.yarnpkg.com/bind-decorator/-/bind-decorator-1.0.11.tgz#e41bc06a1f65dd9cec476c91c5daf3978488252f"
+  resolved "http://registry.npm.taobao.org/bind-decorator/download/bind-decorator-1.0.11.tgz#e41bc06a1f65dd9cec476c91c5daf3978488252f"
 
 block-stream@*:
   version "0.0.9"
@@ -2003,7 +2003,7 @@ date-now@^0.1.4:
 
 dayjs@^1.7.7:
   version "1.8.12"
-  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.8.12.tgz#f9610fb9b115aa2fe2a07e742c130df418cee76a"
+  resolved "http://registry.npm.taobao.org/dayjs/download/dayjs-1.8.12.tgz#f9610fb9b115aa2fe2a07e742c130df418cee76a"
 
 debug@*, debug@^4.1.0:
   version "4.1.1"
@@ -5918,8 +5918,8 @@ tar@^4:
     yallist "^3.0.2"
 
 taro-ui@^2.0.2:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/taro-ui/-/taro-ui-2.1.0.tgz#fb2774d6261db75311ac6ce7be243c412c65a322"
+  version "2.0.2"
+  resolved "http://registry.npm.taobao.org/taro-ui/download/taro-ui-2.0.2.tgz#178112e81066a77135d7b0da6d68137cff5ddb5c"
   dependencies:
     "@types/react" "^16.7.3"
     bind-decorator "^1.0.11"

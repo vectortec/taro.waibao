@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\Administrator\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add taro-ui --silent --no-progress
+  C:\Program Files\nodejs\node.exe C:\Users\Administrator\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add https://at.alicdn.com/t/font_1131464_j60p64eltwm.css --silent --no-progress
 
 PATH: 
   C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;E:\恒企项目\hangjia-mobile\node_modules\.bin;C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;E:\恒企项目\hangjia-mobile\node_modules\.bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\MySQL\MySQL Server 5.7\bin;C:\Program Files\TortoiseSVN\bin;C:\ios-webkit-debug-proxy-win32;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files\Common Files\Autodesk Shared\;C:\Program Files (x86)\Autodesk\Backburner\;C:\Users\Administrator\Downloads\phantomjs-2.1.1-windows\phantomjs-2.1.1-windows\bin;C:\Program Files\dotnet\;E:\Program Files\Android\sdk\tools;C:\Program Files\Java\jdk1.8.0_172\bin;E:\apache-tomcat-9.0.8-src\lib;E:\apache-tomcat-9.0.8-src\bin;E:\flutter\flutter_windows_v1.0.0-stable\flutter\bin;E:\Users\Administrator\Anaconda3;E:\Users\Administrator\Anaconda3\Scripts;E:\Users\Administrator\Anaconda3\Library\bin;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Users\Administrator\AppData\Roaming\npm;C:\Users\Administrator\AppData\Local\Programs\Fiddler;C:\Program Files\Microsoft VS Code\bin;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Python27;C:\Python27\Scripts;E:\Program Files\Android\sdk\tools;C:\Program Files\Java\jdk1.8.0_172\bin;E:\apache-tomcat-9.0.8-src\bin;
@@ -47,30 +47,31 @@ npm manifest:
       "@tarojs/taro-swan": "1.2.21",
       "@tarojs/taro-tt": "1.2.21",
       "@tarojs/taro-weapp": "1.2.21",
-      "nervjs": "^1.3.9",
       "nerv-devtools": "^1.3.9",
+      "nervjs": "^1.3.9",
       "redux": "^4.0.0",
       "redux-logger": "^3.0.6",
-      "redux-thunk": "^2.3.0"
+      "redux-thunk": "^2.3.0",
+      "taro-ui": "^2.0.2"
     },
     "devDependencies": {
-      "@types/react": "^16.4.8",
-      "@types/webpack-env": "^1.13.6",
       "@tarojs/plugin-babel": "1.2.21",
       "@tarojs/plugin-csso": "1.2.21",
       "@tarojs/plugin-sass": "1.2.21",
       "@tarojs/plugin-uglifyjs": "1.2.21",
       "@tarojs/webpack-runner": "1.2.21",
+      "@types/react": "^16.4.8",
+      "@types/webpack-env": "^1.13.6",
+      "babel-eslint": "^8.2.3",
       "babel-plugin-transform-class-properties": "^6.24.1",
       "babel-plugin-transform-decorators-legacy": "^1.3.4",
       "babel-plugin-transform-jsx-stylesheet": "^0.6.5",
       "babel-plugin-transform-object-rest-spread": "^6.26.0",
       "babel-preset-env": "^1.6.1",
-      "babel-eslint": "^8.2.3",
       "eslint": "^4.19.1",
       "eslint-config-taro": "1.2.21",
-      "eslint-plugin-react": "^7.8.2",
       "eslint-plugin-import": "^2.12.0",
+      "eslint-plugin-react": "^7.8.2",
       "eslint-plugin-taro": "1.2.21"
     }
   }
@@ -329,6 +330,13 @@ Lockfile:
   "@types/react@^16.4.8":
     version "16.8.10"
     resolved "http://registry.npm.taobao.org/@types/react/download/@types/react-16.8.10.tgz?cache=0&other_urls=http%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Freact%2Fdownload%2F%40types%2Freact-16.8.10.tgz#1ccb6fde17f71a62ef055382ec68bdc379d4d8d9"
+    dependencies:
+      "@types/prop-types" "*"
+      csstype "^2.2.0"
+  
+  "@types/react@^16.7.3":
+    version "16.8.13"
+    resolved "http://registry.npm.taobao.org/@types/react/download/@types/react-16.8.13.tgz#a82b15aad9ab91c40edca0d6889b7745ae24f053"
     dependencies:
       "@types/prop-types" "*"
       csstype "^2.2.0"
@@ -1360,6 +1368,10 @@ Lockfile:
     version "1.13.1"
     resolved "http://registry.npm.taobao.org/binary-extensions/download/binary-extensions-1.13.1.tgz#598afe54755b2868a5330d2aff9d4ebb53209b65"
   
+  bind-decorator@^1.0.11:
+    version "1.0.11"
+    resolved "http://registry.npm.taobao.org/bind-decorator/download/bind-decorator-1.0.11.tgz#e41bc06a1f65dd9cec476c91c5daf3978488252f"
+  
   block-stream@*:
     version "0.0.9"
     resolved "http://registry.npm.taobao.org/block-stream/download/block-stream-0.0.9.tgz#13ebfe778a03205cfe03751481ebb4b3300c126a"
@@ -1668,7 +1680,7 @@ Lockfile:
       isobject "^3.0.0"
       static-extend "^0.1.1"
   
-  classnames@^2.2.5:
+  classnames@^2.2.5, classnames@^2.2.6:
     version "2.2.6"
     resolved "http://registry.npm.taobao.org/classnames/download/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
   
@@ -2062,6 +2074,10 @@ Lockfile:
   date-now@^0.1.4:
     version "0.1.4"
     resolved "http://registry.npm.taobao.org/date-now/download/date-now-0.1.4.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
+  
+  dayjs@^1.7.7:
+    version "1.8.12"
+    resolved "http://registry.npm.taobao.org/dayjs/download/dayjs-1.8.12.tgz#f9610fb9b115aa2fe2a07e742c130df418cee76a"
   
   debug@*, debug@^4.1.0:
     version "4.1.1"
@@ -5967,6 +5983,17 @@ Lockfile:
       safe-buffer "^5.1.2"
       yallist "^3.0.2"
   
+  taro-ui@^2.0.2:
+    version "2.0.2"
+    resolved "http://registry.npm.taobao.org/taro-ui/download/taro-ui-2.0.2.tgz#178112e81066a77135d7b0da6d68137cff5ddb5c"
+    dependencies:
+      "@types/react" "^16.7.3"
+      bind-decorator "^1.0.11"
+      classnames "^2.2.6"
+      dayjs "^1.7.7"
+      lodash "^4.17.10"
+      prop-types "^15.6.2"
+  
   text-table@^0.2.0, text-table@~0.2.0:
     version "0.2.0"
     resolved "http://registry.npm.taobao.org/text-table/download/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
@@ -6557,4 +6584,14 @@ Lockfile:
       yargs-parser "^5.0.0"
 
 Trace: 
-  Error: ENOENT: no such file or directory, copyfile 'C:\Users\Administrator\AppData\Local\Yarn\Cache\v1\npm-ms-2.1.1-30a5864eb3ebb0a66f2ebe6d727af06a09d86e0a\index.js' -> 'E:\恒企项目\hangjia-mobile\node_modules\@babel\traverse\node_modules\ms\index.js'
+  Error: https://at.alicdn.com/t/font_1131464_j60p64eltwm.css: Invalid tar header. Maybe the tar is corrupted or it needs to be gunzipped?
+      at Object.module.exports.exports.decode (C:\Users\Administrator\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:76469:43)
+      at Extract.onheader [as _onparse] (C:\Users\Administrator\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:145039:39)
+      at Extract.module.exports.Extract._write (C:\Users\Administrator\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:145162:8)
+      at doWrite (C:\Users\Administrator\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:72818:64)
+      at writeOrBuffer (C:\Users\Administrator\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:72807:5)
+      at Extract.module.exports.Writable.write (C:\Users\Administrator\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:72744:11)
+      at Duplexify.ondata (C:\Users\Administrator\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:71892:20)
+      at emitOne (events.js:116:13)
+      at Duplexify.emit (events.js:211:7)
+      at readableAddChunk (C:\Users\Administrator\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:71563:18)
