@@ -9,13 +9,13 @@ export default class Payment extends Component {
 
   render () {
 
-    const RenderComponent = PayResultWait
+    // const RenderComponent = PayResultWait
 
     return (
       <View className={`${styles.payWrap}`}>
         <HeadBar />
-        {/* <SubmitOrder /> */}
-        {RenderComponent}
+        <SubmitOrder />
+          {/* <PayResultWait /> */}
       </View>
     )
   }
