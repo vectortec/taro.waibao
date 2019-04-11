@@ -1,6 +1,7 @@
 $title-color: #333333;
 $desc-color: #666666;
 $border-line-color: #EDEDED;
+$active-color: #FF5A1F;
 .courseList {
     @import url(//at.alicdn.com/t/font_1059909_yonuo36mqbm.css);
     position: relative;
@@ -73,5 +74,30 @@ $border-line-color: #EDEDED;
             }
         }
 
+    }
+
+    .listBox {
+        // 列表结果为空
+        .emptyList {
+            margin-top: 278px;
+            font-size: 28px;
+            text-align: center;
+            color: #3C3D41;
+            .imgBox {
+                display: inline-block;
+                width: 203px;
+                padding-bottom: 14px;
+                .img {
+                    width: 100%;
+                }
+            }
+
+            .gotoOther {
+                margin-top: 20px;
+                font-size: 22px;
+                text-decoration: underline;
+                color: $active-color;
+            }
+        }
     }
 }
