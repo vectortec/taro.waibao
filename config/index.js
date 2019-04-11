@@ -112,6 +112,7 @@ const config = {
     sassLoaderOption: {
       importer: sassImporter
     },
+    devServer: {port: 10086,host: "0.0.0.0"},
     module: {
       postcss: {
         autoprefixer: {
