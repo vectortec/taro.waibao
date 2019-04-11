@@ -112,14 +112,14 @@ class CourseDetail extends Component {
               <Video
                 className={styles.video}
                 controls={false}
-                src={require("./video.mp4")}
+                // src={require("./video.mp4")}
               >
                 {" "}
               </Video>{" "}
               <View className={styles.imgBox}>
                 <Image
                   className={styles.poster}
-                  src={require("./lake.jpg")}
+                  // src={require("./lake.jpg")}
                   onClick={this.play}
                 />{" "}
               </View>{" "}
