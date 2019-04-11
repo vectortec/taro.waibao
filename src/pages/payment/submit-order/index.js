@@ -6,6 +6,8 @@ import styles from './index.module.scss'
 
 export default class SubmitOrder extends Component {
 
+  static externalClasses = ['submit-order']
+
   state = {
     payType: 'wx'
   }
@@ -32,7 +34,7 @@ export default class SubmitOrder extends Component {
     ]
 
     return (
-      <View>
+      <View className={`gray-background ${styles.submitOrder}`}>
         <View className={styles.order}>
           <Text>订单编号：{`HQ201936637237253257`}</Text>
         </View>
