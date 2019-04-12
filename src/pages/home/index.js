@@ -6,20 +6,28 @@ import styles from './index.module.scss'
 class Home extends Component {
 
   config = {
-    navigationBarTitleText: 'Home'
+    navigationBarTitleText: '首页'
   }
 
   redirectTo = (url) => {
     Taro.redirectTo({url})
   }
 
+  componentDidMount() {
+    let timer = setTimeout(_ => {
+      this.setState({loading: false})
+      clearTimeout(timer)
+    }, 1000)
+  }
   render () {
 
     return (
       <View className={styles.demo}>
-        <View>
-          <Text className={styles.link} onClick={this.redirectTo.bind(this, '/pages/payment/index')}>支付页</Text>
-        </View>
+        <Text className="iconfont iconceshi"></Text>
+        <AtSteps
+          items={items}
+          current={0}
+        />
       </View>
     )
   }
