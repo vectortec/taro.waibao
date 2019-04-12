@@ -4,21 +4,11 @@
   text-align: center;
 }
 .image {
-  // position: relative;
-  // left: 50%;
   height: 260px;
   width: 260px;
-  // margin-left: -130px;
 }
-.waitPay {
-  text-align: center;
-  color: $primary-color;
-  font-size: 36px;
-  font-family: PingFang-SC-Medium;
-  padding-bottom: 46px;
-  margin: 0 36px;
-  border-bottom: 1px solid $border-color;
-}
+
+
 .countDown {
   font-size: 32px;
   color: $text-color;
