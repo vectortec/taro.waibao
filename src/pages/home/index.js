@@ -12,7 +12,7 @@ import styles from './index.module.scss'
 class Home extends Component {
 
   config = {
-    navigationBarTitleText: 'Home'
+    navigationBarTitleText: '首页'
   }
 
   state = {
@@ -43,7 +43,6 @@ class Home extends Component {
 
     return (
       <View className={styles.demo}>
-        <Text>Home page</Text>
         <Text className="iconfont iconceshi"></Text>
         <AtSteps
           items={items}

@@ -6,13 +6,13 @@ import { AtButton, AtForm, AtInput } from 'taro-ui'
 import getUnionId from '../../utils/getUnionId'
 
 
-setTitle('登录')
+// setTitle('登录')
 
 class LoginPage extends Component {
 
-  // config = {
-  //   navigationBarTitleText: 'LoginPage'
-  // }
+  config = {
+    navigationBarTitleText: '登录'
+  }
 
   componentDidMount() {
     Taro.cloud.init()
