@@ -11,7 +11,7 @@ export default class carFooter extends Component {
       <View className='footer'>
         <View className='left'>
             <Label className='checkbox-list__label'>
-                <Checkbox className='checkbox' checked={this.props.allChecked} onChange={this.props.change}>全选</Checkbox>          
+                <Checkbox className='checkbox' checked={this.props.allChecked} onChange={this.props.change}>删除</Checkbox>          
             </Label>
         </View>
        <View className='right'>

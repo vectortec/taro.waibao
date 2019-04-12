@@ -32,11 +32,11 @@ export default class CarComponent extends Component {
                                         <Text className='need_score'>所需积分：{item.score}</Text>
                                     </View>
                                 </View>
-                                <View className='selectBtn'> 
+                                {/* <View className='selectBtn'> 
                                     <View className='delete'>
                                         <Text>删</Text>
                                     </View>
-                                </View>
+                                </View> */}
                         </View>
                     )
                 // })

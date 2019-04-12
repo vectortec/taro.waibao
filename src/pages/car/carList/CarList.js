@@ -1,12 +1,15 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View,Text,Image,Checkbox} from '@tarojs/components'
 import CarComponent from '../carComponent/carComponent'
+import CarFooter from '../carFooter/carFooter'
 import './CarList.scss'
 export default class CarList extends Component {
     constructor(props){
         super(props)
         this.state={
             checkboxList:{},
+            allChecked:false,//底部全选,
+            dataLength:10,
             scoreList:[//积分抵扣
                 {id: 1, title: 'Hello World', content: '小米硬件的原理讲解与操作实战大师班',price:33,score:1000},
                 {id: 2, title: 'Installation', content: 'You can',price:44,score:1000}
@@ -29,27 +32,26 @@ export default class CarList extends Component {
               ]        
         }
     }
-    componentWillReceiveProps() {
-        // let {scoreList,limitSecond,limitBuy,Normal,CantBuy}=this.state;
-        // if(!this.props.allChecked){
-        //     this.setState({ checkboxList:{
-        //             score:scoreList.map(item=>item.id),
-        //             Second:limitSecond.map(item=>item.id),
-        //             buy:limitBuy.map(item=>item.id),
-        //             normal:Normal.map(item=>item.id),
-        //             cantBuy:CantBuy.map(item=>item.id)
-        //     }})
-        //     }else{
-        //         this.setState({ checkboxList:{}})
-        //     }
+    selectAllCar(e){//底部全选
+        let {scoreList,limitSecond,limitBuy,Normal,CantBuy}=this.state;
+       if(e.target.checked){
+            this.setState({ checkboxList:{
+                    score:scoreList.map(item=>item.id),
+                    Second:limitSecond.map(item=>item.id),
+                    buy:limitBuy.map(item=>item.id),
+                    normal:Normal.map(item=>item.id),
+                    cantBuy:CantBuy.map(item=>item.id)
+            }})
+            this.setState({allChecked:true})
+       }else{
+        this.setState({ checkboxList:{}})
+        this.setState({allChecked:false})
+       }
     }
     componentDidMount() {
-        console.log(1)
     }
     handleInputChange(e,id,keys) {//反向选中
-        let { checkboxList}=this.state;
-        // let { checkboxList,scoreList,limitSecond,limitBuy,Normal,CantBuy}=this.state;
-        // let num=scoreList.length+limitSecond.length+limitBuy.length+Normal.length+CantBuy.length;
+        let { checkboxList,dataLength}=this.state;
         if(!Array.isArray(checkboxList[keys])){
             checkboxList[keys]=[]
         }
@@ -59,21 +61,17 @@ export default class CarList extends Component {
         else{
             checkboxList[keys].splice(checkboxList[keys].indexOf(id),1)
         }
-        // this.setState({checkboxList})
-
         let array=[],NewArray=[];
         this.setState({checkboxList},()=>{
             for(let key in checkboxList){
                array.push(checkboxList[key])
             }
             array.map(item=>item.map(it=>NewArray.push(it)))
-            this.props.onClicked(NewArray)
+           this.setState({allChecked:NewArray.length===dataLength})
         })
     }
-    selectAll(e,keys,data){
-        let { checkboxList}=this.state;
-        // let { checkboxList,scoreList,limitSecond,limitBuy,Normal,CantBuy}=this.state;
-        // let num=scoreList.length+limitSecond.length+limitBuy.length+Normal.length+CantBuy.length;
+    selectAll(e,keys,data){//分类全选
+        let {dataLength, checkboxList}=this.state;
         if(e.target.checked){
             if(!Array.isArray(checkboxList[keys])){//没有这个属性时候增加一个
                 checkboxList[keys]=[]
@@ -83,18 +81,19 @@ export default class CarList extends Component {
             checkboxList[keys]=[]; 
         }
         let array=[],NewArray=[];
-        // this.setState({checkboxList})
         this.setState({checkboxList},()=>{
             for(let key in checkboxList){
-                array.push(checkboxList[key])
-             }
-             array.map(item=>item.map(it=>NewArray.push(it)))
-             this.props.onClicked(NewArray)
+               array.push(checkboxList[key])
+            }
+            array.map(item=>item.map(it=>NewArray.push(it)))
+            console.log(NewArray.length)
+           this.setState({allChecked:NewArray.length===dataLength})
         })
         
     }
   render() {
     let {scoreList,limitSecond,limitBuy,Normal,CantBuy}=this.state;
+    console.log('this.state.allChecked', this.state.allChecked)
     return (
        <View className='CarList'>
             {/* ------------积分抵扣------------- */}
@@ -178,7 +177,10 @@ export default class CarList extends Component {
                     })
                 }                  
                 </View> 
-            </View>               
+            </View>
+            <View className='foot'> 
+                <CarFooter allChecked={this.state.allChecked} change={(e)=>{this.selectAllCar(e)}} />   
+            </View>
        </View>
     )
   }
