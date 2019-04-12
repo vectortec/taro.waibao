@@ -17,7 +17,15 @@ class Home extends Component {
 
     return (
       <View>
-        <Text className={styles.link} onClick={this.redirectTo.bind(this, '/pages/payment/index')}>支付页</Text>
+        <View>
+          <Text className={styles.link} onClick={this.redirectTo.bind(this, '/pages/payment/submit-order/index')}>支付页</Text>
+        </View>
+        <View>
+          <Text className={styles.link} onClick={this.redirectTo.bind(this, '/pages/payment/pay-result-success/index')}>支付页-成功</Text>
+        </View>
+        <View>
+          <Text className={styles.link} onClick={this.redirectTo.bind(this, '/pages/payment/pay-result-wait/index')}>支付页-失败</Text>
+        </View>
       </View>
     )
   }
