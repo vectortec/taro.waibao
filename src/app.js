@@ -25,6 +25,7 @@ class App extends Component {
       'pages/menu/index',
       'pages/demo/index',
       'pages/aboutUs/index',
+      'pages/SureOrder/index',
       'pages/car/index',
       'pages/confirmOrder/index',
       'pages/courseDetail/index',

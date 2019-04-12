@@ -1,0 +1,25 @@
+.sureOrder{
+    & .header{
+        position:fixed;
+        top:0;
+        left:0;
+        width:100%;
+        background:#ffffff;
+        z-index: 100;
+    }
+    .body{
+        background:rgba(237,237,237,1);
+        padding-top:85px;
+       .list{
+        // background:#ffffff;
+   
+       }
+    }
+    .footer{
+        position:fixed;
+        bottom:0;
+        left:0;
+        width:100%;
+        z-index:100;
+    }
+}

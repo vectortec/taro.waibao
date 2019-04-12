@@ -3,10 +3,8 @@ import { View } from '@tarojs/components'
 import Loading from '@/components/loading'
 import styles from './index.module.scss'
 import CarList from './carList/CarList'
-// import CarFooter from './carFooter/carFooter'
+import NullCar from './nullCar/nullCar'
 import { AtNavBar } from 'taro-ui'
-
-
 class Car extends Component {
   constructor(props){
     super(props);
@@ -41,13 +39,9 @@ class Car extends Component {
           </View>         
           {/*--------------- 购物车内容--------------------- */}
           <View className={styles.body}>
-            <CarList /> 
-            
+              {/* <CarList />  */}
+              <NullCar />
           </View>
-           {/*--------------- 购物车底部--------------------- */}
-           <View className={styles.foot}> 
-              {/* <CarFooter allChecked={this.state.allChecked} change={()=>{this.selectAll()}} /> */}
-           </View>
       </View>
     )
   }

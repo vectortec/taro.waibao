@@ -8,8 +8,9 @@
     z-index: 100;
    }
    & .body{
-       margin-top:85px;
-       margin-bottom:98px;
+       box-sizing:border-box;
+       padding-top:85px;
+       padding-bottom:98px;
    }
   
 }
