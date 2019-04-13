@@ -1,0 +1,28 @@
+.card_wrap {
+    padding: 10px 20px 20px;
+    Image {
+        height: 160px;
+        width: 160px;        
+    }
+    .info {
+        border-bottom: 0.5px solid #999;
+        .name {
+            line-height: 60px;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        .desc {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #454545;
+            .tag {
+                margin-right: 5px;
+            }
+        }
+    }
+    .subdesc {
+        line-height: 40px;
+        font-size: 20px;
+    }
+    border-bottom: 0.3px solid rgba(215, 215, 215, 1);
+}

@@ -1,13 +1,13 @@
-import '@tarojs/async-await'
-import Taro, { Component } from '@tarojs/taro'
-import { Provider } from '@tarojs/redux'
+import '@tarojs/async-await';
+import { Provider } from '@tarojs/redux';
+import Taro, { Component } from '@tarojs/taro';
+import 'taro-ui/dist/style/index.scss';
+import './app.scss';
+import Index from './pages/demo/index';
+import configStore from './store';
+import './styles/index.scss';
 
-import Index from './pages/demo/index'
 
-import configStore from './store'
-// styles
-import './styles/index.scss'
-import './app.scss'
 
 // 如果需要在 h5 环境中开启 React Devtools
 // 取消以下注释：
@@ -21,6 +21,8 @@ class App extends Component {
 
   config = {
     pages: [
+      'pages/kc_inquiry/kc_inquiry_list/index',
+      'pages/kc_inquiry/index',
       'pages/home/index',
       'pages/menu/index',
       'pages/demo/index',
@@ -39,7 +41,7 @@ class App extends Component {
       'pages/newsList/index',
       'pages/personalCenter/index',
       'pages/register/index',
-      'pages/submitOrder/index',
+      'pages/submitOrder/index'
     ],
     window: {
       backgroundTextStyle: 'light',
