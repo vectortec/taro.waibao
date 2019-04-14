@@ -14,7 +14,6 @@ class SumbitOrder extends Taro.Component {
   }
 
   state = {
-    selector: ['美国', '中国', '巴西', '日本'],
     name: '',
     title: [{
       label: '活动序号',
@@ -45,6 +44,9 @@ class SumbitOrder extends Taro.Component {
   }
 
   componentDidMount() {
+    Taro.request({
+      
+    })
   }
   handleClick() {
     this.setState({

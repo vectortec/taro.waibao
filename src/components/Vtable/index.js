@@ -12,12 +12,10 @@ class SumbitOrder extends Taro.Component {
     })
     return this.props.formData.map(item => {
       const Row = new Array(leng).fill(<View className="td">无数据</View>, 0)
-      console.log(Row)
       // Row.fill('空', 0, leng)
       for (let key in item) {
         Row[keyDict[key].index] = <View className="td">{item[key]}</View>
       }
-      console.log(Row)
       return Row
     })
   }

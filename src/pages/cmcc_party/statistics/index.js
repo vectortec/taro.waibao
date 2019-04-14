@@ -2,10 +2,10 @@ import Taro, { Component } from '@tarojs/taro'
 import { View, Picker } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
 import { add, minus, asyncAdd } from '@/actions/counter'
-import { AtFloatLayout, AtCalendar, AtList, AtListItem, AtInput, AtButton } from "taro-ui"
+import { AtFloatLayout, AtCalendar, AtList, AtListItem, AtInput, AtButton, AtPagination } from "taro-ui"
 import './index.scss'
 import Table from 'components/Vtable/index'
-
+let save = {}
 
 @connect(state => state.counter, { add, minus, asyncAdd })
 class SumbitOrder extends Taro.Component {
@@ -25,7 +25,7 @@ class SumbitOrder extends Taro.Component {
       key: 'name'
     }, {
       label: '党小组',
-      key: 'group'
+      key: 'partyGroupId'
     }, {
       label: '原始总积分',
       key: 'originScore'
@@ -39,11 +39,17 @@ class SumbitOrder extends Taro.Component {
     formData: [{
       rank: 0,
       name: 'lee',
-      group: 'b',
+      partyGroupId: 'b',
       originScore: 66,
       finalScore: 99,
       // attend: 55
     }],
+    option: {
+      startTime: '',
+      endTime: '',
+      search: '',
+      partyGroupId: ''
+    },
     showCalender: false
   }
 
@@ -65,19 +71,32 @@ class SumbitOrder extends Taro.Component {
   nameChange() {
 
   }
+  onDateChange({value}) {
+    save = value
+  }
+  sureCalender () {
+    const option = this.state.option
+    option.startTime = save.start
+    option.endTime = save.end
+    this.setState({
+      option,
+      showCalender: false
+    })
+  }
   render() {
+    const {option} = this.state
     return (
       <View className='statistics'>
         <AtFloatLayout isOpened={this.state.showCalender}>
           <View className='at-row at-row__justify--end button_wrap'>
             <View className='at-col at-col-2'>
-              <AtButton type='primary' size='small'>确定</AtButton>
+              <AtButton type='primary' size='small' onClick={this.sureCalender.bind(this)}>确定</AtButton>
             </View>
           </View>
-          <AtCalendar isMultiSelect></AtCalendar>
+          <AtCalendar onSelectDate={this.onDateChange.bind(this)} isMultiSelect></AtCalendar>
         </AtFloatLayout>
         <AtList>
-          <AtListItem title='开始-结束' onClick={this.handleClick.bind(this)} extraText='请选择' />
+          <AtListItem title='开始-结束' onClick={this.handleClick.bind(this)} arrow='right' extraText={option.startTime ? '' : '请选择'} note={option.startTime ? `${option.startTime||''} - ${option.endTime||''}` : ''} />
           <AtListItem title='党小组' onClick={this.handleClick} extraText={
             <Picker mode='selector' range={this.state.selector} onChange={this.onChange}>
               <View className='picker'>
@@ -106,6 +125,7 @@ class SumbitOrder extends Taro.Component {
           </View>
         </View>
         <Table title={this.state.title} formData={this.state.formData}></Table>
+        <AtPagination className=''></AtPagination>
       </View>
     )
   }
