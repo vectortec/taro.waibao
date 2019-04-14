@@ -1,11 +1,12 @@
-import Taro, { Component } from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
-import styles from './index.module.scss'
+import { View } from '@tarojs/components';
+import Taro from '@tarojs/taro';
+import { AtButton, AtForm, AtInput } from 'taro-ui';
+import styles from './index.module.scss';
 
 
 // setTitle('登录')
 
-class LoginPage extends Component {
+class LoginPage extends Taro.Component {
 
   // config = {
   //   navigationBarTitleText: 'LoginPage'
@@ -13,11 +14,21 @@ class LoginPage extends Component {
 
   componentDidMount() {
   }
-  render () {
+  render() {
 
     return (
       <View className={styles.demo}>
-        <Text>LoginPage page</Text>
+        <AtForm>
+          <AtButton type='primary'>登录</AtButton>
+          <AtInput
+            name='value'
+            title='文本'
+            type='text'
+            placeholder='单行文本'
+            value={this.state.value}
+            onChange={this.handleChange.bind(this)}
+          />
+        </AtForm>
       </View>
     )
   }

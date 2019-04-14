@@ -8,7 +8,6 @@ import configStore from './store';
 import './styles/index.scss';
 
 
-
 // 如果需要在 h5 环境中开启 React Devtools
 // 取消以下注释：
 // if (process.env.NODE_ENV !== 'production' && process.env.TARO_ENV === 'h5')  {
@@ -25,6 +24,7 @@ class App extends Component {
       'pages/kc_inquiry/kc_inquiry_detail/index',
       'pages/kc_inquiry/kc_inquiry_list/index',
       'pages/kc_inquiry/index',
+      'pages/loginPage/index',
       'pages/home/index',
       'pages/menu/index',
       'pages/demo/index',
@@ -36,7 +36,6 @@ class App extends Component {
       'pages/forgetPassword/index',
       'pages/learningCenter/index',
       'pages/learningCenterDetail/index',
-      'pages/loginPage/index',
       'pages/messageCenter/index',
       'pages/myOrder/index',
       'pages/newsDetail/index',
