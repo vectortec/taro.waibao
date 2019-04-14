@@ -21,6 +21,8 @@ class App extends Component {
 
   config = {
     pages: [
+      'pages/kc_inquiry/kc_inquiry_chat/index',
+      'pages/kc_inquiry/kc_inquiry_detail/index',
       'pages/kc_inquiry/kc_inquiry_list/index',
       'pages/kc_inquiry/index',
       'pages/home/index',
