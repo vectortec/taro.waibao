@@ -5,7 +5,7 @@
  * @event: 
  * @LastEditors: 蔡江旭
  * @Date: 2019-04-02 17:22:27
- * @LastEditTime: 2019-04-15 09:50:53
+ * @LastEditTime: 2019-04-15 11:19:40
  */
 
 import Taro, { Component } from '@tarojs/taro'
@@ -74,20 +74,18 @@ class NewsDetail extends Component {
           </View>
         </View>
         {/* 分享 */}
-        <View className={styles.shareBox}>
-          {/* 标题 */}
+        {/* <View className={styles.shareBox}>
           <View className={styles.shareTitle}>
             <View className={styles.titleTextBox}>
               <Text className={styles.titleText}>分享至</Text>
             </View>
           </View>
-          {/* icon */}
           <View className={styles.shareList}>
             {shareIconList.map((ele, index) => (
               <View className={classNames(styles.shareBtn, ele.icon)} key={index}>{ele.icon}</View>
             ))}
           </View>
-        </View>
+        </View> */}
       </View>
     )
   }
