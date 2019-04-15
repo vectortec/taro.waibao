@@ -1,17 +1,30 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\Administrator\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add https://at.alicdn.com/t/font_1131464_j60p64eltwm.css --silent --no-progress
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add ~taro-ui/dist/style/components/tabs.scss --silent --no-progress
 
 PATH: 
-  C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;E:\恒企项目\hangjia-mobile\node_modules\.bin;C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;E:\恒企项目\hangjia-mobile\node_modules\.bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\MySQL\MySQL Server 5.7\bin;C:\Program Files\TortoiseSVN\bin;C:\ios-webkit-debug-proxy-win32;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files\Common Files\Autodesk Shared\;C:\Program Files (x86)\Autodesk\Backburner\;C:\Users\Administrator\Downloads\phantomjs-2.1.1-windows\phantomjs-2.1.1-windows\bin;C:\Program Files\dotnet\;E:\Program Files\Android\sdk\tools;C:\Program Files\Java\jdk1.8.0_172\bin;E:\apache-tomcat-9.0.8-src\lib;E:\apache-tomcat-9.0.8-src\bin;E:\flutter\flutter_windows_v1.0.0-stable\flutter\bin;E:\Users\Administrator\Anaconda3;E:\Users\Administrator\Anaconda3\Scripts;E:\Users\Administrator\Anaconda3\Library\bin;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Users\Administrator\AppData\Roaming\npm;C:\Users\Administrator\AppData\Local\Programs\Fiddler;C:\Program Files\Microsoft VS Code\bin;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Python27;C:\Python27\Scripts;E:\Program Files\Android\sdk\tools;C:\Program Files\Java\jdk1.8.0_172\bin;E:\apache-tomcat-9.0.8-src\bin;
+  C:\Users\yanmengbin\AppData\Roaming\npm\node_modules\npm\node_modules\npm-lifecycle\node-gyp-bin;C:\Users\yanmengbin\Desktop\hangjia-mobile\node_modules\.bin;C:\Users\yanmengbin\AppData\Roaming\npm\node_modules\npm\node_modules\npm-lifecycle\node-gyp-bin;C:\Users\yanmengbin\Desktop\hangjia-mobile\node_modules\.bin;C:\Program Files\nodejs\;C:\Program Files (x86)\Yarn\bin\;C:\Program Files\Git\cmd;C:\Users\yanmengbin\AppData\Local\Microsoft\WindowsApps;C:\Users\yanmengbin\Local Settings\Application Data\Application Data\Application Data\Programs\Python\Python36;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;C:\Users\yanmengbin\AppData\Roaming\npm;C:\Users\yanmengbin\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\yanmengbin\AppData\Local\Yarn\bin;C:\Program Files\Git\bin;C:\Program Files\Git\mingw64\libexec\git-core
 
 Yarn version: 
-  1.5.1
+  1.15.2
 
 Node version: 
-  8.9.1
+  10.15.3
 
 Platform: 
   win32 x64
+
+Trace: 
+  Error: https://registry.npmjs.org/~taro-ui%2fdist/style/components/tabs.scss: Request "https://registry.npmjs.org/~taro-ui%2fdist/style/components/tabs.scss" returned a 405
+      at Request.params.callback [as _callback] (C:\Program Files (x86)\Yarn\lib\cli.js:65176:18)
+      at Request.self.callback (C:\Program Files (x86)\Yarn\lib\cli.js:129541:22)
+      at Request.emit (events.js:189:13)
+      at Request.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:130513:10)
+      at Request.emit (events.js:189:13)
+      at IncomingMessage.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:130435:12)
+      at Object.onceWrapper (events.js:277:13)
+      at IncomingMessage.emit (events.js:194:15)
+      at endReadableNT (_stream_readable.js:1125:12)
+      at process._tickCallback (internal/process/next_tick.js:63:19)
 
 npm manifest: 
   {
@@ -1967,6 +1980,14 @@ Lockfile:
       public-encrypt "^4.0.0"
       randombytes "^2.0.0"
       randomfill "^1.0.3"
+  
+  crypto-js@^3.1.9-1:
+    version "3.1.9-1"
+    resolved "https://registry.yarnpkg.com/crypto-js/-/crypto-js-3.1.9-1.tgz#fda19e761fc077e01ffbfdc6e9fdfc59e8806cd8"
+  
+  crypto@^1.0.1:
+    version "1.0.1"
+    resolved "https://registry.yarnpkg.com/crypto/-/crypto-1.0.1.tgz#2af1b7cad8175d24c8a1b0778255794a21803037"
   
   css-loader@1.0.0:
     version "1.0.0"
@@ -4293,6 +4314,10 @@ Lockfile:
     dependencies:
       lower-case "^1.1.1"
   
+  node-crypto@^1.0.0:
+    version "1.0.0"
+    resolved "https://registry.yarnpkg.com/node-crypto/-/node-crypto-1.0.0.tgz#8a661c0ba2018b394f958d3218305022c8937078"
+  
   node-forge@0.7.5:
     version "0.7.5"
     resolved "http://registry.npm.taobao.org/node-forge/download/node-forge-0.7.5.tgz#6c152c345ce11c52f465c2abd957e8639cd674df"
@@ -4951,6 +4976,10 @@ Lockfile:
   promise-polyfill@^7.1.2:
     version "7.1.2"
     resolved "http://registry.npm.taobao.org/promise-polyfill/download/promise-polyfill-7.1.2.tgz#ab05301d8c28536301622d69227632269a70ca3b"
+  
+  promise-polyfill@^8.1.0:
+    version "8.1.0"
+    resolved "https://registry.yarnpkg.com/promise-polyfill/-/promise-polyfill-8.1.0.tgz#30059da54d1358ce905ac581f287e184aedf995d"
   
   promise@^7.1.1:
     version "7.3.1"
@@ -6582,16 +6611,3 @@ Lockfile:
       which-module "^1.0.0"
       y18n "^3.2.1"
       yargs-parser "^5.0.0"
-
-Trace: 
-  Error: https://at.alicdn.com/t/font_1131464_j60p64eltwm.css: Invalid tar header. Maybe the tar is corrupted or it needs to be gunzipped?
-      at Object.module.exports.exports.decode (C:\Users\Administrator\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:76469:43)
-      at Extract.onheader [as _onparse] (C:\Users\Administrator\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:145039:39)
-      at Extract.module.exports.Extract._write (C:\Users\Administrator\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:145162:8)
-      at doWrite (C:\Users\Administrator\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:72818:64)
-      at writeOrBuffer (C:\Users\Administrator\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:72807:5)
-      at Extract.module.exports.Writable.write (C:\Users\Administrator\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:72744:11)
-      at Duplexify.ondata (C:\Users\Administrator\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:71892:20)
-      at emitOne (events.js:116:13)
-      at Duplexify.emit (events.js:211:7)
-      at readableAddChunk (C:\Users\Administrator\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:71563:18)
