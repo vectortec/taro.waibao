@@ -6,7 +6,7 @@
  * @props {function} onClick (course) 点击触发的事件
  * @LastEditors: 蔡江旭
  * @Date: 2019-04-08 10:02:25
- * @LastEditTime: 2019-04-15 11:59:12
+ * @LastEditTime: 2019-04-15 18:04:34
  */
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
@@ -55,9 +55,7 @@ export default class CourseCard extends Component {
                 </View>
                 {/* 相关信息区域 */}
                 <View className={styles.detailBox}>
-                    <View className={styles.title}>
-                        {cardTitle}
-                    </View>
+                    <View className={styles.title} dangerouslySetInnerHTML={{ __html: cardTitle }}></View>
                     {children}
                 </View>
             </View>
