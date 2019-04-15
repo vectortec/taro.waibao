@@ -1,12 +1,12 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
-import { add, minus, asyncAdd } from '@/actions/counter'
+import { asyncLogin } from '@/actions/login'
 import './index.scss'
 import Table from 'components/Vtable'
 
 
-@connect(state => state.counter, { add, minus, asyncAdd })
+@connect(state => state.loginReducer, { asyncLogin })
 class SumbitOrder extends Taro.Component {
 
   config = {
@@ -40,12 +40,16 @@ class SumbitOrder extends Taro.Component {
 
   // 慎用
   componentWillReceiveProps(nextProps) {
-    console.log(this.props, nextProps)
   }
 
   componentDidMount() {
+    console.log(this.$router)
+    this.props.asyncLogin()
     Taro.request({
-      
+      url: 'http://221.176.65.6:808/pm/demandapi/demand/PartyGroupRest/queryActivityBulletinByPage',
+      method: 'get'
+    }).then(res => {
+      console.log(res)
     })
   }
   handleClick() {
