@@ -11,14 +11,18 @@ class SumbitOrder extends Taro.Component {
       this.props.title.map((item, index) => {
         keyDict[item.key] = { ...item, index }
       })
-      return this.props.formData.map(item => {
+      const res =  this.props.formData.map(item => {
         const Row = new Array(leng).fill(<View className='td'>无数据</View>, 0)
         // Row.fill('空', 0, leng)
         for (let key in item) {
-          Row[keyDict[key].index] = <View className='td'>{item[key]}</View>
+          keyDict[key] && (Row[keyDict[key].index] = <View className='td'>{item[key]}</View>)
         }
-        return Row
+        // console.log(Row)
+        // return Row
+        return <View className='tr'>{Row}</View>
       })
+      return res
+      console.log(res)
     }
     return (
       <View className='statistics'>
@@ -29,9 +33,7 @@ class SumbitOrder extends Taro.Component {
                 <View className='th'>{item.label}</View>
               ))}
             </View>
-            <View className='tr'>
-              {FormData2table.call(this)}
-            </View>
+            {FormData2table.call(this)}
           </View>
         </View>
       </View>

@@ -16,25 +16,19 @@ class SumbitOrder extends Taro.Component {
   state = {
     name: '',
     title: [{
-      label: '活动序号',
+      label: '活动类别',
       key: 'type'
     }, {
-      label: '活动日期',
+      label: '活动时间',
       key: 'time'
     }, {
-      label: '活动类别',
+      label: '积分',
       key: 'score'
     }, {
-      label: '活动备注',
+      label: '原因',
       key: 'reason'
     }],
-    formData: [{
-      type: 0,
-      time: '1999-09-08',
-      score: 456,
-      reason: '原因',
-      // attend: 55
-    }],
+    formData: [],
     showCalender: false
   }
 
@@ -43,13 +37,18 @@ class SumbitOrder extends Taro.Component {
   }
 
   componentDidMount() {
-    console.log(this.$router)
-    this.props.asyncLogin()
-    Taro.request({
-      url: 'http://221.176.65.6:808/pm/demandapi/demand/PartyGroupRest/queryActivityBulletinByPage',
-      method: 'get'
-    }).then(res => {
-      console.log(res)
+    this.props.asyncLogin().then(() => {
+      Taro.request({
+        url: 'http://221.176.65.6:808/pm/demandapi/demand/PartyGroupRest/queryIntegralDetailedByUserId',
+        method: 'get',
+        data: {
+          token: this.props.token
+        }
+      }).then(res => {
+        this.setState({
+          formData: res.data.rows
+        })
+      })
     })
   }
   handleClick() {
@@ -65,8 +64,8 @@ class SumbitOrder extends Taro.Component {
   }
   render() {
     return (
-      <View className='detail'>
-				<Text className='title'>党员XXX同志活动积分详细列表</Text>
+      <View className='campaign'>
+				<Text className='title'>党员{this.props.user.userName}同志活动积分详细列表</Text>
         <Table title={this.state.title} formData={this.state.formData}></Table>
       </View>
     )

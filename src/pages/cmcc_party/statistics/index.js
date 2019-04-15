@@ -5,9 +5,10 @@ import { add, minus, asyncAdd } from '@/actions/counter'
 import { AtFloatLayout, AtCalendar, AtList, AtListItem, AtInput, AtButton, AtPagination } from "taro-ui"
 import './index.scss'
 import Table from 'components/Vtable/index'
+import { asyncLogin } from '@/actions/login'
 let save = {}
 
-@connect(state => state.counter, { add, minus, asyncAdd })
+@connect(state => state.loginReducer, { asyncLogin })
 class SumbitOrder extends Taro.Component {
 
   config = {
@@ -19,30 +20,30 @@ class SumbitOrder extends Taro.Component {
     name: '',
     title: [{
       label: '排名',
-      key: 'rank'
+      key: 'ranking'
     }, {
       label: '姓名',
-      key: 'name'
+      key: 'groupMemberUserName'
     }, {
       label: '党小组',
-      key: 'partyGroupId'
+      key: 'partyGroupName'
     }, {
       label: '原始总积分',
-      key: 'originScore'
+      key: 'yuanshi'
     }, {
       label: '出席率',
-      key: 'attend'
+      key: 'chuxi'
     }, {
       label: '最终积分',
-      key: 'finalScore'
+      key: 'zuizhong'
     }],
     formData: [{
-      rank: 0,
-      name: 'lee',
-      partyGroupId: 'b',
-      originScore: 66,
-      finalScore: 99,
-      // attend: 55
+      ranking: 0,
+      groupMemberUserName: 'lee',
+      partyGroupName: 'b',
+      yuanshi: 66,
+      zuizhong: 99,
+      // chuxi: 55
     }],
     option: {
       startTime: '',
@@ -59,6 +60,19 @@ class SumbitOrder extends Taro.Component {
   }
 
   componentDidMount() {
+    this.props.asyncLogin().then(() => {
+      Taro.request({
+        url: 'http://221.176.65.6:808/pm/demandapi/demand/PartyGroupRest/queryIntegralStatisticsByPage',
+        method: 'get',
+        data: {
+          token: this.props.token
+        }
+      }).then(res => {
+        this.setState({
+          formData: res.data.rows
+        })
+      })
+    })
   }
   handleClick() {
     this.setState({

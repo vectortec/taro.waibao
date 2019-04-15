@@ -2,49 +2,52 @@ import Taro, { Component } from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
 import { add, minus, asyncAdd } from '@/actions/counter'
+import { asyncLogin } from '@/actions/login'
 import './index.scss'
 import Table from 'components/Vtable/index'
 
 
-@connect(state => state.counter, { add, minus, asyncAdd })
+@connect(state => state.loginReducer, { asyncLogin })
 class SumbitOrder extends Taro.Component {
 
   config = {
-    navigationBarTitleText: '积分统计'
+    navigationBarTitleText: '活动公告'
   }
 
   state = {
     selector: ['美国', '中国', '巴西', '日本'],
     name: '',
     title: [{
+      label: '活动序号',
+      key: 'activityNo'
+    }, {
+      label: '活动日期',
+      key: 'activityTime'
+    }, {
       label: '活动类别',
-      key: 'type'
+      key: 'activityType'
     }, {
-      label: '活动时间',
-      key: 'time'
-    }, {
-      label: '积分',
-      key: 'score'
-    }, {
-      label: '原因',
-      key: 'reason'
+      label: '活动备注',
+      key: 'activityRemarks'
     }],
-    formData: [{
-      type: 0,
-      time: '1999-09-08',
-      score: 456,
-      reason: '原因',
-      // attend: 55
-    }],
+    formData: [],
     showCalender: false
   }
 
-  // 慎用
-  componentWillReceiveProps(nextProps) {
-    console.log(this.props, nextProps)
-  }
-
   componentDidMount() {
+    this.props.asyncLogin().then(() => {
+      Taro.request({
+        url: 'http://221.176.65.6:808/pm/demandapi/demand/PartyGroupRest/queryActivityBulletinByPage',
+        method: 'get',
+        data: {
+          token: this.props.token
+        }
+      }).then(res => {
+        this.setState({
+          formData: res.data.rows
+        })
+      })
+    })
   }
   handleClick() {
     this.setState({
@@ -60,7 +63,7 @@ class SumbitOrder extends Taro.Component {
   render() {
     return (
       <View className='detail'>
-				<Text className='title'>党员XXX同志活动积分详细列表</Text>
+				<Text className='title'>活动公告列表</Text>
         <Table title={this.state.title} formData={this.state.formData}></Table>
       </View>
     )

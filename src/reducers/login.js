@@ -1,11 +1,15 @@
 import { LOGIN } from '../constants/counter'
 const INITIAL_STATE = {
   openId: null,
-  token: null
+  token: null,
+  user: {
+    userName: ''
+  }
 }
-const Login = async (state) => {
+const Login = (state, user) => {
     return {
-        hehe: 'tes'
+        token: user.token,
+        user
     }
 }
 
@@ -14,7 +18,7 @@ export default function loginReducer (state = INITIAL_STATE, action) {
     case LOGIN:
       return {
         ...state,
-        ...Login(state)
+        ...Login(state, action.user)
       }
     default:
       return state
