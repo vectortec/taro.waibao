@@ -1,0 +1,35 @@
+.pageContent {
+  .guide {
+    font-size: 34px;
+    height: 88px;
+    text-align: center;
+    line-height: 100px;
+    width: 100%;
+    display: inline-block;
+    border-bottom: 1px solid #EDEDED;
+  }
+  .top {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #666;
+    .topbar {
+      width: 20%;
+      font-size: 24px;
+      height: 80px;
+      margin: auto;
+      text-align: center;
+      line-height: 80px;
+    }
+    .active {
+      width: 20%;
+      font-size: 24px;
+      height: 80px;
+      margin: auto;
+      text-align: center;
+      line-height: 80px;
+      border-bottom: 1px solid blue;
+      color: blue;
+      margin-bottom: 1px;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+.details {
+  .title {
+    font-size: 38px;
+    border-bottom:1px solid #ccc;
+    line-height: 100px;
+    text-align: center;
+  }
+  .text {
+    padding: 10px 36px;
+    font-size: 14px;
+  }
+  .img {
+    width: 25px;
+    height: 25px;
+    margin-right: 20px;
+  }
+  .checktxt {
+    display: inline-block;
+    position: fixed;
+    bottom: 100px;
+    background: green;
+  }
+  .richtext {
+    margin: 37px 41px 100px 36px;
+  }
+}

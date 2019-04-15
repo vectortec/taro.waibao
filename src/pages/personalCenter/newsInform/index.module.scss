@@ -1,0 +1,89 @@
+.content {
+  .componentsPage {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    .button {
+      position: relative;
+      width: 50%;
+      height: 98px;
+      font-size: 38px;
+      text-align: center;
+      color: #666;
+      .number {
+        position: absolute;
+        right: 80px;
+        top:0;
+        font-size: 21px;
+        color: #fff;
+        width:31px;
+        height:27px;
+        line-height: 27px;
+        text-align: center;
+        background:linear-gradient(0deg,rgba(255,64,64,1) 0%,rgba(255,114,91,1) 100%);
+        box-shadow:0px 2px 9px 0px rgba(255,105,86,0.42);
+        border-radius:14px;
+        display: inline-block;
+      }
+    }
+  }
+  .bottom {
+    padding: 0 34px;
+    background: #F2F2F2;
+    .time {
+      color: #666;
+      font-size: 23px;
+      height: 100px;
+      text-align: center;
+      line-height: 100px;
+      .line {
+        display: inline-block;
+        border-top:2px solid #E1E3E5;
+        width: 60px;
+        height: 10px; 
+      }
+    }
+    .news {
+      background: #fff;
+      width: 681px;
+      height: auto;
+      margin: auto;
+      border-radius: 19px;
+      border: 2px solid #E5E5E5;
+      overflow: hidden;/*超出部分隐藏*/
+      .title {
+        position: relative;
+        padding: 49px 50px 31px 34px;
+        color: #333;
+        font-size: 38px;
+        overflow: hidden;/*超出部分隐藏*/
+        white-space: nowrap;/*不换行*/
+        text-overflow:ellipsis;/*超出部分文字以...显示*/
+      }
+      .txt {
+        font-size: 12px;
+        padding: 0 20px;
+        line-height: 50px;
+        color: #999;
+      }
+      .newsContent {
+        margin: 0 63px 52px 85px;
+        word-break: break-all;
+        display: -webkit-box;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        font-size: 29px;
+        color: #666;
+      }
+  }
+  .del {
+    font-size: 12px;
+    position: absolute;
+    right: 10px;
+    top: 320px;
+    display: none;
+  }
+  }
+}
