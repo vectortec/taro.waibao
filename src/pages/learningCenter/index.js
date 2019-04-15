@@ -9,9 +9,9 @@ import styles from './index.module.scss'
 
 
 @connect(state => state.counter, { add, minus, asyncAdd })
-class LearningCenter extends Component {
+class LearningCenter extends Taro.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       // showMenu: false,
       current: 0,
@@ -130,7 +130,7 @@ class LearningCenter extends Component {
             </View>
           </AtTabsPane>
           <AtTabsPane current={this.state.current} index={1} >
-            {/* <View className={styles.collect_container}>
+            <View className={styles.collect_container}>
               <View className={styles.collect_tabs}>
                 <Text>全部</Text>
                 <Text onClick={this.handleChangeCharge.bind(this)}>付费</Text>
@@ -169,7 +169,7 @@ class LearningCenter extends Component {
                   </AtSwipeAction>
                 )
               })}
-            </View> */}
+            </View>
           </AtTabsPane>
         </AtTabs>
       </View>

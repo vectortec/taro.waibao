@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add ~taro-ui/dist/style/components/tabs.scss --silent --no-progress
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add @taro-ui/dist/style/index.scss --silent --no-progress
 
 PATH: 
   C:\Users\yanmengbin\AppData\Roaming\npm\node_modules\npm\node_modules\npm-lifecycle\node-gyp-bin;C:\Users\yanmengbin\Desktop\hangjia-mobile\node_modules\.bin;C:\Users\yanmengbin\AppData\Roaming\npm\node_modules\npm\node_modules\npm-lifecycle\node-gyp-bin;C:\Users\yanmengbin\Desktop\hangjia-mobile\node_modules\.bin;C:\Program Files\nodejs\;C:\Program Files (x86)\Yarn\bin\;C:\Program Files\Git\cmd;C:\Users\yanmengbin\AppData\Local\Microsoft\WindowsApps;C:\Users\yanmengbin\Local Settings\Application Data\Application Data\Application Data\Programs\Python\Python36;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;C:\Users\yanmengbin\AppData\Roaming\npm;C:\Users\yanmengbin\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\yanmengbin\AppData\Local\Yarn\bin;C:\Program Files\Git\bin;C:\Program Files\Git\mingw64\libexec\git-core
@@ -14,7 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.npmjs.org/~taro-ui%2fdist/style/components/tabs.scss: Request "https://registry.npmjs.org/~taro-ui%2fdist/style/components/tabs.scss" returned a 405
+  Error: https://registry.npmjs.org/@taro-ui%2fdist/style/index.scss: Request "https://registry.npmjs.org/@taro-ui%2fdist/style/index.scss" returned a 405
       at Request.params.callback [as _callback] (C:\Program Files (x86)\Yarn\lib\cli.js:65176:18)
       at Request.self.callback (C:\Program Files (x86)\Yarn\lib\cli.js:129541:22)
       at Request.emit (events.js:189:13)
