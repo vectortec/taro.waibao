@@ -41,7 +41,9 @@ class App extends Component {
       'pages/personalCenter/index',
       'pages/register/index',
       'pages/submitOrder/index',
-      'pages/payment/index',
+      'pages/payment/submit-order/index',
+      'pages/payment/pay-result-success/index',
+      'pages/payment/pay-result-wait/index',
     ],
     window: {
       backgroundTextStyle: 'light',

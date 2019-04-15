@@ -13,21 +13,19 @@ class Home extends Component {
     Taro.redirectTo({url})
   }
 
-  componentDidMount() {
-    let timer = setTimeout(_ => {
-      this.setState({loading: false})
-      clearTimeout(timer)
-    }, 1000)
-  }
   render () {
 
     return (
-      <View className={styles.demo}>
-        <Text className="iconfont iconceshi"></Text>
-        <AtSteps
-          items={items}
-          current={0}
-        />
+      <View>
+        <View>
+          <Text className={styles.link} onClick={this.redirectTo.bind(this, '/pages/payment/submit-order/index')}>支付页</Text>
+        </View>
+        <View>
+          <Text className={styles.link} onClick={this.redirectTo.bind(this, '/pages/payment/pay-result-success/index')}>支付页-成功</Text>
+        </View>
+        <View>
+          <Text className={styles.link} onClick={this.redirectTo.bind(this, '/pages/payment/pay-result-wait/index')}>支付页-失败</Text>
+        </View>
       </View>
     )
   }
