@@ -1,44 +1,31 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
-import { connect } from '@tarojs/redux'
-import { add, minus, asyncAdd } from '@/actions/counter'
-import Loading from '@/components/loading'
 
 import styles from './index.module.scss'
 
-
-@connect(state => state.counter, {add, minus, asyncAdd})
 class Home extends Component {
 
   config = {
-    navigationBarTitleText: 'Home'
+    navigationBarTitleText: '首页'
   }
 
-  state = {
-    loading: true
+  redirectTo = (url) => {
+    Taro.redirectTo({url})
   }
 
-  // 慎用
-  componentWillReceiveProps (nextProps) {
-    console.log(this.props, nextProps)
-  }
-
-  componentDidMount() {
-    console.log(Taro.getEnv())
-    console.log(Taro.ENV_TYPE)
-    let timer = setTimeout(_ => {
-      this.setState({loading: false})
-      clearTimeout(timer)
-    }, 1000)
-  }
   render () {
-    if (this.state.loading) {
-      return <Loading />
-    }
 
     return (
-      <View className={styles.demo}>
-        <Text>Home page</Text>
+      <View>
+        <View>
+          <Text className={styles.link} onClick={this.redirectTo.bind(this, '/pages/payment/submit-order/index')}>支付页</Text>
+        </View>
+        <View>
+          <Text className={styles.link} onClick={this.redirectTo.bind(this, '/pages/payment/pay-result-success/index')}>支付页-成功</Text>
+        </View>
+        <View>
+          <Text className={styles.link} onClick={this.redirectTo.bind(this, '/pages/payment/pay-result-wait/index')}>支付页-失败</Text>
+        </View>
       </View>
     )
   }

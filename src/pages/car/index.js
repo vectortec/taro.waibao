@@ -1,32 +1,29 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
-import { connect } from '@tarojs/redux'
-import { add, minus, asyncAdd } from '@/actions/counter'
+import { View } from '@tarojs/components'
 import Loading from '@/components/loading'
-
 import styles from './index.module.scss'
+import CarList from './carList/CarList'
+import CarFooter from './carFooter/carFooter'
+import { AtNavBar } from 'taro-ui'
 
 
-@connect(state => state.counter, {add, minus, asyncAdd})
 class Car extends Component {
-
+  constructor(props){
+    super(props);
+      this.state={
+      scoreList:[
+          {id:1,title:"我是标题1"},
+          {id:2,title:"我是标题2"},
+          {id:3,title:"我是标题3"}
+      ],
+      loading: true
+    }
+  }
   config = {
     navigationBarTitleText: 'Car'
   }
-
-  state = {
-    loading: true
-  }
-
-  // 慎用
-  componentWillReceiveProps (nextProps) {
-    console.log(this.props, nextProps)
-  }
-
   componentDidMount() {
-    console.log(Taro.getEnv())
-    console.log(Taro.ENV_TYPE)
-    let timer = setTimeout(_ => {
+    let timer = setTimeout(() => {
       this.setState({loading: false})
       clearTimeout(timer)
     }, 1000)
@@ -35,10 +32,27 @@ class Car extends Component {
     if (this.state.loading) {
       return <Loading />
     }
-
     return (
-      <View className={styles.demo}>
-        <Text>Car page</Text>
+      <View className={styles.car}>
+         {/* -------------------头部 ---------------*/}
+          <View className={styles.header}>
+            <AtNavBar
+              onClickLeftIcon={this.handleClick}
+              color='#000'
+              title='购物车'
+              leftIconType='chevron-left'
+            />
+          </View>         
+          {/*--------------- 购物车内容--------------------- */}
+          <View className={styles.body}>
+            <CarList 
+              scoreList={this.state.scoreList}
+            />
+          </View>
+           {/*--------------- 购物车底部--------------------- */}
+           <View className={styles.foot}> 
+              <CarFooter />
+           </View>
       </View>
     )
   }

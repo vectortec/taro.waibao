@@ -8,7 +8,7 @@ const sassImporter = function(url) {
     }
   }
 
-  const reg = /^~@\/(.*)/
+  const reg = /^@\/(.*)/
   return {
     file: reg.test(url) ? path.resolve(__dirname, '..', 'src', url.match(reg)[1]) : url
   }
@@ -94,12 +94,14 @@ const config = {
     }
   },
   h5: {
+    esnextModules: ['taro-ui'],
     publicPath: '/',
     staticDirectory: 'static',
     output: {
       filename: 'js/[name].[hash].js',
       chunkFilename: 'js/[name].[chunkhash].js'
     },
+    esnextModules: ['taro-ui'],
     imageUrlLoaderOption: {
       limit: 5000,
       name: 'static/images/[name].[hash].[ext]'
@@ -111,6 +113,7 @@ const config = {
     sassLoaderOption: {
       importer: sassImporter
     },
+    devServer: {port: 10086,host: "0.0.0.0"},
     module: {
       postcss: {
         autoprefixer: {

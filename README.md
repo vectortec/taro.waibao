@@ -5,6 +5,15 @@
 * 预编译语言：[scss](https://www.sass.hk/guide/)
 * 项目结构：[tree](./tree.md)
 
+# taro-ui
+taro-ui已经全局引入，需要什么在使用处
+```javascript
+import { AtButton } from 'taro-ui'
+```
+# 字体图标
+字体图标的引入再styles/index.scss文件，小程序不支持url引入，但是h5支持。再iconfont字体图标没有引入完成的前提下，添加新的icon后是重新下载还是用h5模式查看，跟据个人情况去选择
+
+在iconfont下载的文件中，有些是我们不需要的，目前不要管，后期处理
 # alias-别名
 配置了如下几个别名：
 ```javascript
