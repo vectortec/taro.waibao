@@ -5,7 +5,7 @@
  * @event: 
  * @LastEditors: 蔡江旭
  * @Date: 2019-04-02 16:23:03
- * @LastEditTime: 2019-04-11 15:28:55
+ * @LastEditTime: 2019-04-15 11:57:27
  */
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
@@ -314,7 +314,22 @@ class CourseList extends Component {
         {/* 课程列表 */}
         <View className={styles.listBox}>
           {courseList.map((course, index) => (
-            <CourseCard course={course} key={index} />
+            <CourseCard
+              course={course}
+              key={index}
+              cardTitle={course.name}
+              coverImage={course.coverPicture}
+            >
+              <View className={styles.descBox}>
+                  <Text>{course.totalBuyCount}人学过</Text>
+                  <Text className={styles.teacherBox}>{course.teacherName}老师</Text>
+              </View>
+              <View className={styles.tagPriceBox}>
+                  <View className={styles.tag}>{course.activiteTypeName}</View>
+                  <Text className={styles.activePrice}>￥{course.activitePrice}</Text>
+                  <Text className={styles.price}>￥{course.price}</Text>
+              </View>
+            </CourseCard>
           ))}
           {/* 无数据时 */}
           {(!courseList || courseList.length === 0) &&

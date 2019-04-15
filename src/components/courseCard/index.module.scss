@@ -27,38 +27,5 @@ $tag-bg-color: #ffe7dd;
             color: $title-color;
             line-height: 1.23;
         }
-
-        .descBox {
-            margin-top: 24px;
-            font-size: 22px;
-            line-height: 1;
-            .teacherBox {
-                margin-left: 25px;
-            }
-        }
-
-        .tagPriceBox {
-            margin-top: 12px;
-            font-size: 18px;
-            .tag {
-                display: inline-block;
-                border-radius: 4px;
-                border: 1px solid #eb6100;
-                color: $active-color;
-                background-color: #ffe7dd;
-                padding: 6px 9px;
-                line-height: 1;
-            }
-            .activePrice {
-                margin-left: 18px;
-                font-size: 24px;
-            }
-            .price {
-                margin-left: 13px;
-                color: $desc-color;
-                font-size: 18px;
-                text-decoration: line-through;
-            }
-        }
     }
 }

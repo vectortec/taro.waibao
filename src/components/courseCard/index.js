@@ -6,7 +6,7 @@
  * @props {function} onClick (course) 点击触发的事件
  * @LastEditors: 蔡江旭
  * @Date: 2019-04-08 10:02:25
- * @LastEditTime: 2019-04-09 15:05:06
+ * @LastEditTime: 2019-04-15 11:59:12
  */
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
@@ -37,7 +37,7 @@ export default class CourseCard extends Component {
     }
 
     render () {
-        const { className, style, course = {} } = this.props;
+        const { className, style, course = {}, cardTitle = '', coverImage, children } = this.props;
         const newClassName = classNames(styles.courseCard, className);
 
         return (
@@ -50,23 +50,15 @@ export default class CourseCard extends Component {
                     <Image
                       mode='widthFix'
                       className={styles.img}
-                      src={course.coverPicture}
+                      src={coverImage}
                     />
                 </View>
                 {/* 相关信息区域 */}
                 <View className={styles.detailBox}>
                     <View className={styles.title}>
-                        {course.name}
+                        {cardTitle}
                     </View>
-                    <View className={styles.descBox}>
-                        <Text>{course.totalBuyCount}人学过</Text>
-                        <Text className={styles.teacherBox}>{course.teacherName}老师</Text>
-                    </View>
-                    <View className={styles.tagPriceBox}>
-                        <View className={styles.tag}>{course.activiteTypeName}</View>
-                        <Text className={styles.activePrice}>￥{course.activitePrice}</Text>
-                        <Text className={styles.price}>￥{course.price}</Text>
-                    </View>
+                    {children}
                 </View>
             </View>
         )
