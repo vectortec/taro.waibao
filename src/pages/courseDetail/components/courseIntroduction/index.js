@@ -1,9 +1,13 @@
 import Taro, { Component } from "@tarojs/taro";
 import { View, Text, Image } from "@tarojs/components";
-import { AtIcon } from "taro-ui";
 import styles from "./index.module.scss";
 
 class CourseIntroduction extends Component {
+  state = {}
+  // 查看更多
+  moreClick() {
+    console.log('dianle');
+  }
   render() {
     return (
       <View className={styles.courseIntroduction}>
@@ -22,21 +26,11 @@ class CourseIntroduction extends Component {
             </View>{" "}
             <View className={styles.starBox}>
               <Text className={styles.star}>
-                <AtIcon value="star-2" size="18" color="#FFBD00">
-                  {" "}
-                </AtIcon>{" "}
-                <AtIcon value="star-2" size="18" color="#FFBD00">
-                  {" "}
-                </AtIcon>{" "}
-                <AtIcon value="star-2" size="18" color="#FFBD00">
-                  {" "}
-                </AtIcon>{" "}
-                <AtIcon value="star-2" size="18" color="#FFBD00">
-                  {" "}
-                </AtIcon>{" "}
-                <AtIcon value="star" size="18" color="#999">
-                  {" "}
-                </AtIcon>{" "}
+                  <Text className={`iconfont iconpingfen-xing ${styles.starIcon}`}></Text>
+                  <Text className={`iconfont iconpingfen-xing ${styles.starIcon}`}></Text>
+                  <Text className={`iconfont iconpingfen-xing ${styles.starIcon}`}></Text>
+                  <Text className={`iconfont iconpingfen-xing ${styles.starIcon}`}></Text>
+                  <Text className={`iconfont iconpingfen-xing ${styles.starIconNo}`}></Text>
                 <Text className={styles.grade}>4.0</Text>{" "}
               </Text>{" "}
             </View>{" "}
@@ -84,8 +78,8 @@ class CourseIntroduction extends Component {
               </Text>
             </View>
           </View>
-          <View className={styles.more}>
-            <Text>查看全部</Text>
+          <View className={styles.more} onClick={this.moreClick.bind(this)}>
+            <Text>查看全部<Text className={`iconfont iconbottom ${styles.bottomIcon}`}></Text></Text>
           </View>
         </View>
         {/* 商品介绍 */}

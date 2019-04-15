@@ -1,14 +1,15 @@
+@import '@/styles/variable.scss';
 .courseIntroduction {
   padding-bottom: 150px;
-  background: #F2F2F2;
+  background-color: $border-color;
 
   .courseIntroductionTop {
-    background: #fff;
+    background: $white;
     margin-bottom: 18px;
     width: 100%;
     box-sizing: border-box;
     padding: 20px;
-    background: #fff;
+    background: $white;
 
     .courseTitle {
       font-size: 16PX;
@@ -20,7 +21,7 @@
         font-size: 12PX;
         padding: 0 10px;
         line-height: 40px;
-        color: #fff;
+        color: $white;
         margin-right: 8PX;
       }
 
@@ -45,22 +46,32 @@
         .user {
           display: block;
           font-size: 12PX;
-          color: #333;
+          color: $text-color;
         }
 
         .timeOut {
           display: block;
           font-size: 12PX;
-          color: #666;
+          color: $text-color-light;
           line-height: 20PX;
         }
       }
 
       .starBox {
         display: inline-block;
-
+        .starIcon{
+          font-size: 32px;
+          color: #FFBD00;
+          margin-left: 10px;
+        }
+        .starIconNo{
+          font-size: 32px;
+          color: #EDEDED;
+          margin-left: 10px;
+        }
         .grade {
           font-size: 32px;
+          margin-left: 10px;
         }
       }
     }
@@ -76,7 +87,7 @@
       .price {
         display: inline-block;
         font-size: 34px;
-        color: #fff;
+        color: $white;
         line-height: 96px;
         margin-left: 32px;
 
@@ -88,13 +99,13 @@
 
       .timerText {
         font-size: 24px;
-        color: #fff;
+        color: $white;
         margin: 0 8px 0 100px;
       }
 
       .timer {
         font-size: 22px;
-        color: #fff;
+        color: $white;
         display: inline-block;
         height: 100%;
         position: absolute;
@@ -103,7 +114,7 @@
           height: 36px;
           width: 36px;
           display: inline-block;
-          background-color: #fff;
+          background-color: $white;
           position: absolute;
           top: 30px;
           color: #FD3E4C;
@@ -121,12 +132,12 @@
   // 讲师介绍
   .courseIntroductionLecturer {
     width: 100%;
-    background-color: #fff;
+    background-color: $white;
     margin-bottom: 18px;
 
     .lecturer {
       font-size: 36px;
-      color: #333;
+      color: $text-color;
       line-height: 124px;
       padding: 0 34px 0 34px;
       box-sizing: border-box;
@@ -164,7 +175,7 @@
         .lecturerText {
           display: block;
           font-size: 28px;
-          color: #666;
+          color: $text-color-light;
           word-wrap: break-word;
           white-space: normal;
           text-overflow: ellipsis;
@@ -179,14 +190,18 @@
       text-align: center;
       line-height: 96px;
       font-size: 36px;
-      border-top: 1px solid rgba(237, 237, 237, 1);
+      border-top: 1px solid #EDEDED;
       color: rgba(51, 51, 51, 1);
+      .bottomIcon{
+        font-size: 28px;
+        margin-left: 10px;
+      }
     }
   }
 
   // 商品介绍
   .courseIntroductionGoods {
-    background-color: #fff;
+    background-color: $white;
     padding: 30px 34px 0 34px;
     box-sizing: border-box;
 
@@ -197,7 +212,7 @@
     .goodsText {
       display: block;
       font-size: 28px;
-      color: #666;
+      color: $text-color-light;
       word-wrap: break-word;
       white-space: normal;
       text-overflow: ellipsis;
