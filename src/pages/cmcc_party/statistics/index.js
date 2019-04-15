@@ -16,7 +16,7 @@ class SumbitOrder extends Taro.Component {
   }
 
   state = {
-    selector: ['美国', '中国', '巴西', '日本'],
+    selector: [],
     name: '',
     title: [{
       label: '排名',
@@ -49,7 +49,8 @@ class SumbitOrder extends Taro.Component {
       startTime: '',
       endTime: '',
       search: '',
-      partyGroupId: ''
+      partyGroupId: '',
+      partyGroupName: ''
     },
     showCalender: false
   }
@@ -72,11 +73,35 @@ class SumbitOrder extends Taro.Component {
           formData: res.data.rows
         })
       })
+      this.search()
     })
   }
   handleClick() {
     this.setState({
       showCalender: true
+    })
+  }
+  choseGroup (event) {
+    const option = this.state.option
+    const item = this.state.selector[event.detail.value]
+    console.log(item)
+    option.partyGroupId = item.value
+    option.partyGroupName = item.label
+    this.setState({
+      option
+    })
+  }
+  search () {
+    Taro.request({
+      url: 'http://221.176.65.6:808/pm/demandapi/demand/PartyGroupRest/getGroup',
+      method: 'get',
+      data: {
+        token: this.props.token
+      }
+    }).then(({data}) => {
+      this.setState({
+        selector: data.map(item => ({value: item.partyGroupId, label: item.partyGroupName}))
+      })
     })
   }
   onChange() {
@@ -111,10 +136,10 @@ class SumbitOrder extends Taro.Component {
         </AtFloatLayout>
         <AtList>
           <AtListItem title='开始-结束' onClick={this.handleClick.bind(this)} arrow='right' extraText={option.startTime ? '' : '请选择'} note={option.startTime ? `${option.startTime||''} - ${option.endTime||''}` : ''} />
-          <AtListItem title='党小组' onClick={this.handleClick} extraText={
-            <Picker mode='selector' range={this.state.selector} onChange={this.onChange}>
+          <AtListItem title='党小组' extraText={
+            <Picker rangeKey='label' mode='selector' range={this.state.selector} onChange={this.choseGroup.bind(this)}>
               <View className='picker'>
-                {this.state.selectorChecked ? this.state.selectorChecked : '请选择'}
+                {this.state.option.partyGroupName ? this.state.option.partyGroupName : '请选择'}
               </View>
             </Picker>
           } />
@@ -132,7 +157,7 @@ class SumbitOrder extends Taro.Component {
         />
         <View className='at-row at-row__justify--end button_wrap'>
           <View className='at-col at-col-2'>
-            <AtButton type='primary' size='small'>查询</AtButton>
+            <AtButton type='primary' size='small' onClick={this.search.bind(this)}>查询</AtButton>
           </View>
           <View className='at-col at-col-2'>
             <AtButton type='secondary' size='small'>重置</AtButton>
