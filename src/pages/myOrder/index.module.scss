@@ -1,3 +1,24 @@
-.myOrder {
-  
+.MyOrder {
+   .head{
+       display:flex;
+       height:72px;
+       line-height:72px;
+       position:fixed;
+       top:0;
+       left:0;
+       width:100%;
+       background:#fff;
+       border-bottom:1px solid rgba(237,237,237,1);
+       .list{
+           flex:1;
+           font-size:30px;
+           text-align:center;
+           &.active{
+                color:rgba(255,120,71,1);
+           }
+       }
+   }
+   .body{
+       margin-top:72px;
+   }
 }

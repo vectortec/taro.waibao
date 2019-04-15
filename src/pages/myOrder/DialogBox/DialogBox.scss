@@ -1,6 +1,6 @@
 .Dialog{
     .cover{
-        position:fixed;
+        position:absolute;
         top:0;
         left:0;
         height:100%;
@@ -14,9 +14,9 @@
         top:50%;
         left:50%;
         margin-left:-300px;
-        margin-top:-215px;
+        margin-top:-125px;
         width:600px;
-        height:430px;
+        height:250px;
         font-size:24px;
         background:#ffffff;
         z-index:120;
@@ -25,12 +25,14 @@
             font-size:32px;
             color:rgba(60,61,65,1);
             text-align:center;
-            margin-top:41px;
+            margin:21px 0;
         }
         .content{
             padding:0 54px;
+            font-size:24px;
             color:rgba(102,102,102,1);
             margin-bottom:12px;
+            text-align:center;
         }
         .btnList{
             display:flex;

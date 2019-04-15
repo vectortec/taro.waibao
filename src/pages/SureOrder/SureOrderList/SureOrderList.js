@@ -1,9 +1,15 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View,Text,Image,Checkbox} from '@tarojs/components'
+import { View,Text,Image} from '@tarojs/components'
 import './SureOrderList.scss'
-export default class CarComponent extends Component {
+export default class SureOrderList extends Component {
     constructor(props){
         super(props)
+        this.state={
+            txt:'神秘博士的插画设计，包豪斯100周年纪念日，快来看本期 神秘博士的插画设计'    
+        }
+    }
+    TextOverHidden(txt,num){
+        return txt.length > num ? txt.slice(0, num) + '...' : txt ;
     }
   render() {
 
@@ -15,8 +21,8 @@ export default class CarComponent extends Component {
                     </View>
                     <View className='content'> 
                         <View className='title'>
-                            <Text>
-                                神秘博士的插画设计，包豪斯100周年纪念日，快来看本期...
+                            <Text style={{ whiteSpace: 'normal'}}>
+                                {this.TextOverHidden(this.state.txt,22)}
                             </Text>
                         </View>
                         <View className='activeName'>
@@ -25,10 +31,6 @@ export default class CarComponent extends Component {
                             <Text className='real_price'>￥199.00</Text>
                         </View>    
                     </View>
-                </View>
-                <View className='detail'>
-                    <Text className='price_save'>已抵销20000积分，为您节省￥1990.0</Text>
-                    <Text className='real_pay'>实付：￥<Text className='price'>998.00</Text></Text>
                 </View>
             </View>
          )
