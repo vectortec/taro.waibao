@@ -23,6 +23,16 @@
           font-weight: bold;
           margin-right: 20px;
         }
+        .reviewStarIcon{
+          font-size: 32px;
+          color: #FFBD00;
+          margin-left: 10px;
+        }
+        .reviewStarIconNo{
+          font-size: 32px;
+          color: #EDEDED;
+          margin-left: 10px;
+        }
       }
       .reviewUser{
         font-size: 22px;
@@ -68,6 +78,16 @@
         }
         .reviewUserStar{
           float: right;
+          .reviewUserStarIcon{
+            font-size: 32px;
+            color: #FFBD00;
+            margin-left: 10px;
+          }
+          .reviewUserStarIconNo{
+            font-size: 32px;
+            color: #EDEDED;
+            margin-left: 10px;
+          }
         }
        }
       }
