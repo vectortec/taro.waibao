@@ -5,12 +5,12 @@ import { add, minus, asyncAdd } from '@/actions/counter'
 // import {getDemoList} from 'api/demo'
 import Loading from '@/components/loading'
 
-import styles from './index.module.scss'
+import styles from './checkAgreement.module.scss'
 
 
 
 @connect(state => state.counter, {add, minus, asyncAdd})
-class newsDetails extends Component {
+class checkAgreement extends Component {
   config = {
     navigationBarTitleText: '行家-服务协议'
   }
@@ -54,4 +54,4 @@ class newsDetails extends Component {
   }
 }
 
-export default newsDetails
+export default checkAgreement

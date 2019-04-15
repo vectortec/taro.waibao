@@ -12,7 +12,7 @@ import '../staticPic/icon.scss'
 class ConcatUs extends Component {
 
   config = {
-    navigationBarTitleText: 'ConcatUs'
+    navigationBarTitleText: '行家'
   }
 
   state = {

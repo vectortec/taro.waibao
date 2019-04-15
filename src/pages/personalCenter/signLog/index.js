@@ -10,7 +10,7 @@ import styles from './index.module.scss'
 
 
 @connect(state => state.counter, {add, minus, asyncAdd})
-class newsDetails extends Component {
+class serviceContract extends Component {
   config = {
     navigationBarTitleText: '行家-服务协议'
   }
@@ -54,4 +54,4 @@ class newsDetails extends Component {
   }
 }
 
-export default newsDetails
+export default serviceContract

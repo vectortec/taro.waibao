@@ -11,7 +11,7 @@ import '../staticPic/icon.scss'
 class NewsInform extends Component {
 
   config = {
-    navigationBarTitleText: 'NewsInform'
+    navigationBarTitleText: '行家'
   }
 
   state = {
@@ -57,9 +57,15 @@ class NewsInform extends Component {
   endClick() {
     clearTimeout(this.timeOutEvent); 
     if (this.timeOutEvent != 0) {
-        console.log('你点击了') 
+        console.log('你点击了')
     }  
     return false;  
+  }
+
+  goDetails() { // 跳转
+    Taro.navigateTo({
+      url: '/pages/personalCenter/newsInform/newsDetails/index'
+    })
   }
   
   deleteClick() {
@@ -83,7 +89,7 @@ class NewsInform extends Component {
           <View  id='new' className={styles.news} onTouchStart={this.startClick.bind(this)} onTouchMove={this.moveClick.bind(this)} onTouchEnd={this.endClick.bind(this)}>
             <View style={{position: 'relative'}}>
               <View className={styles.title}><Text className='iconfont icon-lingdang' style={{fontSize:'20px',position:'relative',color:'#FF5A1F'}}><Text className='iconfont icon-dian' style={{position:'absolute',left:'10px',top:'-8px',color:'#FF5A1F'}}></Text></Text>消息息标题最多一消息标题最多一行消息标题最多一行、消息标题最多一行消</View>
-              <Text className='iconfont icon-right' style={{fontSize:'15px',position:'absolute',right:'11px',top:'28px'}}></Text>
+              <Text className='iconfont icon-right' style={{fontSize:'15px',position:'absolute',right:'11px',top:'28px'}} onClick={this.goDetails.bind(this)}></Text>
             </View>
             <View className={styles.newsContent} style='-webkit-box-orient: vertical;'>消息内容最多两行消息内容最多两行消息内容最多两行消息内容最多两行消息内容最多两行消息内容最多两行消息内容最多两行</View>
           </View>

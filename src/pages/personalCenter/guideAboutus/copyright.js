@@ -12,7 +12,7 @@ import '../staticPic/icon.scss'
 class Copyright extends Component {
 
   config = {
-    navigationBarTitleText: 'Copyright'
+    navigationBarTitleText: '行家'
   }
   state = {
     loading: true,

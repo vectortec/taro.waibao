@@ -12,7 +12,7 @@ import '../staticPic/icon.scss'
 class WithUs extends Component {
 
   config = {
-    navigationBarTitleText: 'WithUs'
+    navigationBarTitleText: '行家'
   }
 
   state = {

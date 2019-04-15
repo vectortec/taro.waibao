@@ -12,7 +12,7 @@ import '../staticPic/icon.scss'
 class ServicePro extends Component {
 
   config = {
-    navigationBarTitleText: 'ServicePro'
+    navigationBarTitleText: '行家'
   }
 
   state = {

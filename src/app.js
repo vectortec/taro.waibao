@@ -22,7 +22,6 @@ class App extends Component {
 
   config = {
     pages: [
-      'pages/personalCenter/guideAboutus/aboutUs', // 关于我们--总
       'pages/home/index',
       'pages/loginPage/index',
       'pages/menu/index',
@@ -30,17 +29,18 @@ class App extends Component {
       'pages/aboutUs/index',
       // 'pages/car/index',
       'pages/confirmOrder/index',
+      'pages/confirmOrder/checkAgreement', //订单--服务协议
       'pages/courseDetail/index',
       'pages/courseList/index',
       'pages/forgetPassword/index',
-      'pages/learningCenter/index',
       'pages/learningCenterDetail/index',
       'pages/messageCenter/index',
       'pages/myOrder/index',
       'pages/newsDetail/index',
       'pages/newsList/index',
+      'pages/personalCenter/guideAboutus/aboutUs', // 关于我们--总
       'pages/personalCenter/index', // 个人中心
-      'pages/personalCenter/newsInform/index', // 消息通知
+      'pages/personalCenter/signLog/index', // 注册--服务协议
       'pages/personalCenter/guideAboutus/index', // 新手指南
       'pages/personalCenter/guideAboutus/copyright', // 版权说明
       'pages/personalCenter/newsInform/newsDetails/index', // 消息详情
@@ -59,35 +59,6 @@ class App extends Component {
       navigationBarBackgroundColor: '#fff',
       navigationBarTitleText: 'WeChat',
       navigationBarTextStyle: 'black'
-    },
-    tabBar: {
-      color: '#626567',
-      selectedColor: '#2A8CE5',
-      backgroundColor: '#FBFBFB',
-      borderStyle: 'white',
-      list: [{
-        pagePath: 'pages/personalCenter/newsInform/newsDetails/index',
-        text: '消息详情',
-        // iconPath: './asset/images/index.png',
-        // selectedIconPath: './asset/images/index_focus.png'
-      },{
-        pagePath: 'pages/personalCenter/guideAboutus/index',
-        text: '新手指南',
-        // iconPath: './asset/images/discovery.png',
-        // selectedIconPath: './asset/images/discovery_focus.png'
-      }, 
-      {
-        pagePath: 'pages/personalCenter/guideAboutus/aboutUs', // 关于我们--总,
-        text: '关于我们',
-        // iconPath: './asset/images/burger.png',
-        // selectedIconPath: './asset/images/burger_focus.png'
-      },
-      {
-        pagePath: 'pages/personalCenter/newsInform/index',
-        text: '消息通知',
-        // iconPath: './asset/images/burger.png',
-        // selectedIconPath: './asset/images/burger_focus.png'
-      }]
     }
   }
 

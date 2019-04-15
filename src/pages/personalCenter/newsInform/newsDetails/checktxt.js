@@ -1,12 +1,12 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View, Image} from '@tarojs/components'
+import { View} from '@tarojs/components'
 import { connect } from '@tarojs/redux'
 import { add, minus, asyncAdd } from '@/actions/counter'
 import {getDemoList} from 'api/demo'
 import Loading from '@/components/loading'
 
 import styles from './checktxt.module.scss'
-import attachment from '../attachment.png'
+
 
 
 @connect(state => state.counter, {add, minus, asyncAdd})
@@ -51,9 +51,9 @@ class Checktxt extends Component {
 
     return (
       <View className={styles.checktxt}>
-        <View className={styles.txt}><Image src={attachment} className={styles.img}></Image>附件一-附件名称最多显示一行.png</View>
+        <View className={styles.txt}>附件一-附件名称最多显示一行.png</View>
 
-        <View className={styles.txt}><Image src={attachment} className={styles.img}></Image>附件2-附件名.jpg</View>
+        <View className={styles.txt}>附件2-附件名.jpg</View>
       </View>
     )
   }
