@@ -3,6 +3,7 @@ import Taro, { Component } from '@tarojs/taro'
 import { Provider } from '@tarojs/redux'
 
 import Index from './pages/demo/index'
+import 'taro-ui/dist/style/index.scss'
 
 import configStore from './store'
 
@@ -21,18 +22,18 @@ class App extends Component {
 
   config = {
     pages: [
+      'pages/learningCenter/index',
       'pages/home/index',
+      'pages/loginPage/index',
       'pages/menu/index',
       'pages/demo/index',
       'pages/aboutUs/index',
-      'pages/car/index',
+      // 'pages/car/index',
       'pages/confirmOrder/index',
       'pages/courseDetail/index',
       'pages/courseList/index',
       'pages/forgetPassword/index',
-      'pages/learningCenter/index',
       'pages/learningCenterDetail/index',
-      'pages/loginPage/index',
       'pages/messageCenter/index',
       'pages/myOrder/index',
       'pages/newsDetail/index',
@@ -40,7 +41,9 @@ class App extends Component {
       'pages/personalCenter/index',
       'pages/register/index',
       'pages/submitOrder/index',
-      'pages/payment/index',
+      'pages/payment/submit-order/index',
+      'pages/payment/pay-result-success/index',
+      'pages/payment/pay-result-wait/index',
     ],
     window: {
       backgroundTextStyle: 'light',

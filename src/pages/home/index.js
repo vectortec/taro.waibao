@@ -6,7 +6,7 @@ import styles from './index.module.scss'
 class Home extends Component {
 
   config = {
-    navigationBarTitleText: 'Home'
+    navigationBarTitleText: '首页'
   }
 
   redirectTo = (url) => {
@@ -16,9 +16,15 @@ class Home extends Component {
   render () {
 
     return (
-      <View className={styles.demo}>
+      <View>
         <View>
-          <Text className={styles.link} onClick={this.redirectTo.bind(this, '/pages/payment/index')}>支付页</Text>
+          <Text className={styles.link} onClick={this.redirectTo.bind(this, '/pages/payment/submit-order/index')}>支付页</Text>
+        </View>
+        <View>
+          <Text className={styles.link} onClick={this.redirectTo.bind(this, '/pages/payment/pay-result-success/index')}>支付页-成功</Text>
+        </View>
+        <View>
+          <Text className={styles.link} onClick={this.redirectTo.bind(this, '/pages/payment/pay-result-wait/index')}>支付页-失败</Text>
         </View>
       </View>
     )
