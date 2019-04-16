@@ -1,8 +1,8 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
-import { add, minus, asyncAdd } from '@/actions/counter'
 import { asyncLogin } from '@/actions/login'
+import { AtPagination } from "taro-ui"
 import './index.scss'
 import Table from 'components/Vtable/index'
 
@@ -31,16 +31,24 @@ class SumbitOrder extends Taro.Component {
       key: 'activityRemarks'
     }],
     formData: [],
-    showCalender: false
+    showCalender: false,
+    page: {
+      total: 0,
+      current: 1
+    }
   }
 
   componentDidMount() {
+    this.search()
+  }
+  search (page) {
     this.props.asyncLogin().then(() => {
       Taro.request({
         url: 'http://221.176.65.6:808/pm/demandapi/demand/PartyGroupRest/queryActivityBulletinByPage',
         method: 'get',
         data: {
-          token: this.props.token
+          token: this.props.token,
+          pageNo: page && page.current ? page.current : 1
         }
       }).then(res => {
         this.setState({
@@ -65,6 +73,13 @@ class SumbitOrder extends Taro.Component {
       <View className='detail'>
 				<Text className='title'>活动公告列表</Text>
         <Table title={this.state.title} formData={this.state.formData}></Table>
+        <AtPagination
+          icon
+          onPageChange={this.search.bind(this)}
+          total={this.state.page.total}
+          pageSize={10}
+          current={this.state.page.current}
+        ></AtPagination>
       </View>
     )
   }

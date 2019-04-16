@@ -19,8 +19,16 @@
       border-right: 1px solid #dadada;
       text-align: center;
       width: 100%;
+      font-size: 25px;
+    }
+    .td {
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap
     }
     .th {
+      vertical-align: middle;
+      font-size: 28px;
       font-weight: 400;
       background-color: #dadada;
     }

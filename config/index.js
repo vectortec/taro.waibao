@@ -94,6 +94,9 @@ const config = {
     }
   },
   h5: {
+    router: {
+      mode: 'browser' // 或者是 'browser'
+    },
     esnextModules: ['taro-ui'],
     publicPath: '/',
     staticDirectory: 'static',

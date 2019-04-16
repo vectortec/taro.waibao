@@ -37,14 +37,7 @@ class SumbitOrder extends Taro.Component {
       label: '最终积分',
       key: 'zuizhong'
     }],
-    formData: [{
-      ranking: 0,
-      groupMemberUserName: 'lee',
-      partyGroupName: 'b',
-      yuanshi: 66,
-      zuizhong: 99,
-      // chuxi: 55
-    }],
+    formData: [],
     option: {
       startTime: '',
       endTime: '',
@@ -52,7 +45,11 @@ class SumbitOrder extends Taro.Component {
       partyGroupId: '',
       partyGroupName: ''
     },
-    showCalender: false
+    showCalender: false,
+    page: {
+      total: 0,
+      current: 1
+    }
   }
 
   // 慎用
@@ -63,14 +60,14 @@ class SumbitOrder extends Taro.Component {
   componentDidMount() {
     this.props.asyncLogin().then(() => {
       Taro.request({
-        url: 'http://221.176.65.6:808/pm/demandapi/demand/PartyGroupRest/queryIntegralStatisticsByPage',
+        url: 'http://221.176.65.6:808/pm/demandapi/demand/PartyGroupRest/getGroup',
         method: 'get',
         data: {
           token: this.props.token
         }
-      }).then(res => {
+      }).then(({ data }) => {
         this.setState({
-          formData: res.data.rows
+          selector: data.map(item => ({ value: item.partyGroupId, label: item.partyGroupName }))
         })
       })
       this.search()
@@ -81,39 +78,50 @@ class SumbitOrder extends Taro.Component {
       showCalender: true
     })
   }
-  choseGroup (event) {
+  choseGroup(event) {
     const option = this.state.option
     const item = this.state.selector[event.detail.value]
-    console.log(item)
     option.partyGroupId = item.value
     option.partyGroupName = item.label
     this.setState({
       option
     })
   }
-  search () {
+  search(page) {
     Taro.request({
-      url: 'http://221.176.65.6:808/pm/demandapi/demand/PartyGroupRest/getGroup',
+      url: 'http://221.176.65.6:808/pm/demandapi/demand/PartyGroupRest/queryIntegralStatisticsByPage',
       method: 'get',
       data: {
-        token: this.props.token
+        token: this.props.token,
+        pageNo: page && page.current ? page.current : 1,
+        ...this.state.option
       }
-    }).then(({data}) => {
+    }).then(({ data }) => {
       this.setState({
-        selector: data.map(item => ({value: item.partyGroupId, label: item.partyGroupName}))
+        formData: data.rows,
+        page: {
+          total: data.total,
+          current: data.pageNo
+        }
       })
     })
   }
-  onChange() {
-
+  ItemClick(item) {
+    Taro.navigateTo({
+      url: `/pages/cmcc_party/campaign/index?id=${item.groupMemberUserId}`,
+    })
   }
-  nameChange() {
-
+  nameChange(event) {
+    const option = this.state.option
+    option.search = event
+    this.setState({
+      option
+    })
   }
-  onDateChange({value}) {
+  onDateChange({ value }) {
     save = value
   }
-  sureCalender () {
+  sureCalender() {
     const option = this.state.option
     option.startTime = save.start
     option.endTime = save.end
@@ -123,7 +131,7 @@ class SumbitOrder extends Taro.Component {
     })
   }
   render() {
-    const {option} = this.state
+    const { option } = this.state
     return (
       <View className='statistics'>
         <AtFloatLayout isOpened={this.state.showCalender}>
@@ -135,7 +143,7 @@ class SumbitOrder extends Taro.Component {
           <AtCalendar onSelectDate={this.onDateChange.bind(this)} isMultiSelect></AtCalendar>
         </AtFloatLayout>
         <AtList>
-          <AtListItem title='开始-结束' onClick={this.handleClick.bind(this)} arrow='right' extraText={option.startTime ? '' : '请选择'} note={option.startTime ? `${option.startTime||''} - ${option.endTime||''}` : ''} />
+          <AtListItem title='开始-结束' onClick={this.handleClick.bind(this)} arrow='right' extraText={option.startTime ? '' : '请选择'} note={option.startTime ? `${option.startTime || ''} - ${option.endTime || ''}` : ''} />
           <AtListItem title='党小组' extraText={
             <Picker rangeKey='label' mode='selector' range={this.state.selector} onChange={this.choseGroup.bind(this)}>
               <View className='picker'>
@@ -149,7 +157,7 @@ class SumbitOrder extends Taro.Component {
           title='姓名'
           type='text'
           placeholder='请输入'
-          value={this.state.name}
+          value={this.state.option.search}
           onChange={this.nameChange.bind(this)}
           placeholderStyle={{
             'text-align': 'right'
@@ -163,8 +171,16 @@ class SumbitOrder extends Taro.Component {
             <AtButton type='secondary' size='small'>重置</AtButton>
           </View>
         </View>
-        <Table title={this.state.title} formData={this.state.formData}></Table>
-        <AtPagination className=''></AtPagination>
+        <View className='table_wrap'>
+          <Table title={this.state.title} ItemClick={this.ItemClick.bind(this)} formData={this.state.formData}></Table>
+        </View>
+        <AtPagination
+          icon
+          pageSize={10}
+          onPageChange={this.search.bind(this)}
+          total={this.state.page.total}
+          current={this.state.page.current}
+        ></AtPagination>
       </View>
     )
   }

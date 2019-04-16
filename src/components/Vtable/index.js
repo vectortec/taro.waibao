@@ -19,10 +19,9 @@ class SumbitOrder extends Taro.Component {
         }
         // console.log(Row)
         // return Row
-        return <View className='tr'>{Row}</View>
+        return <View className='tr' onClick={() => this.props.ItemClick && this.props.ItemClick(item)}>{Row}</View>
       })
       return res
-      console.log(res)
     }
     return (
       <View className='statistics'>
@@ -30,7 +29,7 @@ class SumbitOrder extends Taro.Component {
           <View className='table'>
             <View className='tr'>
               {this.props.title.map(item => (
-                <View className='th'>{item.label}</View>
+                <View className='th header'>{item.label}</View>
               ))}
             </View>
             {FormData2table.call(this)}

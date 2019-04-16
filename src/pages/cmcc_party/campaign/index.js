@@ -17,13 +17,13 @@ class SumbitOrder extends Taro.Component {
     name: '',
     title: [{
       label: '活动类别',
-      key: 'type'
+      key: 'activityType'
     }, {
       label: '活动时间',
-      key: 'time'
+      key: 'activityTime'
     }, {
       label: '积分',
-      key: 'score'
+      key: 'integral'
     }, {
       label: '原因',
       key: 'reason'
@@ -42,11 +42,13 @@ class SumbitOrder extends Taro.Component {
         url: 'http://221.176.65.6:808/pm/demandapi/demand/PartyGroupRest/queryIntegralDetailedByUserId',
         method: 'get',
         data: {
-          token: this.props.token
+          token: this.props.token,
+          groupMemberUserId: this.$router.params.id
         }
       }).then(res => {
         this.setState({
-          formData: res.data.rows
+          formData: res.data.object.integralDetailList,
+          userName: res.data.object.userName
         })
       })
     })
@@ -65,7 +67,7 @@ class SumbitOrder extends Taro.Component {
   render() {
     return (
       <View className='campaign'>
-				<Text className='title'>党员{this.props.user.userName}同志活动积分详细列表</Text>
+				<Text className='title'>党员{this.state.userName}同志活动积分详细列表</Text>
         <Table title={this.state.title} formData={this.state.formData}></Table>
       </View>
     )
