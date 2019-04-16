@@ -101,7 +101,6 @@ const config = {
       filename: 'js/[name].[hash].js',
       chunkFilename: 'js/[name].[chunkhash].js'
     },
-    esnextModules: ['taro-ui'],
     imageUrlLoaderOption: {
       limit: 5000,
       name: 'static/images/[name].[hash].[ext]'
@@ -113,6 +112,7 @@ const config = {
     sassLoaderOption: {
       importer: sassImporter
     },
+    devServer: {port: 10086,host: "0.0.0.0"},
     module: {
       postcss: {
         autoprefixer: {

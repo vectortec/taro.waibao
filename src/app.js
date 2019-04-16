@@ -8,6 +8,7 @@ import 'taro-ui/dist/style/index.scss'
 import configStore from './store'
 
 import './styles/index.scss'
+import './styles/iconfont.scss'
 import './app.scss'
 
 // 如果需要在 h5 环境中开启 React Devtools
@@ -23,17 +24,17 @@ class App extends Component {
   config = {
     pages: [
       'pages/register/index',
-      'pages/home/index',
       'pages/loginPage/index',
+      'pages/learningCenter/index',
+      'pages/home/index',
       'pages/menu/index',
       'pages/demo/index',
       'pages/aboutUs/index',
-      'pages/car/index',
+      // 'pages/car/index',
       'pages/confirmOrder/index',
       'pages/courseDetail/index',
       'pages/courseList/index',
       'pages/forgetPassword/index',
-      'pages/learningCenter/index',
       'pages/learningCenterDetail/index',
       'pages/messageCenter/index',
       'pages/myOrder/index',
@@ -41,7 +42,9 @@ class App extends Component {
       'pages/newsList/index',
       'pages/personalCenter/index',
       'pages/submitOrder/index',
-      'pages/payment/index',
+      'pages/payment/submit-order/index',
+      'pages/payment/pay-result-success/index',
+      'pages/payment/pay-result-wait/index',
     ],
     window: {
       backgroundTextStyle: 'light',
