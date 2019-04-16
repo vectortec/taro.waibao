@@ -8,6 +8,7 @@ import 'taro-ui/dist/style/index.scss'
 import configStore from './store'
 
 import './styles/index.scss'
+import './styles/iconfont.scss'
 import './app.scss'
 
 // 如果需要在 h5 环境中开启 React Devtools
@@ -22,8 +23,10 @@ class App extends Component {
 
   config = {
     pages: [
-      'pages/home/index',
+      'pages/register/index',
       'pages/loginPage/index',
+      'pages/learningCenter/index',
+      'pages/home/index',
       'pages/menu/index',
       // 'pages/demo/index',
       'pages/aboutUs/index',
@@ -43,12 +46,14 @@ class App extends Component {
       'pages/personalCenter/signLog/index', // 注册--服务协议
       'pages/personalCenter/guideAboutus/index', // 新手指南
       'pages/personalCenter/guideAboutus/copyright', // 版权说明
+      'pages/personalCenter/newsInform/index', // 消息
       'pages/personalCenter/newsInform/newsDetails/index', // 消息详情
       'pages/personalCenter/guideAboutus/servicePro', // 服务协议
       'pages/personalCenter/guideAboutus/concatUs', // 联系我们
       'pages/personalCenter/guideAboutus/withUs', // 关于我们
       'pages/personalCenter/newsInform/newsDetails/checktxt', // 附件
       'pages/register/index',
+      'pages/personalCenter/index',
       'pages/submitOrder/index',
       'pages/payment/submit-order/index',
       'pages/payment/pay-result-success/index',
