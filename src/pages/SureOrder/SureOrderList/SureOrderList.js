@@ -21,23 +21,17 @@ export default class SureOrderList extends Component {
   render() {
 
     return (
-            <AtSwipeAction options={[
-                {
-                    text: '取消',
-                    style: {
-                        backgroundColor: '#aaa'
-                    }
-                    },
-                    {
-                    text: '删除',
-                    style: {
-                        backgroundColor: '#ff7847'
-                    }
-                    }
-                ]}
-                onOpened={()=>this.handleOpened()}
-                onClosed={()=>this.handleClosed()} 
-                >
+                <AtSwipeAction
+                    options={[
+                        {
+                            text: '删除',
+                            style: {
+                            backgroundColor: '#ff7847'
+                            }
+                        }
+                        ]}
+                        onClick={this.handleOpened.bind(this)}
+                    >
                 <View className='list_car'>
                     <View className='car'>
                         <View className='list'>
