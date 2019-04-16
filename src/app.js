@@ -21,6 +21,7 @@ class App extends Component {
 
   config = {
     pages: [
+      'pages/myOrder/index',
       'pages/home/index',
       'pages/menu/index',
       'pages/demo/index',
@@ -35,7 +36,6 @@ class App extends Component {
       'pages/learningCenterDetail/index',
       'pages/loginPage/index',
       'pages/messageCenter/index',
-      'pages/myOrder/index',
       'pages/newsDetail/index',
       'pages/newsList/index',
       'pages/personalCenter/index',
