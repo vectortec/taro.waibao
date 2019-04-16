@@ -6,8 +6,9 @@
  * @props {function} onClick (course) 点击触发的事件
  * @LastEditors: 蔡江旭
  * @Date: 2019-04-08 10:02:25
- * @LastEditTime: 2019-04-15 18:04:34
+ * @LastEditTime: 2019-04-16 18:32:49
  */
+import isValidElement from 'nervjs'
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
 import classNames from 'classnames'
@@ -40,6 +41,17 @@ export default class CourseCard extends Component {
         const { className, style, course = {}, cardTitle = '', coverImage, children } = this.props;
         const newClassName = classNames(styles.courseCard, className);
 
+        let titleProps = {};
+        let titleChild = [];
+        console.log('cardTitle', cardTitle);
+
+        if (Array.isArray(cardTitle)) {
+            titleChild = cardTitle;
+        } else {
+            titleProps = {
+                dangerouslySetInnerHTML: { __html: cardTitle }
+            };
+        }
         return (
             <View
               className={newClassName}
@@ -55,7 +67,11 @@ export default class CourseCard extends Component {
                 </View>
                 {/* 相关信息区域 */}
                 <View className={styles.detailBox}>
-                    <View className={styles.title} dangerouslySetInnerHTML={{ __html: cardTitle }}></View>
+                    <View
+                      className={styles.title}
+                      // eslint-disable-next-line taro/no-spread-in-props
+                      {...titleProps}
+                    >{titleChild}</View>
                     {children}
                 </View>
             </View>
