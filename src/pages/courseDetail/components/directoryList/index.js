@@ -6,7 +6,7 @@ class DirectoryList extends Component {
   constructor() {
     super(...arguments);
     this.state = {
-      menuDatas: []
+      menuDatas: [],
     };
     this.clickHandler = this.clickHandler.bind(this)
   }
@@ -49,9 +49,9 @@ class DirectoryList extends Component {
 
   clickHandler(crtMenuData) {
     crtMenuData.rotate = !crtMenuData.rotate
-    this.setState({})
-    console.log(crtMenuData, 'crt');
+    this.setState()
   }
+
 
   render() {
     var crtCmp = this;
@@ -63,9 +63,6 @@ class DirectoryList extends Component {
             <View
               key={crtMenuData.rotate}
               style={crtMenuData.rotate ? "display: block" : "display: none"}
-              // className={
-              //   key == crtCmp.state.expandId ? styles.knobList : styles.knobListNo
-              // }
               className={styles.knobList}
             >
               {/* 节列表 */}

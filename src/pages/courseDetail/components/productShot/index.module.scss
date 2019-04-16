@@ -1,0 +1,137 @@
+@import '@/styles/variable.scss';
+.courseIntroductionTop {
+  background: $white;
+  margin-bottom: 18px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  background: $white;
+
+  .courseTitle {
+    font-size: 16PX;
+
+    .courseLabel {
+      display: inline-block;
+      background-color: #FFE7DD;
+      border-radius: 8px;
+      font-size: 12PX;
+      padding: 0 10px;
+      line-height: 40px;
+      color: #FF5A1F;
+      margin-right: 8PX;
+      border: 1PX solid #EB6100;
+      box-sizing: border-box;
+    }
+
+    .course {
+      word-wrap: break-word;
+      white-space: normal;
+      text-overflow: ellipsis;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      text-align: justify;
+    }
+  }
+
+  .courseStateBox {
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+
+    .courseState {
+      flex: 1;
+
+      .user {
+        display: block;
+        font-size: 12PX;
+        color: $text-color;
+      }
+
+      .timeOut {
+        display: block;
+        font-size: 12PX;
+        color: $text-color-light;
+        line-height: 20PX;
+      }
+    }
+
+    .starBox {
+      display: inline-block;
+      .starIcon{
+        font-size: 32px;
+        color: #FFBD00;
+        margin-left: 10px;
+      }
+      .starIconNo{
+        font-size: 32px;
+        color: #EDEDED;
+        margin-left: 10px;
+      }
+      .grade {
+        font-size: 32px;
+        margin-left: 10px;
+      }
+    }
+  }
+
+  // 计时器
+  .contest {
+    height: 96px;
+    border-radius: 10px;
+    background-color: hotpink;
+    margin: 40px auto;
+
+    .price {
+      display: inline-block;
+      font-size: 34px;
+      color: $white;
+      line-height: 96px;
+      margin-left: 32px;
+
+      .par {
+        font-size: 22px;
+        margin-left: 10px;
+        position: relative;
+        .line{
+          width: 100%;
+          height: 1PX;
+          display: block;
+          position: absolute;
+          top: 18px;
+          left: 0px;
+          background-color: #fff;
+        }
+      }
+    }
+
+    .timerText {
+      font-size: 24px;
+      color: $white;
+      margin: 0 8px 0 100px;
+    }
+
+    .timer {
+      font-size: 22px;
+      color: $white;
+      display: inline-block;
+      height: 100%;
+      position: absolute;
+
+      .hour {
+        height: 36px;
+        width: 36px;
+        display: inline-block;
+        background-color: $white;
+        position: absolute;
+        top: 30px;
+        color: #FD3E4C;
+        padding-left: 4px;
+      }
+
+      .time {
+        margin: 0 8px 0 44px;
+        line-height: 96px;
+      }
+    }
+  }
+}

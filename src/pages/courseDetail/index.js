@@ -4,7 +4,7 @@ import { connect } from "@tarojs/redux";
 import { add, minus, asyncAdd } from "@/actions/counter";
 import Loading from "@/components/loading";
 import TabComponent from "./components/tab/index";
-import ShareComponent from './components/share/index'
+// import ShareComponent from './components/share/index'
 
 import styles from "./index.module.scss";
 
@@ -23,7 +23,9 @@ class CourseDetail extends Component {
       listLoadding: true,
       isImage: false,
       collect: false,
-      shareShow: false,
+      // shareShow: false,
+      open: false,
+      activeOpen: false,
     };
   }
 
@@ -36,6 +38,18 @@ class CourseDetail extends Component {
     console.log(this.props, nextProps);
   }
 
+  componentDidUpdate () {
+    // 去掉提示
+    if (this.state.open == true) {
+      let studyTimer = setTimeout(_ => {
+        this.setState({
+          open: false
+        });
+        clearTimeout(studyTimer);
+      }, 3000);
+    }
+  }
+
   componentDidMount() {
     let timer = setTimeout(_ => {
       this.setState({
@@ -44,6 +58,7 @@ class CourseDetail extends Component {
       this.getBannar();
       clearTimeout(timer);
     }, 1000);
+    
   }
 
   // 视频or图片
@@ -66,11 +81,30 @@ class CourseDetail extends Component {
   }
 
   // 分享
-  shareClick() {
-    console.log("分享了");
-    this.setState({
-      shareShow: true
-    });
+  // shareClick() {
+  //   console.log("分享了");
+  //   this.setState({
+  //     shareShow: true
+  //   });
+  // }
+
+  // 立即学习
+  toStudy() {
+    this.setState({open:true})
+  }
+
+  // 加入购物车
+  toCar() {
+    console.log('加入购物车')
+    this.setState({activeOpen: true})
+  }
+
+  verifyBtn() {
+    this.setState({activeOpen: false})
+  }
+
+  cancelBtn() {
+    this.setState({activeOpen: false})
   }
 
   render() {
@@ -102,7 +136,7 @@ class CourseDetail extends Component {
             </View>
           )}
           <Text onClick={this.collectClick.bind(this)} className={`iconfont iconshoucang ${this.state.collect?styles.collectIconRed:styles.collectIcon}`}></Text>
-          <Text onClick={this.shareClick.bind(this)} className={`iconfont iconfenxiang ${styles.shareIcon}`}></Text>
+          {/* <Text onClick={this.shareClick.bind(this)} className={`iconfont iconfenxiang ${styles.shareIcon}`}></Text> */}
         </View>
 
         {/* 选项卡 */}
@@ -114,12 +148,35 @@ class CourseDetail extends Component {
             <Text className={`iconfont iconxiaoxi ${styles.counselIcon}`}></Text>
             <Text className={styles.bottBarCounselText}> 咨询 </Text>
           </View>
-          <View className={styles.bottBarBtn}>
-            <Text className={styles.bott_bar_btn_text}> 立即学习 </Text>
+          <View className={styles.bottCarBtn} onClick={this.toCar.bind(this)}>
+            <Text> 加入购物车 </Text>
+          </View>
+          <View className={styles.bottBarBtn} onClick={this.toStudy.bind(this)}>
+            <Text> 立即学习 </Text>
           </View>
         </View>
         {/* 分享 */}
-        <ShareComponent name={this.state.shareShow}></ShareComponent>
+        {/* <ShareComponent name={this.state.shareShow}></ShareComponent> */}
+        {/* 学习提示 */}
+        <View className={styles.studyBox} style={this.state.open?'display: block': 'display: none'}>
+          <Text className={`iconfont iconcorrect ${styles.studyIcon}`}></Text>
+          <Text className={styles.studyText}>已加入学习</Text>
+        </View>
+        {/* 活动价格提示 */}
+        <View className={styles.activePrice} style={this.state.activeOpen?'display: block': 'display: none'}>
+          <View className={styles.activePriceBox}>
+            <View className={styles.activePriceBoxTop}>
+              <Text>提示</Text>
+            </View>
+            <View className={styles.activePriceBoxMid}>
+              <Text>活动尚未开始，暂不享受活动价格</Text>
+            </View>
+            <View className={styles.activePriceBoxBot}>
+              <Text className={styles.activeQx} onClick={this.cancelBtn.bind(this)}>取消</Text>
+              <Text className={styles.activeQr} onClick={this.verifyBtn.bind(this)}>确定</Text>
+            </View>
+          </View>
+        </View>
       </View>
     );
   }
