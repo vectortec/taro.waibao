@@ -1,5 +1,5 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View, Text, Input } from '@tarojs/components'
+import { View, Image, Input, Icon } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
 import { add, minus, asyncAdd } from '@/actions/counter'
 import Loading from '@/components/loading'
@@ -42,8 +42,8 @@ class Register extends Component {
           <View className='at-col at-col-6'>
             <Input placeholder='图形验证码'></Input>
           </View>
-          <View className={['at-col at-col-5', styles.right_side]}>
-            <Image src='http://authorization.hqbis.cn/api/captcha-image?Mon%20Apr%2015%202019%2018:01:04%20GMT+0800%20(%E4%B8%AD%E5%9B%BD%E6%A0%87%E5%87%86%E6%97%B6%E9%97%B4)'></Image>
+          <View className={['at-col at-col-6', styles.right_side]}>
+            <Image style='width: 160;height: 60px;' className='taro_img' src='http://authorization.beta.hqjy.com/api/captcha-image'></Image>
           </View>
         </View>
         </View>
