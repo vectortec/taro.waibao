@@ -1,5 +1,5 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
+import { View, Image, Input, Icon } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
 import { add, minus, asyncAdd } from '@/actions/counter'
 import Loading from '@/components/loading'
@@ -11,7 +11,7 @@ import styles from './index.module.scss'
 class Register extends Component {
 
   config = {
-    navigationBarTitleText: 'Register'
+    navigationBarTitleText: '注册'
   }
 
   state = {
@@ -32,13 +32,21 @@ class Register extends Component {
     }, 1000)
   }
   render () {
-    if (this.state.loading) {
-      return <Loading />
-    }
-
     return (
-      <View className={styles.demo}>
-        <Text>Register page</Text>
+      <View className={styles.register}>
+        <View className={styles.input_wrap}>
+        <View className={styles.input_wrap}>
+          <Input placeholder='请输入手机号码'></Input>
+        </View>
+        <View className='at-row at-row__justify--between'>
+          <View className='at-col at-col-6'>
+            <Input placeholder='图形验证码'></Input>
+          </View>
+          <View className={['at-col at-col-6', styles.right_side]}>
+            <Image style='width: 160;height: 60px;' className='taro_img' src='http://authorization.beta.hqjy.com/api/captcha-image'></Image>
+          </View>
+        </View>
+        </View>
       </View>
     )
   }
