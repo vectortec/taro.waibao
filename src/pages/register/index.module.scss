@@ -1,3 +1,26 @@
 .register {
-  
+    padding: 0 73px;
+    height: 100%;
+    background: #fff;
+    .input_wrap {
+        height: 120px;
+        line-height: 120px;
+        vertical-align: middle;
+        font-size: 32px;
+        border-bottom: 1px solid #EDEDED;
+        input {
+            height: 120px;
+            line-height: 120px;
+        }
+        .right_side {
+            width: 160px;
+            height: 60px;
+            text-align: right;
+            align-items: center !important;
+            .taro_img {
+                // width: 160px;
+                // height: 60px;
+            }
+        }
+    } 
 }
