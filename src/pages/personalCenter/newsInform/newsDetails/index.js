@@ -1,25 +1,30 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View, RichText } from '@tarojs/components'
+import { View, Text, Image } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
 import { add, minus, asyncAdd } from '@/actions/counter'
 // import {getDemoList} from 'api/demo'
 import Loading from '@/components/loading'
 
 import styles from './index.module.scss'
+import '../../staticPic/icon.scss'
+import qw from './qw.jpg'
 
 
 
 @connect(state => state.counter, {add, minus, asyncAdd})
 class newsDetails extends Component {
   config = {
-    navigationBarTitleText: '行家-服务协议'
+    navigationBarTitleText: '行家'
   }
 
   state = {
     loading: true,
-    nodes: '<div style="font-size:14px;">欢迎使用行欢迎使用行家，为了保障您的权益，请在使用行家服务之前，详细阅读此服务协议（以下简称“本协议”）所有内容，特别是加粗部分。本协议内容包括协议正文、本协议下述协议明确援引的其他协议、上海恒企教育培训有限公司（以下简称“恒企”）已经发布的或将来可能发布的各类规则。所有规则为本协议不可分割的组成部分，与协议正文具有同等法律效力。除另行明确声明外，您使用行家服务均受本协议约束。家，为了保障您的权益，请在使用行家服务之前，详细阅读此服务协议（以下简称“本协议”）所有内容，特别是加粗部分。本协议内容包括协议正文、本协议下述协议明确援引的其他协议、上海恒企教育培训有限公司（以下简称“恒企”）已经发布的或将来可能发布的各类规则。所有规则为本协议不可分割的组成部分，与协议正文具有同等法律效力。欢迎使用行欢迎使用行家，为了保障您的权益，请在使用行家服务之前，详细阅读此服务协议（以下简称“本协议”）所有内容，特别是加粗部分。本协议内容包括协议正文、本协议下述协议明确援引的其他协议、上海恒企教育培训有限公司（以下简称“恒企”）已经发布的或将来可能发布的各类规则。所有规则为本协议不可分割的组成部分，与协议正文具有同等法律效力。除另行明确声明外，您使用行家服务均受本协议约束。家，为了保障您的权益，请在使用行家服务之前，详细阅读此服务协议（以下简称“本协议”）所有内容，特别是加粗部分。本协议内容包括协议正文、本协议下述协议明确援引的其他协议、上海恒企教育培训有限公司（以下简称“恒企”）已经发布的或将来可能发布的各类规则。所有规则为本协议不可分割的组成部分，与协议正文具有同等法律效力。除另行明确声明外，您使用行家服务均受本协议约束。除另行明确声明外，您使用行家服务均受本协议约束。</div>'
   }
-
+  goDetails() { // 跳转
+    Taro.navigateTo({
+      url: '/pages/personalCenter/newsInform/newsDetails/checktxt'
+    })
+  }
   // 慎用
   componentWillReceiveProps (nextProps) {
     console.log(this.props, nextProps)
@@ -37,6 +42,11 @@ class newsDetails extends Component {
   defaultProps = {
     mark: ""
 }
+  
+goBackClick() {
+  Taro.navigateBack({ delta: 1 })
+  console.log(1111)
+}
 
 
   render () {
@@ -47,8 +57,14 @@ class newsDetails extends Component {
 
     return (
       <View className={styles.details}>
-        <RichText className={styles.richtext}  nodes={this.state.nodes} />
-        <View className={styles.checktxt}>已阅读，并且同意协议内容</View>
+         <View className={styles.title}><Text className='iconfont icon-left' style={{ position: 'absolute', left: '21px' }} onClick={this.goBackClick.bind(this)}></Text>消息详情</View>
+         <Image src={qw} className={styles.img} />
+         <View className={styles.div}>
+          <View className={styles.newsInfrom}>新的考试通知</View>
+          <View className={styles.timer}> <Text className='iconfont icon-shijian' style={{fontSize:'15px',marginRight:'5px'}}></Text>2017.02.02 11:30</View>
+          <View className={styles.text}>啊十大高手接电话俺还是个大好时光的哈干啥干啥哈根杀啊十大高手接电话俺还是个大好时光的哈干啥干啥哈根杀手哈桑个大好时光的痕迹就好噶似的韩国撒谎手哈桑个大好时光的痕迹就好噶似的韩国撒谎</View>
+          <View onClick={this.goDetails.bind(this)} className={styles.txt}><Text className='iconfont icon-weibiaoti--' style={{fontSize:'15px',marginRight:'5px'}}></Text>查看附件</View>
+         </View>
       </View>
     )
   }
