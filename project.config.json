@@ -1,6 +1,6 @@
 {
 	"miniprogramRoot": "dist/",
-	"projectname": "hangjia_mobile",
+	"projectname": "%E8%A1%8C%E5%AE%B6%E5%B0%8F%E7%A8%8B%E5%BA%8F",
 	"description": "mobile project",
 	"appid": "wx7dc6e6f5e318010f",
 	"setting": {
@@ -11,5 +11,7 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {}
 }

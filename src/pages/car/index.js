@@ -1,42 +1,28 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
-import { connect } from '@tarojs/redux'
-import { add, minus, asyncAdd } from '@/actions/counter'
+import { View } from '@tarojs/components'
 import Loading from '@/components/loading'
-import { AtTabs, AtTabsPane } from 'taro-ui'
 import styles from './index.module.scss'
-import 'taro-ui/dist/style/components/tabs.scss';
+import CarList from './carList/CarList'
+import CarFooter from './carFooter/carFooter'
+import { AtNavBar } from 'taro-ui'
 
-@connect(state => state.counter, {add, minus, asyncAdd})
+
 class Car extends Component {
-  constructor () {
-    super(...arguments)
-    this.state = {
-      current: 0,
-      count:88
+  constructor(props){
+    super(props);
+      this.state={
+      scoreList:[
+          {id:1,title:"我是标题1"},
+          {id:2,title:"我是标题2"},
+          {id:3,title:"我是标题3"}
+      ],
+      loading: true
     }
-  }
-  handleClick (value) {
-    this.setState({
-      current: value
-    })
   }
   config = {
     navigationBarTitleText: 'Car'
   }
-
-  state = {
-    loading: true
-  }
-
-  // 慎用
-  componentWillReceiveProps (nextProps) {
-    console.log(this.props, nextProps)
-  }
-
   componentDidMount() {
-    console.log(Taro.getEnv())
-    console.log(Taro.ENV_TYPE)
     let timer = setTimeout(() => {
       this.setState({loading: false})
       clearTimeout(timer)
@@ -48,36 +34,25 @@ class Car extends Component {
     }
     return (
       <View className={styles.car}>
-        <AtTabs
-          current={this.state.current}
-          scroll
-          tabList={[
-            { title: `全部订单(${this.state.count})`},
-            { title: '待支付(23)' },
-            { title: '已支付(2)' },
-            { title: '交易完成(8)' },
-            { title: '交易关闭(89)' }
-          ]}
-          onClick={this.handleClick.bind(this)}>
-          <AtTabsPane current={this.state.current} index={0}>
-            <View style='font-size:18px;text-align:center;height:100px;'>标签页一的内容</View>
-          </AtTabsPane>
-          <AtTabsPane current={this.state.current} index={1}>
-            <View style='font-size:18px;text-align:center;height:100px;'>标签页二的内容</View>
-          </AtTabsPane>
-          <AtTabsPane current={this.state.current} index={2}>
-            <View style='font-size:18px;text-align:center;height:100px;'>标签页三的内容</View>
-          </AtTabsPane>
-          <AtTabsPane current={this.state.current} index={3}>
-            <View style='font-size:18px;text-align:center;height:100px;'>标签页四的内容</View>
-          </AtTabsPane>
-          <AtTabsPane current={this.state.current} index={4}>
-            <View style='font-size:18px;text-align:center;height:100px;'>标签页五的内容</View>
-          </AtTabsPane>
-          <AtTabsPane current={this.state.current} index={5}>
-            <View style='font-size:18px;text-align:center;height:100px;'>标签页六的内容</View>
-          </AtTabsPane>
-        </AtTabs>
+         {/* -------------------头部 ---------------*/}
+          <View className={styles.header}>
+            <AtNavBar
+              onClickLeftIcon={this.handleClick}
+              color='#000'
+              title='购物车'
+              leftIconType='chevron-left'
+            />
+          </View>         
+          {/*--------------- 购物车内容--------------------- */}
+          <View className={styles.body}>
+            <CarList 
+              scoreList={this.state.scoreList}
+            />
+          </View>
+           {/*--------------- 购物车底部--------------------- */}
+           <View className={styles.foot}> 
+              <CarFooter />
+           </View>
       </View>
     )
   }

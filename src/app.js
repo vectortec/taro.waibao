@@ -3,10 +3,12 @@ import Taro, { Component } from '@tarojs/taro'
 import { Provider } from '@tarojs/redux'
 
 import Index from './pages/demo/index'
+import 'taro-ui/dist/style/index.scss'
 
 import configStore from './store'
 
 import './styles/index.scss'
+import './styles/iconfont.scss'
 import './app.scss'
 
 // 如果需要在 h5 环境中开启 React Devtools
@@ -21,25 +23,41 @@ class App extends Component {
 
   config = {
     pages: [
+      'pages/register/index',
+      'pages/loginPage/index',
+      'pages/learningCenter/index',
       'pages/home/index',
       'pages/menu/index',
-      'pages/demo/index',
+      // 'pages/demo/index',
       'pages/aboutUs/index',
-      'pages/car/index',
+      // 'pages/car/index',
       'pages/confirmOrder/index',
+      'pages/confirmOrder/checkAgreement', //订单--服务协议
       'pages/courseDetail/index',
       'pages/courseList/index',
       'pages/forgetPassword/index',
-      'pages/learningCenter/index',
       'pages/learningCenterDetail/index',
-      'pages/loginPage/index',
       'pages/messageCenter/index',
       'pages/myOrder/index',
       'pages/newsDetail/index',
       'pages/newsList/index',
-      'pages/personalCenter/index',
+      'pages/personalCenter/guideAboutus/aboutUs', // 关于我们--总
+      'pages/personalCenter/index', // 个人中心
+      'pages/personalCenter/signLog/index', // 注册--服务协议
+      'pages/personalCenter/guideAboutus/index', // 新手指南
+      'pages/personalCenter/guideAboutus/copyright', // 版权说明
+      'pages/personalCenter/newsInform/index', // 消息
+      'pages/personalCenter/newsInform/newsDetails/index', // 消息详情
+      'pages/personalCenter/guideAboutus/servicePro', // 服务协议
+      'pages/personalCenter/guideAboutus/concatUs', // 联系我们
+      'pages/personalCenter/guideAboutus/withUs', // 关于我们
+      'pages/personalCenter/newsInform/newsDetails/checktxt', // 附件
       'pages/register/index',
+      'pages/personalCenter/index',
       'pages/submitOrder/index',
+      'pages/payment/submit-order/index',
+      'pages/payment/pay-result-success/index',
+      'pages/payment/pay-result-wait/index',
     ],
     window: {
       backgroundTextStyle: 'light',

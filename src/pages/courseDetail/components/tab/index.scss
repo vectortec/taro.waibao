@@ -1,0 +1,20 @@
+ // 选项卡
+ .tab {
+  width: 100%;
+
+  .at-tabs {
+    width: 100%;
+
+    .at-tabs__header {
+      width: 100%;
+
+      .at-tabs__item {
+        font-size: 30px;
+
+        .at-tabs__item-underline {
+          display: none;
+        }
+      }
+    }
+  }
+}
