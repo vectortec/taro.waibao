@@ -1,57 +1,41 @@
 import Taro, { Component } from "@tarojs/taro";
-import { View, Text } from "@tarojs/components";
-import { AtIcon } from "taro-ui";
+import { View } from "@tarojs/components";
+import GlobalAssessment from '../../../../components/global-assessment/index'
+import AssessmentList from '../../../../components/assessment-list/index'
 import styles from "./index.module.scss";
 
 class ReviewComponent extends Component {
+  state = {
+  }
   render() {
+    let globalReview = {
+      score: '3.0',
+      per: '90%',
+    }
+    let list = [
+      {
+        avatar: '',
+        name: '小黄同学',
+        courseTime: '学习两个课时',
+        score: '3.0',
+        creatTime: '2019-03-09',
+        content: '这个课程太棒了！太棒了！太棒了！'
+      },
+      {
+        avatar: '',
+        name: '小黄同学12',
+        courseTime: '学习两个课时',
+        score: '2.0',
+        creatTime: '2019-03-09',
+        content: '这个课程太棒了！太棒了！太棒了！'
+      }
+    ]
     return (
       <View className={styles.review}>
-        <View className={styles.reviewTop}>
-          <Text className={styles.reviewTopName}>整体评价</Text>
-          <View className={styles.reviewStarBox}>
-            <Text className={styles.reviewStar}>
-              <Text className={styles.reviewGrade}>4.0</Text>
-              <Text className={`iconfont iconpingfen-xing ${styles.reviewStarIcon}`}></Text>
-              <Text className={`iconfont iconpingfen-xing ${styles.reviewStarIcon}`}></Text>
-              <Text className={`iconfont iconpingfen-xing ${styles.reviewStarIcon}`}></Text>
-              <Text className={`iconfont iconpingfen-xing ${styles.reviewStarIcon}`}></Text>
-              <Text className={`iconfont iconpingfen-xing ${styles.reviewStarIconNo}`}></Text>
-            </Text>
-            <Text className={styles.reviewUser}>
-              <Text className={styles.reviewUserPer}>90%</Text> 用户推荐此课程
-            </Text>
-          </View>
-        </View>
+        {/* 整体评价 */}
+        <GlobalAssessment globalReview={globalReview} />
         {/* 评论列表 */}
-        <View className={styles.reviewList}>
-          <View className={styles.reviewBox}>
-            {/* 头像 */}
-            <Text className={styles.reviewAvatar} />
-            <View className={styles.reviewUserBox}>
-              <View className={styles.reviewBoxTop}>
-                <Text className={styles.reviewUserName}>小黄同学</Text>
-                <Text className={styles.reviewUserStar}>
-                  <Text className={`iconfont iconpingfen-xing ${styles.reviewUserStarIcon}`}></Text>
-                  <Text className={`iconfont iconpingfen-xing ${styles.reviewUserStarIcon}`}></Text>
-                  <Text className={`iconfont iconpingfen-xing ${styles.reviewUserStarIcon}`}></Text>
-                  <Text className={`iconfont iconpingfen-xing ${styles.reviewUserStarIcon}`}></Text>
-                  <Text className={`iconfont iconpingfen-xing ${styles.reviewUserStarIconNo}`}></Text>
-                </Text>
-              </View>
-              <View className={styles.reviewBoxMid}>
-                <Text className={styles.reviewBoxMidStudy}>学习2个课时</Text>
-                <Text className={styles.reviewBoxMidTime}>2019-03-09</Text>
-              </View>
-              <View className={styles.reviewBoxText}>
-                <Text>
-                  特别赞同老师的观点，明显感受到进步，老
-                  师们都很热心和耐心，推荐！
-                </Text>
-              </View>
-            </View>
-          </View>
-        </View>
+        <AssessmentList reviewList={list} />
       </View>
     );
   }

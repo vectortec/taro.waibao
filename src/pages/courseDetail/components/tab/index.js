@@ -46,8 +46,8 @@ export default class TabComponent extends Component {
             <DirectoryList> </DirectoryList>
           </AtTabsPane>
           <AtTabsPane current={this.state.current} index={2}>
-            {/* <ReviewComponent> </ReviewComponent> */}
-            <NoComments></NoComments>
+            <ReviewComponent> </ReviewComponent>
+            {/* <NoComments></NoComments> */}
           </AtTabsPane>
         </AtTabs>
      </View>

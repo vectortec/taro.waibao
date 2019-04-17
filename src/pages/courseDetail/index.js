@@ -51,6 +51,8 @@ class CourseDetail extends Component {
   }
 
   componentDidMount() {
+    console.log(Taro.getEnv())
+    console.log(Taro.ENV_TYPE)
     let timer = setTimeout(_ => {
       this.setState({
         listLoadding: false
