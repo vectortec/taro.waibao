@@ -5,7 +5,7 @@ import { asyncLogin } from '@/actions/login'
 import { AtPagination } from "taro-ui"
 import './index.scss'
 import Table from 'components/Vtable/index'
-
+const pageSize = 10
 
 @connect(state => state.loginReducer, { asyncLogin })
 class SumbitOrder extends Taro.Component {
@@ -48,11 +48,16 @@ class SumbitOrder extends Taro.Component {
         method: 'get',
         data: {
           token: this.props.token,
+          pageSize,
           pageNo: page && page.current ? page.current : 1
         }
       }).then(res => {
         this.setState({
-          formData: res.data.rows
+          formData: res.data.rows,
+          page: {
+            current: res.data.pageNo,
+            total: res.data.total
+          }
         })
       })
     })
@@ -70,14 +75,15 @@ class SumbitOrder extends Taro.Component {
   }
   render() {
     return (
-      <View className='detail'>
+      <View className='overcastDetail'>
 				<Text className='title'>活动公告列表</Text>
         <Table title={this.state.title} formData={this.state.formData}></Table>
         <AtPagination
+          className='page'
           icon
           onPageChange={this.search.bind(this)}
           total={this.state.page.total}
-          pageSize={10}
+          pageSize={pageSize}
           current={this.state.page.current}
         ></AtPagination>
       </View>

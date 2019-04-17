@@ -19,32 +19,9 @@ const store = configStore()
 class App extends Component {
   config = {
     pages: [
-      'pages/cmcc_party/statistics/index',
       'pages/cmcc_party/overcastDetail/index',
       'pages/cmcc_party/campaign/index',
-      'pages/kc_inquiry/kc_inquiry_chat/index',
-      'pages/kc_inquiry/kc_inquiry_detail/index',
-      'pages/kc_inquiry/kc_inquiry_list/index',
-      'pages/kc_inquiry/index',
-      'pages/loginPage/index',
-      'pages/home/index',
-      'pages/menu/index',
-      'pages/demo/index',
-      'pages/aboutUs/index',
-      'pages/car/index',
-      'pages/confirmOrder/index',
-      'pages/courseDetail/index',
-      'pages/courseList/index',
-      'pages/forgetPassword/index',
-      'pages/learningCenter/index',
-      'pages/learningCenterDetail/index',
-      'pages/messageCenter/index',
-      'pages/myOrder/index',
-      'pages/newsDetail/index',
-      'pages/newsList/index',
-      'pages/personalCenter/index',
-      'pages/register/index',
-      'pages/submitOrder/index'
+      'pages/cmcc_party/statistics/index'
     ],
     window: {
       backgroundTextStyle: 'light',
