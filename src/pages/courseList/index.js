@@ -5,7 +5,7 @@
  * @event: 
  * @LastEditors: 蔡江旭
  * @Date: 2019-04-02 16:23:03
- * @LastEditTime: 2019-04-15 11:57:27
+ * @LastEditTime: 2019-04-17 08:58:22
  */
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
@@ -16,6 +16,8 @@ import Loading from '@/components/loading'
 import SearchBar from '@/components/customSearchBar'
 import SortFilterBar from '@/components/sortFilterBar'
 import CourseCard from '@/components/courseCard'
+
+import KeywordHighLight from '@/utils/keywordHighLight'
 
 import styles from './index.module.scss'
 
@@ -130,6 +132,7 @@ class CourseList extends Component {
       '《产品经理深入浅出》系列课程',
     ],
     searchInputValue: '',
+    highLightWord: '会计'
   }
 
   // 慎用
@@ -258,6 +261,7 @@ class CourseList extends Component {
       searchTipsWord = [],
       searchTipsVisible,
       searchInputValue = '',
+      highLightWord = '',
     } = this.state;
     if (this.state.loading) {
       return <Loading />
@@ -317,7 +321,9 @@ class CourseList extends Component {
             <CourseCard
               course={course}
               key={index}
-              cardTitle={course.name}
+              cardTitle={KeywordHighLight(course.name, highLightWord, (match) => {
+                return <Text className='highlight-text'>{match}</Text>
+              })}
               coverImage={course.coverPicture}
             >
               <View className={styles.descBox}>
