@@ -5,10 +5,10 @@
  * @event: 
  * @LastEditors: 蔡江旭
  * @Date: 2019-04-02 16:23:03
- * @LastEditTime: 2019-04-17 08:58:22
+ * @LastEditTime: 2019-04-17 11:57:23
  */
 import Taro, { Component } from '@tarojs/taro'
-import { View, Text, Image } from '@tarojs/components'
+import { View, Text, Image, ScrollView } from '@tarojs/components'
 import classNames from 'classnames'
 // import { connect } from '@tarojs/redux'
 // import { add, minus, asyncAdd } from '@/actions/counter'
@@ -132,7 +132,30 @@ class CourseList extends Component {
       '《产品经理深入浅出》系列课程',
     ],
     searchInputValue: '',
-    highLightWord: '会计'
+    highLightWord: '会计',
+    categoryList: [{
+      name: '全部',
+      value: 0,
+    }, {
+      name: '财经',
+      value: 1,
+    }, {
+      name: 'IT',
+      value: 2,
+    }, {
+      name: '财经',
+      value: 3,
+    }, {
+      name: '财经',
+      value: 4,
+    }, {
+      name: '财经',
+      value: 5,
+    }, {
+      name: '财经',
+      value: 6,
+    }],
+    activeCategoryValue: 0,
   }
 
   // 慎用
@@ -251,6 +274,22 @@ class CourseList extends Component {
     // })
   }
 
+  /**
+   * @Description: 类目tag点击事件
+   * @params: 
+   * @return: 
+   * @LastEditors: 蔡江旭
+   * @LastEditTime: Do not edit
+   * @Date: 2019-04-17 11:42:05
+   */
+  tagClick = (item, index) => {
+    console.log('tagClick', item, index);
+    const { value } = item;
+    this.setState({
+      activeCategoryValue: value,
+    })
+  }
+
   render () {
     const {
       sortOptions,
@@ -262,6 +301,8 @@ class CourseList extends Component {
       searchTipsVisible,
       searchInputValue = '',
       highLightWord = '',
+      categoryList,
+      activeCategoryValue,
     } = this.state;
     if (this.state.loading) {
       return <Loading />
@@ -269,45 +310,68 @@ class CourseList extends Component {
 
     return (
       <View className={styles.courseList}>
-        {/* 搜索框 */}
-        <SearchBar
-          value={searchInputValue}
-          onFocus={this.searchInputFocus}
-          onBlur={this.searchInputBlur}
-          onChange={this.searchInputChange}
-          onSubmit={this.searchInputSubmit}
-        />
-        {/* 最近搜索 */}
-        <View className={styles.recentSearch} style={{ display: searchInputFocus ? 'block' : 'none' }}>
-          <View className={styles.titleBox}>
-            <Text className={styles.title}>最近搜索</Text>
-            <Text className={styles.clearAll} onClick={this.clearRecentSearch}></Text>
+
+        <View className={styles.searchBarBox}>
+          {/* 搜索框 */}
+          <SearchBar
+            value={searchInputValue}
+            onFocus={this.searchInputFocus}
+            onBlur={this.searchInputBlur}
+            onChange={this.searchInputChange}
+            onSubmit={this.searchInputSubmit}
+          />
+          {/* 最近搜索 */}
+          <View className={styles.recentSearch} style={{ display: searchInputFocus ? 'block' : 'none' }}>
+            <View className={styles.titleBox}>
+              <Text className={styles.title}>最近搜索</Text>
+              <Text className={styles.clearAll} onClick={this.clearRecentSearch}></Text>
+            </View>
+            <View className={styles.recentWordList}>
+              {searchRecentWord.map((ele, index) => (
+                <View className={styles.wordTag} key={index}>
+                  {ele}
+                </View>
+              ))}
+            </View>
           </View>
-          <View className={styles.recentWordList}>
-            {searchRecentWord.map((ele, index) => (
-              <View className={styles.wordTag} key={index}>
-                {ele}
-              </View>
-            ))}
+          {/* 搜索提示 */}
+          <View
+            className={styles.searchTipsBox}
+            style={{ display: searchTipsVisible && searchInputValue.length && searchTipsWord.length ? 'block' : 'none' }}
+          >
+            <View className={styles.tipsList}>
+              {searchTipsWord.map((ele, index) => (
+                <View
+                  className={styles.tips}
+                  key={index}
+                  onClick={() => this.clickSearchTip(ele)}
+                >
+                  {ele}
+                </View>
+              ))}
+            </View>
           </View>
         </View>
-        {/* 搜索提示 */}
-        <View
-          className={styles.searchTipsBox}
-          style={{ display: searchTipsVisible && searchInputValue.length && searchTipsWord.length ? 'block' : 'none' }}
-        >
-          <View className={styles.tipsList}>
-            {searchTipsWord.map((ele, index) => (
+
+        {/* 类目列表 */}
+        <View className={styles.categoryListBox}>
+          <ScrollView
+            className={styles.scrollView}
+            scrollX
+            scrollWithAnimation
+          >
+            {categoryList.map((ele, index) => (
               <View
-                className={styles.tips}
+                className={classNames(styles.tag, activeCategoryValue === ele.value ? 'active' : '')}
                 key={index}
-                onClick={() => this.clickSearchTip(ele)}
+                onClick={() => this.tagClick(ele, index)}
               >
-                {ele}
+                {ele.name}
               </View>
             ))}
-          </View>
+          </ScrollView>
         </View>
+
         {/* 排序筛选 */}
         <SortFilterBar
           className={styles.sortFilterBox}
@@ -315,6 +379,7 @@ class CourseList extends Component {
           filterOptions={filterOptions}
           onChange={console.log}
         />
+
         {/* 课程列表 */}
         <View className={styles.listBox}>
           {courseList.map((course, index) => (
