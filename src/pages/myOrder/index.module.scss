@@ -1,3 +1,39 @@
-.myOrder {
-  
+.MyOrder {
+   .head{
+       display:flex;
+       height:72px;
+       line-height:72px;
+       position:fixed;
+       top:0;
+       left:0;
+       width:100%;
+       background:#fff;
+       border-bottom:1px solid rgba(237,237,237,1);
+       z-index:102;
+       .list{
+           flex:1;
+           font-size:28px;
+           text-align:center;
+           &.active{
+                color:rgba(255,120,71,1);
+           }
+           .num{
+                position:relative;
+                right:-3px;
+                top:-15px;
+                display:inline-block;
+                width:30px;
+                height:30px;
+                line-height:30px;
+                font-size:20px;
+                color:#fff;
+                background:linear-gradient(0deg,rgba(255,64,64,1) 0%,rgba(255,114,91,1) 100%);
+                box-shadow:0px 2px 9px 0px rgba(255,105,86,0.42);
+                border-radius:13px;
+           }
+       }
+   }
+   .body{
+       margin-top:72px;
+   }
 }

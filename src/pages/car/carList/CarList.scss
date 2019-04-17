@@ -1,5 +1,6 @@
 .CarList{
     width:100%;
+    background:#ffffff;
     background:rgba(237,237,237,1);
     .cantBuy{
         .noSale{
@@ -99,5 +100,12 @@
     }
     .limit_second,.cantBuy{
         margin-top:25px;
+    }
+    & .foot{
+        position:fixed;
+        bottom:0;
+        left:0;
+        width:100%;
+        background:#ffffff;
     }
 }

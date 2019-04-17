@@ -3,20 +3,13 @@ import { View } from '@tarojs/components'
 import Loading from '@/components/loading'
 import styles from './index.module.scss'
 import CarList from './carList/CarList'
-import CarFooter from './carFooter/carFooter'
+import NullCar from './nullCar/nullCar'
 import { AtNavBar } from 'taro-ui'
-
-
 class Car extends Component {
   constructor(props){
     super(props);
       this.state={
-      scoreList:[
-          {id:1,title:"我是标题1"},
-          {id:2,title:"我是标题2"},
-          {id:3,title:"我是标题3"}
-      ],
-      loading: true
+        loading: true,
     }
   }
   config = {
@@ -27,6 +20,7 @@ class Car extends Component {
       this.setState({loading: false})
       clearTimeout(timer)
     }, 1000)
+    //这里获取数据
   }
   render () {
     if (this.state.loading) {
@@ -45,14 +39,9 @@ class Car extends Component {
           </View>         
           {/*--------------- 购物车内容--------------------- */}
           <View className={styles.body}>
-            <CarList 
-              scoreList={this.state.scoreList}
-            />
+              {/* <CarList />  */}
+              <NullCar />
           </View>
-           {/*--------------- 购物车底部--------------------- */}
-           <View className={styles.foot}> 
-              <CarFooter />
-           </View>
       </View>
     )
   }

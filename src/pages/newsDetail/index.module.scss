@@ -1,3 +1,130 @@
+$title-color: #333333;
+$desc-color: #666666;
+$info-color: #999999;
+$border-line-color: #EDEDED;
+$active-color: #FF5A1F;
+
 .newsDetail {
-  
+    @import url(//at.alicdn.com/t/font_1059909_yonuo36mqbm.css);
+    font-size: 32px;
+    color: $desc-color;
+    .title {
+        font-size: 42px;
+        color: $title-color;
+    }
+
+    .newsInfo {
+        font-size:22px;
+        color: $info-color;
+        .time {
+            margin-left: 20px;
+        }
+
+        .viewNum {
+            margin-left: 39px;
+            .icon {
+                font-size: inherit;
+            }
+        }
+    }
+
+    // 点赞
+    .likeBox {
+        margin-top: 57px;
+        font-size: 28px;
+        font-weight: 500;
+        text-align: center;
+        .likeBtn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 224px;
+            height: 90px;
+            vertical-align: middle;
+            text-align: center;
+            border: 1px solid #CCCCCC;
+            border-radius: 45px;
+            color: $title-color;
+        }
+    }
+
+    // 分享区域
+    .shareBox {
+        margin-top: 90px;
+        // 标题
+        .shareTitle {
+            text-align: center;
+            font-size: 28px;
+            &::before,
+            &::after {
+                content: "";
+                width: 100px;
+                border-top: 3px solid #CCCCCC;
+                display: inline-block;
+                vertical-align: middle;
+            }
+
+            &::before {
+                margin-right: 20px;
+            }
+
+            &::after {
+                margin-left: 20px;
+            }
+
+            .titleTextBox {
+                display: inline-block;
+                &::before,
+                &::after {
+                    content: "";
+                    width: 15px;
+                    border-top: 3px solid #CCCCCC;
+                    transform:rotate(125deg);
+                    display: inline-block;
+                    vertical-align: middle;
+                    // color: #CCCCCC;
+                }
+
+                &::before {
+                    margin-right: 40px;
+                }
+
+                &::after {
+                    margin-left: 40px;
+                }
+            }
+        }
+        // 分享icon
+        .shareList {
+            margin-top: 30px;
+            text-align: center;
+            .shareBtn {
+                display: inline-block;
+                width: 66px;
+                height: 66px;
+                line-height: 66px;
+                margin-right: 60px;
+                border-radius: 50%;
+                font-size: 34px;
+                color: #ffffff;
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+            :global {
+                .wechat {
+                    background: #1BC764;
+                }
+                .qq {
+                    background: #56ADFF;
+                }
+                .wefriend {
+                    background: #2ABDB5;
+                }
+                .weibo {
+                    background: #FF6262;
+                }
+            }
+        }
+    }
 }
