@@ -13,10 +13,9 @@ class LoginPage extends Component {
   config = {
     navigationBarTitleText: '登录'
   }
-
-  componentDidMount() {
-    Taro.cloud.init()
+  componentWillMount() {
     if (Taro.getEnv() === 'WEAPP') {
+      Taro.cloud.init()
       Taro.getUserInfo().then(res => {
         // console.log(res)
         const iv = res.iv
@@ -57,7 +56,7 @@ class LoginPage extends Component {
 
   }
   handleChange () {
-    
+
   }
   render() {
 
