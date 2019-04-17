@@ -1,5 +1,6 @@
 import Taro, { Component } from "@tarojs/taro";
 import { View, Text, Image } from "@tarojs/components";
+import ProductShotComponent from '../productShot/index'
 import styles from "./index.module.scss";
 
 class CourseIntroduction extends Component {
@@ -11,48 +12,8 @@ class CourseIntroduction extends Component {
   render() {
     return (
       <View className={styles.courseIntroduction}>
-        <View className={styles.courseIntroductionTop}>
-          <View className={styles.courseTitle}>
-            {" "}
-            <Text className={styles.courseLabel}> 抢购 </Text>
-            <Text className={styles.course}>
-              品名称，字数太多就两行吧，字数太多就两行吧，字数太多就两行吧，字数太多就两行吧...
-            </Text>{" "}
-          </View>{" "}
-          <View className={styles.courseStateBox}>
-            <View className={styles.courseState}>
-              <Text className={styles.user}>199人学过</Text>
-              <Text className={styles.timeOut}>2020年2月25日失效</Text>
-            </View>{" "}
-            <View className={styles.starBox}>
-              <Text className={styles.star}>
-                  <Text className={`iconfont iconpingfen-xing ${styles.starIcon}`}></Text>
-                  <Text className={`iconfont iconpingfen-xing ${styles.starIcon}`}></Text>
-                  <Text className={`iconfont iconpingfen-xing ${styles.starIcon}`}></Text>
-                  <Text className={`iconfont iconpingfen-xing ${styles.starIcon}`}></Text>
-                  <Text className={`iconfont iconpingfen-xing ${styles.starIconNo}`}></Text>
-                <Text className={styles.grade}>4.0</Text>{" "}
-              </Text>{" "}
-            </View>{" "}
-          </View>{" "}
-          {/* 倒计时 */}
-          <View className={styles.contest}>
-            <View className={styles.price}>
-              <Text>￥</Text>
-              <Text>199.00</Text>
-              <Text className={styles.par}>200.00</Text>
-            </View>
-            <Text className={styles.timerText}>距结束</Text>
-            <Text className={styles.timer}>
-              <Text className={styles.hour}>02</Text>
-              <Text className={styles.time}>时</Text>
-              <Text className={styles.hour}>05</Text>
-              <Text className={styles.time}>分</Text>
-              <Text className={styles.hour}>55</Text>
-              <Text className={styles.time}>秒</Text>
-            </Text>
-          </View>
-        </View>
+        {/* 商品展示 */}
+        <ProductShotComponent></ProductShotComponent>
         {/* 教师介绍 */}
         <View className={styles.courseIntroductionLecturer}>
           <Text className={styles.lecturer}>讲师介绍</Text>

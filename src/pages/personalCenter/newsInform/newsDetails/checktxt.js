@@ -1,11 +1,12 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View} from '@tarojs/components'
+import { View, Text} from '@tarojs/components'
 import { connect } from '@tarojs/redux'
 import { add, minus, asyncAdd } from '@/actions/counter'
 import {getDemoList} from 'api/demo'
 import Loading from '@/components/loading'
 
 import styles from './checktxt.module.scss'
+import '../../staticPic/icon.scss'
 
 
 
@@ -13,13 +14,16 @@ import styles from './checktxt.module.scss'
 class Checktxt extends Component {
 
   config = {
-    navigationBarTitleText: '首页'
+    navigationBarTitleText: '行家'
   }
 
   state = {
-    loading: true
+    loading: true,
+    list: [1, 2, 3, 4]
   }
-
+  goBackClick() {
+    Taro.navigateBack({ delta: 1 })
+  }
   // 慎用
   componentWillReceiveProps (nextProps) {
     console.log(this.props, nextProps)
@@ -51,9 +55,17 @@ class Checktxt extends Component {
 
     return (
       <View className={styles.checktxt}>
-        <View className={styles.txt}>附件一-附件名称最多显示一行.png</View>
-
-        <View className={styles.txt}>附件2-附件名.jpg</View>
+        <View className={styles.title}><Text className='iconfont icon-left' style={{ position: 'absolute', left: '21px' }} onClick={this.goBackClick.bind(this)}></Text>查看附件</View>
+        {
+          this.state.list.map((item ,index) => {
+            return <View key={item}>
+              {(index%2) === 0 && <View className={styles.txt} ><Text className='iconfont icon-weibiaoti--' style={{fontSize:'15px',marginRight:'18px'}}></Text>附件一  海报精修素材</View>}
+              {(index%2) === 1 && <View className={styles.txt} style={{background:'#FFF5F5F5'}}><Text className='iconfont icon-weibiaoti--' style={{fontSize:'15px',marginRight:'18px'}}></Text>附件一  海报精修素材</View>}
+            </View>
+            
+          })
+        }
+       
       </View>
     )
   }

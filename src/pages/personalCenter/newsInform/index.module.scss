@@ -1,20 +1,23 @@
 .content {
+  background: #F2F2F2;
+  height: 100%;
   .componentsPage {
     position: relative;
     display: flex;
     flex-direction: row;
-    margin-top: 20px;
     .button {
       position: relative;
       width: 50%;
-      height: 98px;
-      font-size: 38px;
+      height: 88px;
+      font-size: 36px;
       text-align: center;
       color: #666;
+      background: #fff;
+      line-height: 88px;
       .number {
         position: absolute;
         right: 80px;
-        top:0;
+        top: 14px;
         font-size: 21px;
         color: #fff;
         width:31px;
@@ -28,22 +31,21 @@
       }
     }
   }
-  .bottom {
-    padding: 0 34px;
-    background: #F2F2F2;
-    .time {
-      color: #666;
-      font-size: 23px;
-      height: 100px;
-      text-align: center;
-      line-height: 100px;
-      .line {
-        display: inline-block;
-        border-top:2px solid #E1E3E5;
-        width: 60px;
-        height: 10px; 
-      }
+  .time {
+    color: #666;
+    font-size: 22px;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    .line {
+      display: inline-block;
+      border-top:2px solid #E1E3E5;
+      width: 60px;
+      height: 10px; 
     }
+  }
+  .bottom {
+    background: #F2F2F2;
     .news {
       background: #fff;
       width: 681px;
@@ -55,7 +57,6 @@
       .title {
         position: relative;
         padding: 49px 50px 31px 34px;
-        color: #333;
         font-size: 38px;
         overflow: hidden;/*超出部分隐藏*/
         white-space: nowrap;/*不换行*/
@@ -86,4 +87,13 @@
     display: none;
   }
   }
+  // .botnews {
+  //   width: 100%;
+  //   height: 30px;
+  //   line-height: 30px;
+  //   text-align: center;
+  //   font-size: 25px;
+  //   color: #ccc;
+  //   margin-top: 38px;
+  // }
 }
