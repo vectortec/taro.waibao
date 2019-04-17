@@ -54,24 +54,24 @@
         display:flex;
         padding:24px 18px;
         font-size:26px;
-        .selectBtn{
-           display:flex;
-           align-items: center;
-           text-align: center;
-           .taro-checkbox_checked {
-               width:30px;
-               height:30px;  
-               font-size:30px; 
-               color:#ff5a1f;
-               top:0;               
-           }
-           & .delete{
-               height:110px;
-               line-height:110px;
-               border-left:1px solid #EDEDED;
-               padding-left:18px;
-           }
-        }
+        // .selectBtn{
+        //    display:flex;
+        //    align-items: center;
+        //    text-align: center;
+        //    .taro-checkbox_checked {
+        //        width:30px;
+        //        height:30px;  
+        //        font-size:30px; 
+        //        color:#ff5a1f;
+        //        top:0;               
+        //    }
+        //    & .delete{
+        //        height:110px;
+        //        line-height:110px;
+        //        border-left:1px solid #EDEDED;
+        //        padding-left:18px;
+        //    }
+        // }
         .img{ 
             padding:0 18px;
             & .taro-img{

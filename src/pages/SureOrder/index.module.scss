@@ -1,0 +1,39 @@
+.sureOrder{
+    & .header{
+        position:fixed;
+        top:0;
+        left:0;
+        width:100%;
+        background:#ffffff;
+        z-index: 100;
+    }
+    .body{
+        background:rgba(237,237,237,1);
+        padding-top:85px;
+        .list{
+            margin-bottom:20px;
+        }
+    }
+    .footer{
+        position:fixed;
+        bottom:0;
+        left:0;
+        width:100%;
+        z-index:100;
+    }
+    .detail{
+        background:#fff;
+        display:flex;
+        color:rgba(51,51,51,1);
+        font-size:22px;
+        justify-content:space-between;
+        align-items:center;
+        padding:15px 36px;
+        .real_pay{
+            .price{
+                font-size:32px;
+                color:rgba(51,51,51,1);
+            }
+        }
+    }
+}

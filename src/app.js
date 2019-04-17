@@ -26,11 +26,15 @@ class App extends Component {
       'pages/register/index',
       'pages/loginPage/index',
       'pages/learningCenter/index',
+      'pages/OrderDetail/index',
+      'pages/myOrder/index',
       'pages/home/index',
       'pages/menu/index',
       // 'pages/demo/index',
       'pages/aboutUs/index',
       // 'pages/car/index',
+      'pages/SureOrder/index',
+      'pages/car/index',
       'pages/confirmOrder/index',
       'pages/confirmOrder/checkAgreement', //订单--服务协议
       'pages/courseDetail/index',
@@ -38,7 +42,6 @@ class App extends Component {
       'pages/forgetPassword/index',
       'pages/learningCenterDetail/index',
       'pages/messageCenter/index',
-      'pages/myOrder/index',
       'pages/newsDetail/index',
       'pages/newsList/index',
       'pages/personalCenter/guideAboutus/aboutUs', // 关于我们--总
