@@ -22,7 +22,7 @@ import KeywordHighLight from '@/utils/keywordHighLight'
 import styles from './index.module.scss'
 
 
-// @connect(state => state.counter, {add, minus, asyncAdd})
+@connect(state => state.counter, {add, minus, asyncAdd})
 class CourseList extends Component {
 
   config = {

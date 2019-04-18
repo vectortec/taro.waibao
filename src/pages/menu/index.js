@@ -33,14 +33,6 @@ class Index extends Component {
     }, 1000)
   }
 
-  // 获取list
-  async getList () {
-    const res = await getDemoList({})
-    // or
-    getDemoList.then(res => {
-      let {code, data} = res 
-    })
-  }
   sendMsg () {
     Taro.request({
         url: 'http://www.baidu.com',

@@ -39,9 +39,9 @@ class Checktxt extends Component {
   }
 
   // 获取list
-  async getList () {
-    const res = await getDemoList({})
-    // or
+  getList () {
+    // const res = await getDemoList({})
+    // // or
     getDemoList.then(res => {
       let {code, data} = res 
     })

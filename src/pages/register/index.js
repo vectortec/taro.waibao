@@ -5,7 +5,7 @@ import { add, minus, asyncAdd } from '@/actions/counter'
 import Loading from '@/components/loading'
 import { AtForm } from 'taro-ui'
 import styles from './index.module.scss'
-
+import InputWrap from '@/componets/Input_wrap'
 
 @connect(state => state.counter, { add, minus, asyncAdd })
 class Register extends Component {
@@ -49,7 +49,7 @@ class Register extends Component {
         <View className={styles.input_wrap}>
           <Input placeholder='请输入手机号码'></Input>
         </View>
-        {this.component_form_between(
+        {/* {this.component_form_between(
           '图形验证码',
           <Image className={styles.taro_img} src='http://authorization.beta.hqjy.com/api/captcha-image'></Image>
         )}
@@ -70,7 +70,7 @@ class Register extends Component {
         {this.component_form_between(
           '确认密码',
           null, 'password'
-        )}
+        )} */}
         <View className={styles.button_sure}>立即注册</View>
         <View className={styles.contract}>
           <Text>注册/登录表示同意</Text>&nbsp;

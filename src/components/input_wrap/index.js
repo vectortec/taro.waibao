@@ -5,9 +5,11 @@ import styles from './index.scss'
 
 // setTitle('登录')
 
-class LoginPage extends Component {
+class InputWrap extends Component {
 
   render() {
+    const leftSide = <Input type={this.props.type} placeholder={this.props.placeholder}></Input>
+    onInput && (leftSide.props.onInput = onInput)
     return (
       <View className={styles.input_wrap}>
         <View className='at-row at-row__justify--between at-row__align--center'>

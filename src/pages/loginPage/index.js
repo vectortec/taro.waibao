@@ -1,15 +1,12 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View, Image, Input, Text } from '@tarojs/components'
-import { connect } from '@tarojs/redux'
-import { add, minus, asyncAdd } from '@/actions/counter'
-import Loading from '@/components/loading'
-import { AtForm } from 'taro-ui'
+import { View, Image, Input, Text, WebView } from '@tarojs/components'
+// import { add, minus, asyncAdd } from '@/actions/counter'
+// import Loading from '@/components/loading'
+// import { AtForm } from 'taro-ui'
 import styles from './index.module.scss'
-import Index from '../menu';
 
 
-@connect(state => state.counter, { add, minus, asyncAdd })
-class Register extends Component {
+class Register extends Taro.Component {
 
   config = {
     navigationBarTitleText: '登陆'
@@ -65,7 +62,7 @@ class Register extends Component {
           <Text className={['iconfont iconhangjia-xuanzhong', styles.icon]}></Text>&nbsp;
           <Text>行家</Text>
         </View>
-        {this.component_form_between(
+        {/* {this.component_form_between(
           '手机号',
           this.onAccountChange.bind(this)
         )}
@@ -73,8 +70,9 @@ class Register extends Component {
           '密码',
            'password',
            this.onPassowrdChange.bind(this)
-        )}
+        )} */}
         <View className={[styles.button_sure, this.state.actived ? styles.actived : '']}>登录</View>
+        {/* <WebView src='http://www.hengqihj.com:5000/'></WebView> */}
       </View>
     )
   }

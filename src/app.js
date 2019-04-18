@@ -1,4 +1,4 @@
-import '@tarojs/async-await'
+// import '@tarojs/async-await'
 import Taro, { Component } from '@tarojs/taro'
 import { Provider } from '@tarojs/redux'
 
@@ -52,8 +52,6 @@ class App extends Component {
       'pages/personalCenter/guideAboutus/concatUs', // 联系我们
       'pages/personalCenter/guideAboutus/withUs', // 关于我们
       'pages/personalCenter/newsInform/newsDetails/checktxt', // 附件
-      'pages/register/index',
-      'pages/personalCenter/index',
       'pages/submitOrder/index',
       'pages/payment/submit-order/index',
       'pages/payment/pay-result-success/index',
