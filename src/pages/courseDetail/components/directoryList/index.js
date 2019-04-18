@@ -1,6 +1,6 @@
 import Taro, { Component } from "@tarojs/taro";
 import { View, Text } from "@tarojs/components";
-import styles from "./index.module.scss";
+import "./index.module.scss";
 
 class DirectoryList extends Component {
   constructor() {
@@ -75,31 +75,31 @@ class DirectoryList extends Component {
               // style={key == this.state.show ? "max-height: 300px" : ""}
               // style={crtMenuData.rotate ? "display: block" : "display: none"}
               // className={crtMenuData.rotate ? styles.knobList : styles.knobListNo}
-              // className={styles.knobList}
+              // className='knobList'
             >
               {/* 节列表 */}
-              <View className={styles.knob}>
-                <Text className={styles.knobName}>{currentLiData.id}</Text>
-                <Text className={styles.knobTag}>试看</Text><Text className={`iconfont iconlock-line ${styles.knobIcon}`}></Text>
-                <Text className={styles.knobTime}>40:25</Text>
+              <View className='knob'>
+                <Text className='knobName'>{currentLiData.id}</Text>
+                <Text className='knobTag'>试看</Text><Text className={[`iconfont iconlock-line`, styles.knobIcon]}></Text>
+                <Text className='knobTime'>40:25</Text>
               </View>
             </View>
           );
         });
         list = 
-        <View ref={this.listDomKnob} style={key == this.state.show ? "max-height: 300px" : ""} className={styles.knobList}>{list}</View>;
+        <View ref={this.listDomKnob} style={key == this.state.show ? "max-height: 300px" : ""} className='knobList'>{1}</View>;
       }
       return (
-        <View className={styles.chapter} key={crtMenuData.rotate}>
+        <View className='chapter' key={crtMenuData.rotate}>
           <View
-            className={styles.chapterBox}
+            className='chapterBox'
             onClick={crtCmp.clickHandler.bind(this, key)}
           >
-            <View className={styles.chapterNameBox}>
-              <Text className={styles.chapterName}>
+            <View className='chapterNameBox'>
+              <Text className='chapterName'>
                 第一章 如何做好商业海报
               </Text>
-              <Text className={`iconfont iconbottom ${styles.chapterIcon} ${key == this.state.show ? styles.iconRotate : ''}`}></Text>
+              <Text className={[`iconfont iconbottom`, styles.chapterIcon, key == this.state.show ? styles.iconRotate : '']}></Text>
             </View>
           </View>
           {list ? list : ""}
@@ -107,7 +107,7 @@ class DirectoryList extends Component {
 
       );
     });
-    return <View className={styles.directoryList}>{menusDataDom}</View>;
+    return <View className='directoryList'>{menusDataDom}</View>;
   }
 }
 

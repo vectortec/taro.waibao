@@ -5,7 +5,7 @@ import { add, minus, asyncAdd } from '@/actions/counter'
 import Loading from '@/components/loading'
 import { AtSwipeAction, AtLoadMore } from "taro-ui"
 
-import styles from './index.module.scss'
+import './index.module.scss'
 import '../staticPic/icon.scss'
 
 @connect(state => state.counter, { add, minus, asyncAdd })
@@ -77,11 +77,11 @@ class NewsInform extends Component {
     }
 
     return (
-      <View className={styles.content}>
+      <View className='content'>
 
-        <View className={styles.componentsPage}>
-          <View className={styles.button} onClick={this.pageClick.bind(this)}>平台消息<Text className={styles.number}>3</Text></View>
-          <View className={styles.button} onClick={this.courseClick.bind(this)}>课程消息<Text className={styles.number}>3</Text></View>
+        <View className='componentsPage'>
+          <View className='button' onClick={this.pageClick.bind(this)}>平台消息<Text className='number'>3</Text></View>
+          <View className='button' onClick={this.courseClick.bind(this)}>课程消息<Text className='number'>3</Text></View>
         </View>
 
         <ScrollView
@@ -96,7 +96,7 @@ class NewsInform extends Component {
           {
             this.state.list.map(item => {
               return <View key={item}>
-                <View className={styles.time}><Text className={styles.line}></Text> <Text style={{ color: '#E1E3E5' }}>/</Text> 2018-10-10  19:28:22更新 <Text style={{ color: '#E1E3E5' }}>/</Text> <Text className={styles.line}></Text></View>
+                <View className='time'><Text className='line'></Text> <Text style={{ color: '#E1E3E5' }}>/</Text> 2018-10-10  19:28:22更新 <Text style={{ color: '#E1E3E5' }}>/</Text> <Text className='line'></Text></View>
                 <AtSwipeAction options={[
                   {
                     className: 'iconfont icon-shanchu',
@@ -108,16 +108,16 @@ class NewsInform extends Component {
                     }
                   }
                 ]}>
-                  <View className={styles.bottom}>
-                    <View  className={styles.news}>
+                  <View className='bottom'>
+                    <View  className='news'>
                       <View style={{ position: 'relative' }}>
-                        <View className={styles.title}>
+                        <View className='title'>
                         {isLoggedIn && <Text className='iconfont icon-lingdang-copy' style={{ fontSize: '20px', position: 'relative',color:'#FF5A1F'}}><Text className='iconfont icon-dian-copy' style={{ position: 'absolute', left: '10px', top: '-8px', color: '#FF5A1F' }}></Text></Text>}
                         {!isLoggedIn && <Text className='iconfont icon-lingdang-copy' style={{ fontSize: '20px',color:'#999'}}></Text>}
                         <Text style={{color:'#333'}}>消息息标题最多一消息标题最多一行消息标题最多一行、消息标题最多一行消</Text></View>
                         <Text className='iconfont icon-right' style={{ fontSize: '15px', position: 'absolute', right: '11px', top: '28px' }} onClick={this.goDetails.bind(this)}></Text>
                       </View>
-                      <View className={styles.newsContent} style='-webkit-box-orient: vertical;'>消息内容最多两行消息内容最多两行消息内容最多两行消息内容最多两行消息内容最多两行消息内容最多两行消息内容最多两行</View>
+                      <View className='newsContent' style='-webkit-box-orient: vertical;'>消息内容最多两行消息内容最多两行消息内容最多两行消息内容最多两行消息内容最多两行消息内容最多两行消息内容最多两行</View>
                     </View>
                   </View>
                 </AtSwipeAction>
