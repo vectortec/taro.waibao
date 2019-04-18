@@ -47,7 +47,7 @@ export default class AssessmentList extends Component {
     })
     return(
       <View className={styles.reviewList}>
-        {list? list: ''}
+        {Boolean(list)? list: ''}
       </View>
     )
   }

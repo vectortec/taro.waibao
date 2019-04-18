@@ -102,7 +102,7 @@ class DirectoryList extends Component {
               <Text className={[`iconfont iconbottom`, styles.chapterIcon, key == this.state.show ? styles.iconRotate : '']}></Text>
             </View>
           </View>
-          {list ? list : ""}
+          {Boolean(list) ? list : ""}
         </View>
 
       );

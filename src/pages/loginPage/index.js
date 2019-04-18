@@ -42,20 +42,20 @@ class Register extends Taro.Component {
       })) 
     })
   }
-  component_form_between(placeholder, type = 'text', onInput) {
-    const leftSide = <Input type={type} placeholder={placeholder}></Input>
-    onInput && (leftSide.props.onInput = onInput.bind(this))
-    return (
-      <View className={styles.input_wrap}>
-        <View className='at-row at-row__justify--between at-row__align--center'>
-          <View className='at-col at-col-8'>
-            {leftSide}
-          </View>
-        </View>
-      </View>
-    )
-  }
   render() {
+    // function component_form_between(placeholder, type = 'text', onInput) {
+    //   const leftSide = <Input type={type} placeholder={placeholder}></Input>
+    //   onInput && (leftSide.props.onInput = onInput.bind(this))
+    //   return (
+    //     <View className={styles.input_wrap}>
+    //       <View className='at-row at-row__justify--between at-row__align--center'>
+    //         <View className='at-col at-col-8'>
+    //           {leftSide}
+    //         </View>
+    //       </View>
+    //     </View>
+    //   )
+    // }
     return (
       <View className={styles.login}>
         <View className={styles.title}>
@@ -72,7 +72,7 @@ class Register extends Taro.Component {
            this.onPassowrdChange.bind(this)
         )} */}
         <View className={[styles.button_sure, this.state.actived ? styles.actived : '']}>登录</View>
-        {/* <WebView src='http://www.hengqihj.com:5000/'></WebView> */}
+        <WebView src='http://www.hengqihj.com:5000/'></WebView>
       </View>
     )
   }

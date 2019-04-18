@@ -38,7 +38,7 @@ class App extends Component {
       'pages/confirmOrder/index',
       'pages/confirmOrder/checkAgreement', //订单--服务协议
       'pages/courseDetail/index',
-      'pages/courseList/index',
+      // 'pages/courseList/index',
       'pages/forgetPassword/index',
       'pages/learningCenterDetail/index',
       'pages/messageCenter/index',
