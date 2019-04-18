@@ -12,36 +12,37 @@ class ProductShotComponent extends Component {
       m: null,
       s: null,
     };
+    this.countTime = this.countTime.bind(this)
   }
   componentDidMount() {
     // setTimeout(this.countTime, 1000);
+    this.countTime()
   }
-
+  
   // 计时器
-  // countTime() {
-  //   let date = new Date()
-  //   let now = date.getTime()
-
-  //   let str="2019/4/18 00:00:00"
-  //   let endDate = new Date(str)
-  //   let end = endDate.getTime()
-
-  //   //时间差
-  //   let leftTime = end - now;
-  //   //定义变量 d,h,m,s保存倒计时的时间
-  //   let h, m, s;
-  //   if (leftTime >= 0) {
-  //     // d = Math.floor(leftTime / 1000 / 60 / 60 / 24);
-  //     h = Math.floor((leftTime / 1000 / 60 / 60) % 24);
-  //     m = Math.floor((leftTime / 1000 / 60) % 60);
-  //     s = Math.floor((leftTime / 1000) % 60);
-  //   } 
-  //   this.seState({
-  //     h: h,
-  //     m: m,
-  //     s: s,
-  //   })
-  // }
+  countTime() {
+    let endTime = Number(new Date('2019-04-18 00:00:00'));
+    //获取当前时间
+    let nowTime = Date.now();
+    // var nowTime=new Date().getTime();
+    //获取时间差
+    let timediff = Math.round((endTime - nowTime) / 1000);
+    //获取还剩多少小时
+    let hour = parseInt(timediff / 3600 % 24);
+    //获取还剩多少分钟
+    let minute = parseInt(timediff / 60 % 60);
+    //获取还剩多少秒
+    let second = timediff % 60;
+    
+    //输出还剩多少时间
+    this.setState({
+      h: hour,
+      m: minute,
+      s: second,
+    })
+    setTimeout(this.countTime, 1000);
+    if(timediff==0){return;}
+  }
 
   render() {
     let courseType = '2'
@@ -77,11 +78,11 @@ class ProductShotComponent extends Component {
         </View>
         <Text className={styles.timerText}>距结束</Text>
         <Text className={styles.timer}>
-          <Text className={styles.hour}>{this.state.h}</Text>
+          <Text className={styles.hour}>{this.state.h > 9? this.state.h: '0' + this.state.h}</Text>
           <Text className={styles.time}>时</Text>
-          <Text className={styles.hour}>{this.state.m}</Text>
+          <Text className={styles.hour}>{this.state.m > 9? this.state.m: '0' + this.state.m}</Text>
           <Text className={styles.time}>分</Text>
-          <Text className={styles.hour}>{this.state.s}</Text>
+          <Text className={styles.hour}>{this.state.s > 9? this.state.s: '0' + this.state.s}</Text>
           <Text className={styles.time}>秒</Text>
         </Text>
       </View>

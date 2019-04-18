@@ -7,7 +7,9 @@ class DirectoryList extends Component {
     super(...arguments);
     this.state = {
       menuDatas: [],
+      show: null
     };
+    this.listDomKnob = ref => {this.listDom = ref};
     this.clickHandler = this.clickHandler.bind(this)
   }
 
@@ -48,22 +50,32 @@ class DirectoryList extends Component {
   }
 
   clickHandler(crtMenuData) {
-    crtMenuData.rotate = !crtMenuData.rotate
-    this.setState()
+    // crtMenuData.rotate = !crtMenuData.rotate
+    this.setState({show: crtMenuData})
+    if (process.env.TARO_ENV === 'weapp') {
+      // 这里 this.refs.input 访问的时候通过 `wx.createSeletorQuery` 取到的小程序原生组件
+    } else if (process.env.TARO_ENV === 'h5') {
+      // 这里 this.refs.input 访问到的是 `@tarojs/components` 的 `Input` 组件实例
+      // const {_rendered} = this.listDom;
+      console.log(this.listDom.vnode, 'dm')
+    }
   }
-
 
   render() {
     var crtCmp = this;
-    var menusDataDom = this.state.menuDatas.map(function(crtMenuData) {
+    var menusDataDom = this.state.menuDatas.map((crtMenuData, key) => {
       let list = null;
       if (crtMenuData.children) {
-        list = crtMenuData.children.map(function(currentLiData) {
+        list = crtMenuData.children.map((currentLiData) => {
           return (
             <View
               key={crtMenuData.rotate}
-              style={crtMenuData.rotate ? "display: block" : "display: none"}
-              className={styles.knobList}
+              // ref={(knob) => {this.listPanKnob  = knob}}
+              // ref={this.listDomKnob}
+              // style={key == this.state.show ? "max-height: 300px" : ""}
+              // style={crtMenuData.rotate ? "display: block" : "display: none"}
+              // className={crtMenuData.rotate ? styles.knobList : styles.knobListNo}
+              // className={styles.knobList}
             >
               {/* 节列表 */}
               <View className={styles.knob}>
@@ -74,19 +86,20 @@ class DirectoryList extends Component {
             </View>
           );
         });
-        list = <View>{list}</View>;
+        list = 
+        <View ref={this.listDomKnob} style={key == this.state.show ? "max-height: 300px" : ""} className={styles.knobList}>{list}</View>;
       }
       return (
         <View className={styles.chapter} key={crtMenuData.rotate}>
           <View
             className={styles.chapterBox}
-            onClick={crtCmp.clickHandler.bind(this, crtMenuData)}
+            onClick={crtCmp.clickHandler.bind(this, key)}
           >
             <View className={styles.chapterNameBox}>
               <Text className={styles.chapterName}>
                 第一章 如何做好商业海报
               </Text>
-              <Text className={`iconfont iconbottom ${styles.chapterIcon} ${crtMenuData.rotate ? styles.iconRotate : ''}`}></Text>
+              <Text className={`iconfont iconbottom ${styles.chapterIcon} ${key == this.state.show ? styles.iconRotate : ''}`}></Text>
             </View>
           </View>
           {list ? list : ""}
@@ -99,3 +112,4 @@ class DirectoryList extends Component {
 }
 
 export default DirectoryList;
+

@@ -1,7 +1,7 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View,Checkbox,Label,Text} from '@tarojs/components'
+import { View,Text} from '@tarojs/components'
 import { AtButton } from 'taro-ui'
-import './carFooter.scss'
+import './Footer.scss'
 export default class carFooter extends Component {
   constructor(props){
     super(props)
@@ -9,11 +9,7 @@ export default class carFooter extends Component {
   render() {
     return (
       <View className='footer'>
-        <View className='left'>
-              <Label className='checkbox-list__label'>
-                  <Checkbox className='checkbox' checked={this.props.allChecked} onChange={this.props.change}>删除</Checkbox>          
-              </Label>
-          </View>
+        <View className='left'></View>
         <View className='right'>
               <View className='total_content'>
                   <View className='count'>
@@ -23,7 +19,7 @@ export default class carFooter extends Component {
                       <Text>已为您节省：￥0.00</Text>               
                   </View>           
               </View>
-              <AtButton type='primary'>确认兑换</AtButton>
+              <AtButton type='primary'>去结算</AtButton>
         </View>
       </View>
     )

@@ -1,0 +1,48 @@
+@import '@/styles/variable.scss';
+.reviewTop{
+  background-color: $white;
+  margin-bottom: 18px;
+  width: 100%;
+  padding: 40px 34px 30px 34px;
+  box-sizing: border-box;
+  line-height: 0;
+  .reviewTopName{
+    font-size: 32px;
+    color: $text-color;
+    line-height: 1;
+  }
+  .reviewStarBox{
+    margin-top: 20px;
+    width: 100%;
+    .reviewStar{
+      margin-right: 104px;
+      line-height: 60px;
+      .reviewGrade{
+        color: #FF7847;
+        font-size: 60px;
+        font-weight: bold;
+        margin-right: 20px;
+        font-family: PingFang-SC-Bold;
+      }
+      .reviewStarIcon{
+        font-size: 32px;
+        color: #FFBD00;
+        margin-left: 10px;
+      }
+      .reviewStarIconNo{
+        font-size: 32px;
+        color: #EDEDED;
+        margin-left: 10px;
+      }
+    }
+    .reviewUser{
+      font-size: 22px;
+      color: $text-color-lighter;
+      .reviewUserPer{
+        font-size: 32px;
+        color: $text-color-light;
+        font-weight: 500;
+      }
+    }
+  }
+}
