@@ -19,6 +19,7 @@ const store = configStore()
 class App extends Component {
   config = {
     pages: [
+      'pages/home/index',
       'pages/cmcc_party/statistics/index',
       'pages/cmcc_party/overcastDetail/index',
       'pages/cmcc_party/campaign/index',
@@ -27,7 +28,6 @@ class App extends Component {
       'pages/kc_inquiry/kc_inquiry_list/index',
       'pages/kc_inquiry/index',
       'pages/loginPage/index',
-      'pages/home/index',
       'pages/menu/index',
       'pages/demo/index',
       'pages/aboutUs/index',

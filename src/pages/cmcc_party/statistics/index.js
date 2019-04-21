@@ -17,7 +17,6 @@ class SumbitOrder extends Taro.Component {
 
   state = {
     selector: [],
-    name: '',
     title: [{
       label: '排名',
       key: 'ranking'
@@ -111,15 +110,28 @@ class SumbitOrder extends Taro.Component {
       url: `/pages/cmcc_party/campaign/index?id=${item.groupMemberUserId}`,
     })
   }
-  nameChange(event) {
-    const option = this.state.option
-    option.search = event
+  nameChange(search) {
+    console.log(search)
     this.setState({
-      option
+      option: JSON.parse(JSON.stringify({
+        ...this.state.option,
+        search
+      }))
     })
   }
   onDateChange({ value }) {
     save = value
+  }
+  reset() {
+    this.setState({
+      option: {
+        startTime: '',
+        endTime: '',
+        search: '',
+        partyGroupId: '',
+        partyGroupName: ''
+      }
+    })
   }
   sureCalender() {
     const option = this.state.option
@@ -168,7 +180,7 @@ class SumbitOrder extends Taro.Component {
             <AtButton type='primary' size='small' onClick={this.search.bind(this)}>查询</AtButton>
           </View>
           <View className='at-col at-col-2'>
-            <AtButton type='secondary' size='small'>重置</AtButton>
+            <AtButton type='secondary' size='small' onClick={this.reset.bind(this)}>重置</AtButton>
           </View>
         </View>
         <View className='table_wrap'>
