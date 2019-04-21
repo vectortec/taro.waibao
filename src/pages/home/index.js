@@ -1,18 +1,18 @@
 import { add, asyncAdd, minus } from '@/actions/counter';
 import Loading from '@/components/loading';
-import banner from '@/utils/image/main.jpg';
 import { Image, View } from '@tarojs/components';
 import { connect } from '@tarojs/redux';
-import Taro, { Component } from '@tarojs/taro';
+import Taro from '@tarojs/taro';
 import { AtButton } from 'taro-ui';
+import banner from '../../utils/image/main.jpg';
 import styles from './index.module.scss';
 
 
 @connect(state => state.counter, { add, minus, asyncAdd })
-class Home extends Component {
+class Home extends Taro.Component {
 
   config = {
-    navigationBarTitleText: 'Home'
+    navigationBarTitleText: '党建积分'
   }
 
   state = {
